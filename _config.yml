@@ -1,7 +1,10 @@
 # Site settings
 title: Amanda Falke, Software Engineer
-email: henrik@laueriksson.com
-description: "Amanda Falke is a software engineer currently located in Portland Oregon."
+email: abstractmachines@gmail.com
+description: "Hi, I'm Amanda, a software engineer currently located in Portland
+ Oregon. I specialize in front end UI development, and have some full stack
+ skills as well. From AngularJS and Bootstrap sites built with Atom and
+ Webpack, to Qt C/C++ Linux native apps for the driverless cars industry."
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://github.com/abstractmachines" # the base hostname & protocol for your site
 twitter_username: amanda_machina
