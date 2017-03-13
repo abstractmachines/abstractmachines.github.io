@@ -3,7 +3,7 @@ title: Amanda Falke, Software Engineer
 email: henrik@laueriksson.com
 description: "Amanda Falke is a software engineer currently located in Portland Oregon."
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "https://github.com/abstractmachines" # the base hostname & protocol for your site
+url: "" # the base hostname & protocol for your site
 twitter_username: amanda_machina
 github_username:  abstractmachines
 
