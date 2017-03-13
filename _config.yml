@@ -1,1 +1,19 @@
+# Site settings
+title: Amanda Falke, Software Engineer
+email: henrik@laueriksson.com
+description: "Amanda Falke is a software engineer currently located in Portland Oregon."
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://abstractmachines.github.io" # the base hostname & protocol for your site
+twitter_username: amanda_machina
+github_username:  abstractmachines
+
+portfolio_url: "http://abstractmachines.net"
+portfolio_text: "abstractmachines.net"
+
+# Google Analytics
+
+# Build settings
+timezone: Pacific
+permalink: /post/:title/
+
 theme: jekyll-theme-tactile
