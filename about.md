@@ -1,5 +1,4 @@
-## Hi, I'm Amanda Falke,
-### a software engineer in Portland Oregon.
+I like C/C++, JavaScript, AngularJS, Webpack, Node, nginx, and Linux.
 
 [Visit my portfolio site](http://abstractmachines.net)
 
