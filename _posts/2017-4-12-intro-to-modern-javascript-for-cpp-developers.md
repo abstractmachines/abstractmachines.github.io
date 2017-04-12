@@ -4,8 +4,7 @@ title:  "Introduction to modern JavaScript for C/C++ developers, Part 1"
 date:   2017-4-12 12:50:20 -0700
 categories: tutorials
 ---
-
-# Introduction to JavaScript for the C/C++ developer
+# JavaScript Tutorials for the C/C++ programmer.
 
 A very basic tutorial and introduction to JS for C/C++ developers. It is in no
 way a complete or in-depth tutorial.
@@ -164,18 +163,21 @@ user-created Object) results in changes available outside the function's scope.
 
 ## Values:
 1. Immutable
-2. Evaluated by value (equality/comparison operators)
-
-**What is a value?**
+2. Evaluated by value (equality/comparison operators `===`)
 
 ## Objects:
 1. Mutable by default
-2. Evaluated by references (equality/comparison operators)
-**What is an Object?** Anything that doesn't use the built-in primitives.
+2. Evaluated by reference (equality/comparison operators `===`)
 3. Since JavaScript has Prototype Inheritance, and the Prototype Chain, the
 only construct existing in JS "inheritance" is the Object and Prototype Chain
 
+**What is an Object?**
+
+Anything that doesn't use the built-in primitives.
+
+
 # JS Operators
+
 Operators in JavaScript are pretty similar to C/C++. Remember that boolean
 is a primitive type and that Boolean is a class wrapping that type with
 functions you can inherit by using the new keyword and the Boolean data type.
@@ -186,7 +188,20 @@ introduced in ES2015 is just syntactic sugar (Mozilla)).
 **`=>`**
 
  One interesting operator in JavaScript is the operator or `token` `=>` used
- in `ES6 Arrow Functions.`
+ in `ES6 Arrow Functions.` It serves as "fat syntax" for brevity.
+
+ The triple equals operator `===` in JavaScript, as mentioned directly above,
+ compares primitives by value, and objects by reference. We've seen this
+ operator used for type checking, but in JavaScript there is some additional
+ behavior, from object reference comparisons to implicit type conversions.
+
+ > "In JavaScript objects are a reference type. Two distinct objects are never
+ equal, even if they have the same properties. Only comparing the same object
+ reference with itself yields true." - Mozilla
+ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#Comparing_Objects
+ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators?v=test
+
+
 
 # JS Functions
 
@@ -1039,5 +1054,17 @@ additional features such as being cancellable (via unsubscribe() or detach() )
 whereas Promises do not offer the ability to cancel or unsubscribe.
 
 
-## Inversion of Control (Dependency Injection)
-Inversion of Control is the inversion of the expected relationship between object and dependency; it is expected that an object will retrieve its own dependencies. When passing a function in as an argument, the dependency is passed directly to the object, and can hence influence the object. This is referred to as "Inversion of Control". The Dependency Injection utilizes IoC. For an interesting and oppositional opinion on dependency injections, read DHH's "Dependency injection is not a virtue" - David is essentially saying that DI is used to make inflexible languages, flexible. http://david.heinemeierhansson.com/2012/dependency-injection-is-not-a-virtue.html
+## Inversion of Control Pattern (Dependency Injection)
+Inversion of Control is the inversion of the expected relationship between
+object and dependency; it is expected that an object will retrieve its own
+dependencies. When passing a function in as an argument, the dependency is
+passed directly to the object, and can hence influence the object. This is
+referred to as "Inversion of Control".
+
+For an interesting and oppositional opinion on dependency injections,
+read DHH's
+[Dependency injection is not a virtue](http://david.heinemeierhansson.com/2012/dependency-injection-is-not-a-virtue.html).
+David is essentially saying that DI is used to make inflexible languages,
+flexible.
+
+... To be continued in Part 2! 
