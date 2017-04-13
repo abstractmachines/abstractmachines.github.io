@@ -20,10 +20,12 @@ This was written by me, Amanda Falke, with information gleaned from:
 5. Dr Rauschmeyer's JavaScript blog http://www.2ality.com/
 
 
-## Typing + Type Checking
-Java has **static typing** (data types are checked at compile time as opposed
-to dynamic typing where data types are checked at runtime);
+## Typing
+"Some languages, like Java and C++, have **static typing**.
 Java is generally supposed to have **strong (and static) typing.**
+C/C++ are statically typed languages with weak typing."
+
+... What's this all mean?
 
 Several computer science topics were just covered in the prior paragraph.
 We'll cover them briefly below.
@@ -34,36 +36,42 @@ We'll cover them briefly below.
 + Type Checking (Strong and Weak)
 + Type Inference; Type Erasure
 + Type Conversions (any kind of type conversion),
-+ Type Coercion (implicit type conversions),
++ Type Coercion
++ Implicit type conversions (little type safety),
 + Casting (explicit type conversions),
 + Compiled versus interpreted languages,
 + Other stuff.
 
+### Type Safety
 **Type safety** is the relative amount of type-related error prevention a
 language has built in. The more type-related error prevention that a language
 has, and/or the harder a language's typing system is to subvert, means that the
 typing system definition for that language will lean more towards the "strongly
 typed" category; similarly, the easier a language's typing system is to subvert,
-the more that a language will lean towards the "weaklly typed" category.
+the more that a language will lean towards the "weakly typed" category.
 
-Lots of type safety:
+**Lots of type safety: Type conversions generally must be explicit**
 
 Language tends do discourage and/or prevent type errors.
 
-Little type safety:
+**Little type safety: Implicit conversions can happen fairly easily**
 
 Language tends to implicitly allow type errors, often silently.
 
+**What's best? It depends.**
 
-JavaScript Keywords:
+Not having type safety can be a feature. Consider "truthy" languages like JS
+and other scripting languages.
+See also: [Duck typing](https://en.wikipedia.org/wiki/Duck_typing)
+
+
+**Related terminology:**
 
 `data type` ... `size` ... `offset`
 
-C/C++ Keywords:
-
 `memory safety (RAM access problems including buffer overflows and dangling pointers)`
 
-**Type enforcement:**
+### Type enforcement: Static or Dynamic (compile time check or runtime)
 
 `Static Type Enforcement:` at compile time
 
@@ -732,7 +740,6 @@ var user = {
  }
 }
 ​```
-
 ```
 
 The button is wrapped inside a jQuery $ wrapper, so it is now a jQuery object​,
@@ -785,8 +792,9 @@ you may see around!
 #### value and arguments.
 
 
+
 ### Apply(): assigning a different "this" object when calling an existing function.
-#### Apply() accepts a single array of arguments.
+### Apply() accepts a single array of arguments.
 
 #### Return value: Same as call(): The result of calling the function with
 #### specified "this" value and arguments.
@@ -1165,5 +1173,6 @@ read DHH's
 [Dependency injection is not a virtue](http://david.heinemeierhansson.com/2012/dependency-injection-is-not-a-virtue.html).
 David is essentially saying that DI is used to make inflexible languages,
 flexible.
+
 
 ... To be continued in Part 2!
