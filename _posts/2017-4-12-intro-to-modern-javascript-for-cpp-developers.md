@@ -7,7 +7,7 @@ categories: tutorials
 # JavaScript Tutorials for the C/C++ programmer.
 
 A very basic tutorial and introduction to JS for C/C++ developers. It is in no
-way a complete or in-depth tutorial.
+way a complete or in-depth tutorial, and it is currently a work in progress (grammar, editing).
 
 **References:**
 
@@ -183,7 +183,7 @@ is a primitive type and that Boolean is a class wrapping that type with
 functions you can inherit by using the new keyword and the Boolean data type.
 View this is a analogy to inheritance - although it's important to remember
 that JavaScript is prototype-based, not class-based (the `class keyword`
-introduced in ES2015 is just syntactic sugar (Mozilla)).
+introduced in ES2015 is just syntactic sugar (see the Prototype Chain, below).
 
 **`=>`**
 
@@ -339,9 +339,14 @@ unless we use ES6 or other techniques to block scope variables.**
 > Function scoping: This is how hoisting and closures are possible.
 
 
-> **"The phrase scope bubbles up" means:** "When JavaScript tries to resolve an identifier, it looks in the local function scope. If this identifier is not found, it looks in the outer function that declared the local one, and so on along the scope chain until it reaches the global scope where global variables reside. If it is still not found, JavaScript will raise a ReferenceError exception." WikPedia
+> **"The phrase scope bubbles up" means:** "When JavaScript tries to resolve an
+identifier, it looks in the local function scope. If this identifier is not
+found, it looks in the outer function that declared the local one, and so on
+along the scope chain until it reaches the global scope where global variables
+reside. If it is still not found, JavaScript will raise a ReferenceError exception."
+(Wikipedia)
 
-## Hoisting
+## Hoisting, Event Bubbling, Delegation
 This means that variable declarations "bubble in scope" to the containing element.
 Function scoped variables allows those variables to be assigned anywhere in
 the container, including in nested / "child" functions.
@@ -354,6 +359,101 @@ a `var x declaration statement at the top` of the function, `and an x = 1
 assignment statement at that point in the middle of the function` –
 **only the declaration is hoisted, not the assignment.**"
 -Wikipedia on JavaScript
+
+## Event Bubbling, Capturing, and Delegation
+In JavaScript, scope bubbles up. This means that event listeners can be
+written with more succinct handlers on the parent or ancestor elements in
+the DOM, rather than on each child. Less code! Here's an example:
+
+#### Use Case: ul items all need click event handling. New items will be added by user.
+
+
+Option A: Write handler for each li item:
+```
+ul
+  li -> listener handled by click event listener/handler on li[0]
+	li -> listener handled by ANOTHER click event listener/handler on li[1]
+	li -> listener handled by YET ANOTHER click event listener/handler on li[2]
+/ul
+```
+- lots of code, lots of browser memory
+- dynamic user-added DOM elements not included / would require even more code
+
+Option B: Write a single handler for well-chosen ancestor:
+```
+ul -> listener handles click events
+  li -> click event bubbles up to ancestor, is handled there. No code here.
+	li -> " "
+	li -> " "
+/ul
+```
+**Choose Option B.**
+- Less code, less browser memory
+- Handles any new li item user adds via JS event bubbling model
+- Best practices: try to choose an Element which is unlikely to be removed
+from the DOM; try to choose an element with spatial proximity for performance.
+- **Event object, event.target, and Mozilla Event API's:**
+Use event capturing/Mozilla API for Event.target.tagName name matching to
+ensure desired child selector is the only node selected in DOM tree.
+Another option is to use optional args for addEventListener().
+Event Object is 1st argument of the event handler callback function:
+
+```
+const aParentDiv = document.getElementById('aContainer');
+
+aContainer.addEventListener('click', (event) => {
+	if(event.target.tagName = 'LI')
+	{
+		event.target.textContent = 'new text to add to this li.';
+	}
+});
+```
+ See [MDN API](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
+ for more information on Event Object and listeners, with
+ `useCapture`:
+ `EventTarget.addEventListener('event-type', callback, true)`
+
+#### Use Case: Removing/appending an li element child node without already having a reference to its parent. Use a button to remove the element.
+
+- Traverse the DOM to find element's parent node
+- Use .parentNode API
+- Set up a "little DOM tree"
+
+Sample code:
+```
+aParentDiv.addEventListener('click', (event) => {
+  if (event.target.tagName == 'BUTTON') {
+    let li = event.target.parentNode;
+		let ul = li.parentNode;
+		ul.removeChild(li);
+  }
+});
+```
+
+Corresponding HTML layout:
+```
+aParentDiv
+	ul
+		li
+			button
+		/li
+	/ul
+/aParentDiv
+```
+
+Note: **spatial locality** can become an issue with DOM bubbling, so you may
+need to select a parent element closer to the li > button. If you have issues
+with the other button elements on the page deleting things they aren't supposed
+to after using this code, consider specifying the parent div rather than document:
+
+`const listUl = aParentDiv.querySelector('ul')`;
+
+... and then add the event listener to listUl instead of aParentDiv.
+
+See also:
+- [Node.insertBefore(newNode, referenceNode)](https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore)
+
+- [Node.previousElementSibling](https://developer.mozilla.org/en-US/docs/Web/API/NonDocumentTypeChildNode/previousElementSibling)
 
 
 ## Static scope: Lexical Scope or "Closure"
@@ -632,6 +732,7 @@ var user = {
  }
 }
 ​```
+
 ```
 
 The button is wrapped inside a jQuery $ wrapper, so it is now a jQuery object​,
@@ -684,9 +785,8 @@ you may see around!
 #### value and arguments.
 
 
-
 ### Apply(): assigning a different "this" object when calling an existing function.
-### Apply() accepts a single array of arguments.
+#### Apply() accepts a single array of arguments.
 
 #### Return value: Same as call(): The result of calling the function with
 #### specified "this" value and arguments.
@@ -972,11 +1072,11 @@ in directives/components - that is it! Classes map perfectly to services!
 
 
 ## JavaScript Prototypal Inheritance and the Prototype Chain
-From Mozilla docs
+[From Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
 
 JavaScript Inheritance doesn't work like C/C++/Java does because those are
 (usually) OOP-based languages. JavaScript inheritance is based only on
-Objects, and the Protoype Chain.
+Objects, and the Prototype Chain.
 
 - Each Object has an internal "link" to its Prototype. Its Prototype also has
 its own Prototype ("the prototype of the prototype"), and so on, continuing.
@@ -1053,7 +1153,6 @@ use more Streams, which are Observables. Observables are Promises with
 additional features such as being cancellable (via unsubscribe() or detach() )
 whereas Promises do not offer the ability to cancel or unsubscribe.
 
-
 ## Inversion of Control Pattern (Dependency Injection)
 Inversion of Control is the inversion of the expected relationship between
 object and dependency; it is expected that an object will retrieve its own
@@ -1067,4 +1166,4 @@ read DHH's
 David is essentially saying that DI is used to make inflexible languages,
 flexible.
 
-... To be continued in Part 2! 
+... To be continued in Part 2!
