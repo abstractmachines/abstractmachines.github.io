@@ -4,7 +4,9 @@ title:  "Cookies with Node Express: A tutorial"
 date:   2017-4-14 6:01:23 -0700
 categories: tutorials
 ---
-# Cookies with Express : A Tutorial
+# Cookies with Express : A
+
+[Github repo](https://github.com/abstractmachines/cookies-with-node-express-tutorial)
 
 This tutorial was inspired by [Codementor.io's Noddy Pandey's Cookie Management
 with Express](https://www.codementor.io/noddy/cookie-management-in-express-js-du107rmna)
@@ -115,7 +117,7 @@ visit that route, check Node console
 
 - Visit the route for that handler
 
- **Expected Result: (Node)** 
+ **Expected Result: (Node)**
 "cookiename3=cookie_value,cookiename4=cookie_value"
 
 TEST PASSED, shows persistent storage on client.
