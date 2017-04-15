@@ -6,8 +6,11 @@ categories: tutorials
 ---
 # JavaScript Tutorials for the C/C++ programmer.
 
-A very basic tutorial and introduction to JS for C/C++ developers. It is in no
-way a complete or in-depth tutorial, and it is currently a work in progress (grammar, editing).
+This is an overview of a "bird's eye, Computer Science" tutorial of JS, and fairly broad in its scope - that is, to introduce C/C++ developers to concepts in JavaScript. Due to the breadth, it is a lengthy tutorial.
+
+This is in no way a complete or in-depth tutorial, and it is currently a work in progress (grammar, editing).
+
+- Not covered in this tutorial: DOM manipulation, Mozilla DOM API, JS libraries and frameworks.
 
 **References:**
 

@@ -4,14 +4,21 @@ title:  "Cookies with Node Express: A tutorial"
 date:   2017-4-14 6:01:23 -0700
 categories: tutorials
 ---
-# Cookies with Express : A Tutorial
+# Cookies with Express : A Brief Overview Tutorial
 
 [Github repo](https://github.com/abstractmachines/cookies-with-node-express-tutorial)
 
-This tutorial was inspired by [Codementor.io's Noddy Pandey's Cookie Management
+Not covered in this tutorial: the details of cookies (expiration dates, etc). This is merely a succinct overview.
+
+This tutorial was inspired by being asked by a mentee how cookies work, and by [Codementor.io's Noddy Pandey's Cookie Management
 with Express](https://www.codementor.io/noddy/cookie-management-in-express-js-du107rmna)
-post; I added in some tests and verification; my installations of npm
-packages are local instead of global; I use nvm. Verification is done not
+post. The elements that differ between my tutorial and the one linked above include:
+- I use const (and let), not var
+- Tests/verification
+- Avoiding global npm installations
+- I use nvm Node Version Manager
+
+Verification is done not
 using extensive unit testing, but with basic tooling (curl HTTP, Node, Chrome).
 
 I'm also going to include the step-by-step workflow of a typical JS developer
