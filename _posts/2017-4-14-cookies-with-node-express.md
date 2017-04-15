@@ -87,14 +87,14 @@ see if there are now TWO cookie names coming back from client's request.
 - **Expected Input:** In Chrome console,
 `document.cookie`
 
- **Expected Result:** "cookiename1=cookie_value"
+ **Expected Result: (Chrome)** "cookiename1=cookie_value"
 
 - **Expected Input:** Go back to JS and **change value for cookie name** to cookiename2,
 restart node
 
  Repeat steps above (GET and document.cookie)
 
- **Expected Result:** (in Chrome console):
+ **Expected Result: (Chrome)**
 "cookiename1=cookie_value,cookiename2=cookie_value"
 
 TEST PASSED, shows persistent storage on client.
@@ -115,7 +115,7 @@ visit that route, check Node console
 
 - Visit the route for that handler
 
- **Expected Result:** (in Node console);
+ **Expected Result: (Node)** (in Node console);
 "cookiename3=cookie_value,cookiename4=cookie_value"
 
 TEST PASSED, shows persistent storage on client.
