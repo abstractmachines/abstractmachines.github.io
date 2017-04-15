@@ -957,6 +957,8 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arro
 
 ## Const, let, and var
 
+Declaring `var` can be problematic because it can bubble up in scope (see the scoping sections of this tutorial). Some engineers may say "var is global." While that's a simplistic way of looking at it, let's move forward with that assumption and discuss const and let for variabe declaration.
+
 > There are several languages in which `let` is similar to `const`.
 We can also consider the JS `Object.freeze` for immutability.
 
@@ -968,8 +970,7 @@ We can also consider the JS `Object.freeze` for immutability.
 What const means is that the **variable identifier cannot be reassigned.**
 
 > Use const to do things like push() an item into an array, but you don't want
-the overall properties / name of that array to change. Const objects themselves
-cannot be
+the overall properties / name of that array to change.
 
 ### Let limits scope of variables to the block/statement/expression where declared.
 

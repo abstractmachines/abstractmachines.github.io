@@ -13,11 +13,11 @@ Not covered in this tutorial: the details of cookies (expiration dates, etc). Th
 This tutorial was inspired by being asked by a mentee how cookies work, and by [Codementor.io's Noddy Pandey's Cookie Management
 with Express](https://www.codementor.io/noddy/cookie-management-in-express-js-du107rmna)
 post. The elements that differ between my tutorial and the one linked above include:
-- I use const, not var
-- I use arrow functions
-- Tests/verification that your program works
-- Avoiding global npm installations
-- I use nvm Node Version Manager
+- I use const, not var (see the [JS for C/C++ developers tutorial](http://blog.amandafalke.com/tutorials/2017/04/12/intro-to-modern-javascript-for-cpp-developers.html) regarding why)
+- I use arrow functions for brevity
+- I'll use verification - and show you how to verify whether your program works (or not)
+- I don't like using global npm installations (I'll explain why below)
+- I use nvm, Node Version Manager (reasoning below)
 
 Verification is done not
 using extensive unit testing, but with basic tooling (curl HTTP, Node, Chrome).
@@ -32,7 +32,7 @@ in this tutorial.
 It's ideal to use **nvm**, or Node Version Manager, to install Node on different projects and manage versions.
 If you don't have nvm installed already and aren't using, [do that right away](https://github.com/creationix/nvm).
 
-Create an NVM 'rc', or [Run Commands - see Kernigan and Ritchie](https://en.wikipedia.org/wiki/Run_commands). 
+Create an NVM 'rc', or [Run Commands - see Kernigan and Ritchie](https://en.wikipedia.org/wiki/Run_commands).
 ```
 $ echo "6.9.2" > .nvmrc
 ```
