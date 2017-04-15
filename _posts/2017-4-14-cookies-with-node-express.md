@@ -80,7 +80,7 @@ Visit the route in browser for the get handler that sets the cookie,
 view that cookie, change the cookie's name, refresh everything, and
 see if there are now TWO cookie names coming back from client's request.
 
-- **Expected Input:** GET  localhost:3000/cookie in Chrome
+- **Expected Input:** GET  http://localhost:3000/cookie in Chrome
 
  **Expected Result:** 'cookie is set'
 
@@ -92,9 +92,9 @@ see if there are now TWO cookie names coming back from client's request.
 - **Expected Input:** Go back to JS and **change value for cookie name** to cookiename2,
 restart node
 
- Repeat steps 1 and 2.
+ Repeat steps above (GET and document.cookie)
 
- **Expected Result:** (in Chrome developer console):
+ **Expected Result:** (in Chrome console):
 "cookiename1=cookie_value,cookiename2=cookie_value"
 
 TEST PASSED, shows persistent storage on client.
