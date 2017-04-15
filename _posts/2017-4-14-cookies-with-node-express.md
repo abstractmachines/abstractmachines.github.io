@@ -4,7 +4,7 @@ title:  "Cookies with Node Express: A tutorial"
 date:   2017-4-14 6:01:23 -0700
 categories: tutorials
 ---
-# Cookies with Express : A
+# Cookies with Express : A Tutorial
 
 [Github repo](https://github.com/abstractmachines/cookies-with-node-express-tutorial)
 
