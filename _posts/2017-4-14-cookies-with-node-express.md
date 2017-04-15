@@ -17,7 +17,7 @@ in this tutorial.
 
 ## Installations
 
-#### nvm (Node Version Manager)
+### nvm (Node Version Manager)
 
 It's ideal to use **nvm**, or Node Version Manager, to install Node on different projects and manage versions.
 If you don't have nvm installed already and aren't using, [do that right away](https://github.com/creationix/nvm).
@@ -32,13 +32,13 @@ Expected output:
 > Found '/path/to/project/.nvmrc' with version <6.9.2>
 Now using node v6.9.2 (npm v3.10.9)
 
-#### npm
+### npm
 ```
 npm init
 ```
 entry index.js
 
-#### Express middleware
+### Express middleware
 
 ```
 npm install express --save
@@ -49,15 +49,15 @@ projects remain isolated; we pollute the global space, if you will, if we
 install npm projects globally. Always opt for `npm install something --save`
 or `--save-dev` rather than global installs of `npm install something`.
 
-#### cookie-parser middleware
+### cookie-parser middleware
 
 ```
-$ npm install cookie-parser --save-dev
+$ npm install cookie-parser --save
 ```
 
 ## Testing
 
-#### Testing Node
+### Testing Node
 
 After you've written the code (see index.js), test it via curl HTTP. Specify plaintext type in content header.
 
@@ -74,28 +74,28 @@ Expected Output:
 hello, worrrrllld!
 ```
 **********************
-#### Testing cookies and persistence
+### Testing cookies and persistence
 **Test that cookies are in persistent browser storage.**
 
 Visit the route in browser for the get handler that sets the cookie,
 view that cookie, change the cookie's name, refresh everything, and
 see if there are now TWO cookie names coming back from client's request.
 
-1. **Expected Input:** Visit localhost:3000/cookie in browser
+- **Expected Input:** Visit localhost:3000/cookie in browser
 
  **Expected Result:** 'cookie is set'
 
-2. **Expected Input:** Open up Chrome console and type
+- **Expected Input:** Open up Chrome console and type
 `$ document.cookie`
 
  **Expected Result:** "value-you-just-assigned-in-app.js-cookie-name = cookie_value"
 or, for brevity:
 "cookiename1=cookie_value"
 
-3. **Expected Input:** Go back to JS and **change value for cookie name** to cookiename2,
+- **Expected Input:** Go back to JS and **change value for cookie name** to cookiename2,
 restart node
 
-4. Repeat steps 1 and 2.
+ Repeat steps 1 and 2.
 
  **Expected Result:** (in Chrome developer console):
 "cookiename1=cookie_value,cookiename2=cookie_value"
@@ -112,11 +112,11 @@ do it with Node instead of the browser.**
 Write a console.log of cookies from client request in a get handler for any route,
 visit that route, check Node console
 
-1. Add code: console.log('Cookies: ', req.cookies); to any get handler
+- Add code: console.log('Cookies: ', req.cookies); to any get handler
 
-2. Restart Node
+- Restart Node
 
-3. Visit the route for that handler
+- Visit the route for that handler
 
  **Expected Result:** (in Node console);
 "cookiename3=cookie_value,cookiename4=cookie_value"
@@ -126,7 +126,7 @@ TEST PASSED, shows persistent storage on client.
 
 ## The code
 
-#### index.js
+### index.js
 ```
 const express = require('express');
 const cookieParser = require('cookie-parser');
