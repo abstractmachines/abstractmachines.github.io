@@ -36,7 +36,6 @@ Now using node v6.9.2 (npm v3.10.9)
 ```
 npm init
 ```
-entry index.js
 
 ### Express middleware
 
@@ -59,7 +58,7 @@ $ npm install cookie-parser --save
 
 ### Testing Node
 
-After you've written the code (see index.js), test it via curl HTTP. Specify plaintext type in content header.
+After you've written the code (see below), test it via curl HTTP. Specify plaintext type in content header.
 
 - write code
 - restart node
@@ -81,16 +80,14 @@ Visit the route in browser for the get handler that sets the cookie,
 view that cookie, change the cookie's name, refresh everything, and
 see if there are now TWO cookie names coming back from client's request.
 
-- **Expected Input:** Visit localhost:3000/cookie in browser
+- **Expected Input:** GET  localhost:3000/cookie in Chrome
 
  **Expected Result:** 'cookie is set'
 
-- **Expected Input:** Open up Chrome console and type
-`$ document.cookie`
+- **Expected Input:** In Chrome console,
+`document.cookie`
 
- **Expected Result:** "value-you-just-assigned-in-app.js-cookie-name = cookie_value"
-or, for brevity:
-"cookiename1=cookie_value"
+ **Expected Result:** "cookiename1=cookie_value"
 
 - **Expected Input:** Go back to JS and **change value for cookie name** to cookiename2,
 restart node
@@ -126,7 +123,6 @@ TEST PASSED, shows persistent storage on client.
 
 ## The code
 
-### index.js
 ```
 const express = require('express');
 const cookieParser = require('cookie-parser');
