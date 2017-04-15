@@ -115,7 +115,7 @@ visit that route, check Node console
 
 - Visit the route for that handler
 
- **Expected Result: (Node)** (in Node console);
+ **Expected Result: (Node)** 
 "cookiename3=cookie_value,cookiename4=cookie_value"
 
 TEST PASSED, shows persistent storage on client.
