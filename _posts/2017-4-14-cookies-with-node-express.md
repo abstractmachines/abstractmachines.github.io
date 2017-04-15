@@ -6,7 +6,7 @@ categories: tutorials
 ---
 # Cookies with Express : A Tutorial
 
-This tutorial was inspired by [Codementor.io's Noddy Pandey Cookie Management
+This tutorial was inspired by [Codementor.io's Noddy Pandey's Cookie Management
 with Express](https://www.codementor.io/noddy/cookie-management-in-express-js-du107rmna)
 post; I added in some tests and verification; my installations of npm
 packages are local instead of global; I use nvm. Verification is done not
