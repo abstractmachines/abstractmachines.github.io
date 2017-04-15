@@ -31,6 +31,8 @@ in this tutorial.
 
 It's ideal to use **nvm**, or Node Version Manager, to install Node on different projects and manage versions.
 If you don't have nvm installed already and aren't using, [do that right away](https://github.com/creationix/nvm).
+
+Create an NVM 'rc', or [Run Commands - see Kernigan and Ritchie](https://en.wikipedia.org/wiki/Run_commands). 
 ```
 $ echo "6.9.2" > .nvmrc
 ```
