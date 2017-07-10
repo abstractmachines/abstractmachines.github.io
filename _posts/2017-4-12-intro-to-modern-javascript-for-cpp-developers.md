@@ -656,7 +656,7 @@ The * *this* keyword is something C/C++ programmers are used to seeing (except i
 
 **The most important thing about THIS is this (ha!):**
 
->>> "This" in JavaScript depends completely in the context of the invocation.
+>>> "This" in JavaScript depends completely in the context of the invocation. JavaScript is "function scoped", so "this" bubbles up.
 
 And THAT, creates a lot of problems.
 
@@ -695,11 +695,11 @@ animal.ageGetter(); // 1
 
 **So how to solve THIS problem?**
 
-• (ES3): Use `"that"` variable to copy this.property value over inside of function body. Then refern to "that.property" instead of "this.property".
+• **ES3:** Use `"that"` variable to copy this.property value over inside of function body. Then refern to "that.property" instead of "this.property".
 
-• (Modern JS): Use `apply, call, and bind` to resolve the context of this, for borrowed functions, nested functions, and any context where a function is applied in a context in which it was not defined
+• **'Modern JS':** Use `apply, call, and bind` to resolve the context of this, for borrowed functions, nested functions, and any context where a function is applied in a context in which it was not defined
 
-• (ES6): Use `arrow functions`
+• **ES6**: Use `arrow functions`
 
 
 ### Bind(): assigning a different "this" object when in an undesired context.
@@ -714,23 +714,83 @@ That "provided value" essentially means "a contextual this" (my definition).
 
 **Traditional uses for bind include**:
 • Set the "this" value on methods
-• When calling a function from another function in a situation where you need to
-resolve context of this keyword
-• Function currying by presetting parameters
-• Borrowing methods
 
-In JavaScript. **context** really matters.
+• When calling a function from another function in a situation where you need to resolve context of this keyword
+
+• Function currying by presetting parameters
+
+• Borrowing methods
 
 Bind() is usually used when calling one function from another function, and
 ensuring that the proper context (like scope) is used for the intent of the
 function. While bind can technically be used to borrow methods, that is usually
 left to call() and apply().
 
+#### Bind() Example 1: Vanilla JS
+
+```
+this.x = 1 // 1
+
+someObj = {
+x: 2,
+getX: function(){return this.x}
+}
+
+someObj.getX() // 2
+
+```
+
+What about if I create a variable within the global context, though?
+
+```
+const globalX = someObj.getX
+
+globalX() // 1
+```
+Whoops, we are getting 1, instead of 2. That's because we are currently within
+the `global context.`
+
+So, **we need to bind it to the right context.**
+
+#### Solution: bind() this to proper context
+
+```
+const globalXNow = globalX.bind(someObj)
+
+globalXNow() // 2
+```
+
+or, for brevity:
+```
+this.x = 1 // 1
+
+someObj = {
+x: 2,
+getX: function(){return this.x}
+}
+
+const amod = someObj.getX.bind(someObj)
+
+amod() // 3
+
+```
+
+Now we've bound that variable to the proper object context. You can clearly see
+that in this way, functions can be shared as according to different contexts.
+All you'd need to do to share a function between objects or contexts would be
+to bind it to the context we want. Above, we could bind the context as either
+global or 'someObj.' Pretty cool stuff - and it also illustrates why this
+language is so confusing at times. Let's do another example.
+
+
+#### Bind() example 2: jQuery
+
 The JavaScriptIsSexy blog notes the following code.
 
 We have a simple object with a clickHandler method that we want to use when a
 button on the page is clicked​
 
+(ps, note how `var` is used below. Well, don't use `var.` Use const or let!)
 ```
 var user = {
  data:[
