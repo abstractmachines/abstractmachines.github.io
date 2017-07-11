@@ -9,6 +9,8 @@ categories: tutorials
 The information in this article is based solely on information you can get
 in the Mozilla JavaScript docs.
 
+Make sure you've read over [Part 1 of this tutorial](http://blog.amandafalke.com/tutorials/2017/04/12/intro-to-modern-javascript-for-cpp-developers.html).
+
 ## TODO: Immutability
 Discuss why immutability is important
 
