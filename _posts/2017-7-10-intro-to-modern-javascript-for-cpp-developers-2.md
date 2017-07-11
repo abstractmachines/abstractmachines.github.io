@@ -9,7 +9,8 @@ categories: tutorials
 The information in this article is based solely on information you can get
 in the Mozilla JavaScript docs.
 
-Make sure you've read over [Part 1 of this tutorial](http://blog.amandafalke.com/tutorials/2017/04/12/intro-to-modern-javascript-for-cpp-developers.html).
+Make sure you've read over [Part 1 of this tutorial](http://blog.amandafalke.com/tutorials/2017/04/12/intro-to-modern-javascript-for-cpp-developers.html). Currently, this post "Part 2" is definitively a "work in
+progress."
 
 ## TODO: Immutability
 Discuss why immutability is important
@@ -45,6 +46,7 @@ Essentially, this question asks us to create a Set out of a Bag/MultiSet.
 (For C++ related examples, recall Standard Library std::set, std::multiset)
 
 **Input: "apple", "pear", "peach", "pear", "apple", "kiwi"**
+
 **Expected Output: "apple", "pear", "peach", "kiwi"**
 
 ```
@@ -125,6 +127,13 @@ With no args: Parens mandatory
  x = () => y*2
 ```
 
+## TODO: Idiomatic JavaScript
+
+## TODO: Isomorphic JS applications
+Rendering JS on server, and hence being able to use same functions
+
+TODO
+
 
 ## TODO: Function Currying
 In functional programming, functions aren't "called", they're "applied."
@@ -133,7 +142,7 @@ Makes things more testable, easier to reason about... TODO
 
 ## TODO: More on Call() Apply() and Bind()
 
-## TODO: Bind():
+### TODO: Bind():
 how to use it to partially apply functions, and in function currying
 
 ## TODO: Spread Syntax:
