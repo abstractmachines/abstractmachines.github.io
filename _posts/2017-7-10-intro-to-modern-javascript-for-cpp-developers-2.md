@@ -9,6 +9,14 @@ categories: tutorials
 The information in this article is based solely on information you can get
 in the Mozilla JavaScript docs.
 
+## TODO: Immutability
+Discuss why immutability is important
+
+There are two ways to change data: update (mutate) existing variables, or
+create a new copy of the data.
+
+TODO
+
 
 ## Map, Filter, Reduce
 
