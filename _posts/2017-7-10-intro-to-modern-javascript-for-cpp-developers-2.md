@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Introduction to modern JavaScript for C/C++ developers, Part 1"
+title:  "Introduction to modern JavaScript for C/C++ developers, Part 2"
 date:   2017-7-10 20:06:20 -0700
 categories: tutorials
 ---
