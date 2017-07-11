@@ -99,6 +99,14 @@ Again, we note ES6 arrow function syntax.
 Accumulator
 
 ## Arrow Functions
+Arrow functions resolve the JS `this` problem, by lacking a `this` at all!
+That's accomplished by having "the arrow function's this is lexically bound
+to its enclosing scope." That's just another way to say that arrow functions'
+this is the same as (or bound to) the PARENT'S this.
+
+The "history of this in JS" was covered in [Part 1 of this tutorial](http://blog.amandafalke.com/tutorials/2017/04/12/intro-to-modern-javascript-for-cpp-developers.html). 
+
+
 ### TODO Syntax
 
 TODO
