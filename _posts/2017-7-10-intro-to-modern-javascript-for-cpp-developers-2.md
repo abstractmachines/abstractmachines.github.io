@@ -101,11 +101,10 @@ Accumulator
 ## Arrow Functions
 Arrow functions resolve the JS `this` problem.
 
-That's accomplished by having "the arrow function's this is lexically bound
-to its enclosing scope." That's just another way to say that arrow functions'
-this is the same as (or bound to) the PARENT'S this.
+That's accomplished by having "the arrow function's `this` lexically bound
+to its enclosing scope."
 
-The "history of `this` in JS" was covered in [Part 1 of this tutorial](http://blog.amandafalke.com/tutorials/2017/04/12/intro-to-modern-javascript-for-cpp-developers.html).
+The "history of `this` (and `that`) in JS" was covered in [Part 1 of this tutorial](http://blog.amandafalke.com/tutorials/2017/04/12/intro-to-modern-javascript-for-cpp-developers.html). 
 
 ### TODO: More on Arrow Functions
 
