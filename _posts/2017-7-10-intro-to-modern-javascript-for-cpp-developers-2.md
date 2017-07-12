@@ -104,7 +104,7 @@ Arrow functions resolve the JS `this` problem.
 That's accomplished by having "the arrow function's `this` lexically bound
 to its enclosing scope."
 
-The "history of `this` (and `that`) in JS" was covered in [Part 1 of this tutorial](http://blog.amandafalke.com/tutorials/2017/04/12/intro-to-modern-javascript-for-cpp-developers.html). 
+The "history of `this` (and `that`) in JS" was covered in [Part 1 of this tutorial](http://blog.amandafalke.com/tutorials/2017/04/12/intro-to-modern-javascript-for-cpp-developers.html).
 
 ### TODO: More on Arrow Functions
 
@@ -151,9 +151,9 @@ Makes things more testable, easier to reason about... TODO
 
 ## TODO: More on Call() Apply() and Bind()
 
-### TODO: Bind():
+### TODO: Bind()
 how to use it to partially apply functions, and in function currying
 
-## TODO: Spread Syntax:
+## TODO: Spread Operator
 
-The spread operator 'expands'
+## TODO: ES6 Destructuring
