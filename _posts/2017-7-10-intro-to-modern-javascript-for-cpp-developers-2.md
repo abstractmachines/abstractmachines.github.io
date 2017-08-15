@@ -52,7 +52,7 @@ Essentially, this question asks us to create a Set out of a Bag/MultiSet.
 ```
 const fruit = ["apple", "pear", "peach", "pear", "apple", "kiwi"]
 
-const aSet = fruit.filter((elem,index,fruity) => fruit.indexOf(elem) === index)
+const aSet = fruit.filter((elem, index, fruity) => fruit.indexOf(elem) === index)
 
 fruitySet
 // Result:  ["apple", "pear", "peach", "kiwi"]
@@ -62,14 +62,14 @@ Note the ES6 arrow function syntax. We could have used ES5:
 
 ```
 const aSet =
-  fruit.filter(function(elem,index,fruity) {
+  fruit.filter(function(elem, index, fruity) {
     fruit.indexOf(elem) === index
   })
 ```
 Which is logically equivalent to (and more verbose than):
 ```
 const aSet =
-  fruit.filter((elem,index,fruity) => fruit.indexOf(elem) === index)
+  fruit.filter((elem, index, fruity) => fruit.indexOf(elem) === index)
 ```
 
 
@@ -97,6 +97,44 @@ Again, we note ES6 arrow function syntax.
 
 ### TODO: Reduce
 Accumulator
+
+## Every, Some, Each
+
+### .some
+`Array.prototype.some`
+
+**Returns:** a boolean value … IF some elements meet requirement.
+
+.some in repl:
+```
+function isAbove10(elem, index, array) { return elem > 10 }
+[1,2,3,4].some(isAbove10) // false
+[88,31,2].some(isAbove10) // true
+```
+```
+function isAbove10(elem) { return elem > 10 }
+[1,2,3,4].some(isAbove10) // false
+[1,2,3,44].some(isAbove10) // true
+```
+
+Same thing with arrow functions:
+```
+const above10 = elem => elem > 10
+[1,2,3].some(above10) // false
+[10,11].some(above10) // true
+```
+
+### .every
+`Array.prototype.each`
+
+**Returns:** a boolean value … IF all elements meet requirement.
+
+Code is pretty much the same as with .some.
+
+
+## TODO: .each ?
+
+## TODO: for of, for in...
 
 ## Arrow Functions
 Arrow functions resolve the JS `this` problem.
