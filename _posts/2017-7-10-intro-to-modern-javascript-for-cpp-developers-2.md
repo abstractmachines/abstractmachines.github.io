@@ -11,21 +11,6 @@ progress."
 
 References: MDN, Wikipedia, Eric Elliott Medium blog posts
 
-## Functional programming : deterministic, predictable code
-`TODO`: Complete this section.
-
-### Immutability
-> There are two ways to change data: update (mutate) existing data, or create a new/updated copy of the data.
->> When we change existing data, side effects (bad things) can occur.
-
-#### Pure Functions
-In [Eric Elliot](https://medium.com/@_ericelliott)'s functional programming tutorials on Medium, one of the first things he mentions in his [Pure Functions tutorial](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-pure-function-d1c076bec976) is how objects
-are passed into functions in JS **by reference** (and primitives are passed in by value).
-
-If we mutate that object inside of that function, it will mutate the original object *at its original memory location*.
-That causes **side effects** which are unknown when we ("we" meaning, flow of execution control) are operating within
-the context of the function that brings that object in as a parameter.
-
 ## Iterators
 With iterations over collections, we always assume that we are mapping/transforming/producing outputs, and/or that a
 statement can be executed for each element.
@@ -215,6 +200,8 @@ Same as above, only values instead of keys.
 `for in` is interesting because it enumerates over properties that are also in the Prototype Chain. MDN-recommended methods `.hasOwnProperty()` and `.propertyIsEnumerable()` can be used to. If you read the previous section, these should seem intuitive.
 
 ## Arrow Functions
+`TODO`: Complete this section.
+
 Arrow functions resolve the JS `this` problem.
 
 That's accomplished by having "the arrow function's `this` lexically bound
@@ -222,20 +209,13 @@ to its enclosing scope."
 
 The "history of `this` (and `that`) in JS" was covered in [Part 1 of this tutorial](http://blog.amandafalke.com/tutorials/2017/04/12/intro-to-modern-javascript-for-cpp-developers.html).
 
-### TODO: More on Arrow Functions
-
 ### Arrow Functions: Syntax
-
-TODO
-With multiple args: Use parens
-
+With multiple args: Use parens:
 ```
  x = (y,z) => y*z
 ```
 
-TODO
-With one arg: Parens optional
-
+With one arg: Parens optional:
 ```
  x = (y) => y*2
 ```
@@ -244,30 +224,39 @@ With one arg: Parens optional
  x = y => y*2
 ```
 
-
-TODO
-With no args: Parens mandatory
-
+With no args: Parens mandatory:
 ```
  x = () => y*2
 ```
 
-## TODO: Isomorphic JS applications
-Rendering JS on server, and hence being able to use same functions
+## Subjects I will cover later include:
 
-TODO
+- Isomorphic JS applications
 
+  Rendering JS on server, and hence being able to use same functions
 
-## TODO: Function Currying
-In functional programming, functions aren't "called", they're "applied."
-For partial application of functions -- applying only one argument at a time.
-Makes things more testable, easier to reason about... TODO
+- Function Currying
 
-## TODO: More on Call() Apply() and Bind()
+  In functional programming, functions aren't "called", they're "applied."
+  For partial application of functions -- applying only one argument at a time.
+  Makes things more testable, easier to reason about... TODO
 
-### TODO: Bind()
-how to use it to partially apply functions, and in function currying
+- Spread Operator, ES6 Destructuring, ES6 Shorthand
 
-## TODO: Spread Operator
+- Functional programming : deterministic, predictable code
 
-## TODO: ES6 Destructuring, ES6 Shorthand
+- ##### Immutability
+ > There are two ways to change data: update (mutate) existing data, or create a new/updated copy of the data.
+ >> When we change existing data, side effects (bad things) can occur.
+
+- ###### Pure Functions
+In [Eric Elliot](https://medium.com/@_ericelliott)'s functional programming tutorials on Medium, one of the first things he mentions in his [Pure Functions tutorial](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-pure-function-d1c076bec976) is how objects
+are passed into functions in JS **by reference** (and primitives are passed in by value).
+
+ If we mutate that object inside of that function, it will mutate the original object *at its original memory location*.
+ That causes **side effects** which are unknown when we ("we" meaning, flow of execution control) are operating within
+ the context of the function that brings that object in as a parameter.
+
+ So long for now!
+
+ Amanda
