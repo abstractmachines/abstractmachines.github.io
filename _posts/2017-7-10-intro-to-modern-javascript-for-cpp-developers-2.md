@@ -12,14 +12,22 @@ in the Mozilla JavaScript docs.
 Make sure you've read over [Part 1 of this tutorial](http://blog.amandafalke.com/tutorials/2017/04/12/intro-to-modern-javascript-for-cpp-developers.html). Currently, this post "Part 2" is definitively a "work in
 progress."
 
-## TODO: Immutability
-Discuss why immutability is important
+## Functional programming : deterministic, predictable code
+`TODO`: Complete this section.
 
-There are two ways to change data: update (mutate) existing variables, or
-create a new copy of the data.
+### Immutability
+> There are two ways to change data: update (mutate) existing data, or create a new/updated copy of the data.
+>> When we change existing data, side effects (bad things) can occur.
 
-TODO
+#### Pure Functions
+In [Eric Elliot](https://medium.com/@_ericelliott)'s functional programming tutorials on Medium, one of the first things he mentions in his [Pure Functions tutorial](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-pure-function-d1c076bec976) is how objects
+are passed into functions in JS **by reference** (and primitives are passed in by value).
 
+If we mutate that object inside of that function, it will mutate the original object *at its original memory location*.
+That causes **side effects** which are unknown when we ("we" meaning, flow of execution control) are operating within
+the context of the function that brings that object in as a parameter.
+
+`TODO`: Finish
 
 ## Map, Filter, Reduce
 
@@ -73,10 +81,15 @@ const aSet =
 ```
 
 
-### TODO: Map
+### Map
+`TODO`: Finish this section.
+
 Map is used to transform an entire data structure.
 
-Since map returns "new data" instead of mutating existing data, we can
+>> "Pure functions are all about mapping. Functions map input arguments to return values, meaning that for each set of inputs, there exists an output. A function will take the inputs and return the corresponding output."
+[“Mapping” — Eric Elliott]( https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-pure-function-d1c076bec976)
+
+Since JS map returns "new data" instead of mutating existing data, we can
 think of filter as being a safe function to use for immutability.
 
 (For C++ related examples, recall Standard Library std::transform)
@@ -96,7 +109,7 @@ doubled // result:  [2, 4, 6, 8]
 Again, we note ES6 arrow function syntax.
 
 ### TODO: Reduce
-Accumulator
+Iterates over a collection and returns an accumulated value.
 
 ## Every, Some, Each
 
