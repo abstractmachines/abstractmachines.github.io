@@ -4,12 +4,14 @@ title:  "Introduction to modern JavaScript for C/C++ developers, Part 2"
 date:   2017-7-10 20:06:20 -0700
 categories: tutorials
 ---
-# JavaScript Tutorials for the C/C++ programmer, part 2 : Iterators (and arrow functions)
+# JavaScript Tutorials for the C/C++ programmer, part 2 : Iterators
 
 Make sure you've read over [Part 1 of this tutorial](http://blog.amandafalke.com/tutorials/2017/04/12/intro-to-modern-javascript-for-cpp-developers.html). Currently, this post "Part 2" is definitively a "work in
 progress."
 
-References: MDN, Wikipedia, Eric Elliott Medium blog posts
+For this article, I used information from MDN's site and wikipedia.
+
+Code will generally be restricted to Github gists which I'll link to so that article can focus on the concepts.
 
 ## Iterators
 With iterations over collections, we always assume that we are mapping/transforming/producing outputs, and/or that a
@@ -55,23 +57,11 @@ Note that there are many, many Array.Prototype.DoAThing methods, search the MDN 
 `Array.prototype.some`
 
 **Returns:** a boolean value … IF some elements meet requirement.
-
-.some in repl:
-```
-function isAbove10(elem, index, array) { return elem > 10 }
-[1,2,3,4].some(isAbove10) // false
-[88,31,2].some(isAbove10) // true
-```
-```
-function isAbove10(elem) { return elem > 10 }
-[1,2,3,4].some(isAbove10) // false
-[1,2,3,44].some(isAbove10) // true
-```
-
-Same thing with arrow functions:
 ```
 const above10 = elem => elem > 10
+
 [1,2,3].some(above10) // false
+
 [10,11].some(above10) // true
 ```
 
@@ -109,12 +99,10 @@ const fruit = ["apple", "pear", "peach", "pear", "apple", "kiwi"]
 
 const aSet = fruit.filter((elem, index, fruity) => fruit.indexOf(elem) === index)
 
-fruitySet
-// Result:  ["apple", "pear", "peach", "kiwi"]
+fruitySet   //  ["apple", "pear", "peach", "kiwi"]
 ```
 
 Note the ES6 arrow function syntax. We could have used ES5:
-
 ```
 const aSet =
   fruit.filter(function(elem, index, fruity) {
@@ -123,8 +111,7 @@ const aSet =
 ```
 Which is logically equivalent to (and more verbose than):
 ```
-const aSet =
-  fruit.filter((elem, index, fruity) => fruit.indexOf(elem) === index)
+const aSet = fruit.filter((elem, index, fruity) => fruit.indexOf(elem) === index)
 ```
 
 ### Map
@@ -150,7 +137,7 @@ const nums = [1,2,3,4]
 
 const doubled = nums.map( (nums) => nums*2 )
 
-doubled // result:  [2, 4, 6, 8]
+doubled // [2, 4, 6, 8]
 ```
 Again, we note ES6 arrow function syntax.
 
@@ -199,35 +186,6 @@ Same as above, only values instead of keys.
 
 `for in` is interesting because it enumerates over properties that are also in the Prototype Chain. MDN-recommended methods `.hasOwnProperty()` and `.propertyIsEnumerable()` can be used to. If you read the previous section, these should seem intuitive.
 
-## Arrow Functions
-`TODO`: Complete this section.
-
-Arrow functions resolve the JS `this` problem.
-
-That's accomplished by having "the arrow function's `this` lexically bound
-to its enclosing scope."
-
-The "history of `this` (and `that`) in JS" was covered in [Part 1 of this tutorial](http://blog.amandafalke.com/tutorials/2017/04/12/intro-to-modern-javascript-for-cpp-developers.html).
-
-### Arrow Functions: Syntax
-With multiple args: Use parens:
-```
- x = (y,z) => y*z
-```
-
-With one arg: Parens optional:
-```
- x = (y) => y*2
-```
-
-```
- x = y => y*2
-```
-
-With no args: Parens mandatory:
-```
- x = () => y*2
-```
 
 ## Subjects I will cover later include:
 
