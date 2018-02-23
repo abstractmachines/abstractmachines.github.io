@@ -6,11 +6,10 @@ categories: tutorials
 ---
 # JavaScript Tutorials for the C/C++ programmer, part 2
 
-The information in this article is based solely on information you can get
-in the Mozilla JavaScript docs.
-
 Make sure you've read over [Part 1 of this tutorial](http://blog.amandafalke.com/tutorials/2017/04/12/intro-to-modern-javascript-for-cpp-developers.html). Currently, this post "Part 2" is definitively a "work in
 progress."
+
+References: MDN, Wikipedia, Eric Elliott Medium blog posts
 
 ## Functional programming : deterministic, predictable code
 `TODO`: Complete this section.
