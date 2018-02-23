@@ -27,6 +27,9 @@ That causes **side effects** which are unknown when we ("we" meaning, flow of ex
 the context of the function that brings that object in as a parameter.
 
 ## Iterators
+With iterations over collections, we always assume that we are mapping/transforming/producing outputs, and/or that a
+statement can be executed for each element.
+
 With the first step into looking into Iterators in JS, we come across in-depth knowledge of how Symbols work.
 >> String, Array, TypedArray, Map and Set are all built-in iterables, because each of their prototype objects implements an @@iterator method. In order to be iterable, an object must implement the @@iterator method, meaning that the object (or one of the objects up its prototype chain) must have a property with a @@iterator key which is available via constant Symbol.iterator... [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)
 
@@ -34,6 +37,15 @@ We will leave the discussion of Symbols to [another future blog post](http://blo
 
 We will also assume that by covering Iterators for Arrays and Objects, that the use cases for Sets, Maps, TypedArray
 will seem intuitive. We will leave WeakMaps and WeakSets for a later discussion as well.
+
+### Iterable and Iterator Protocols
+Recall that [an Object can be iterable](Iterable and Iterator Protocols), and that an Object "is an iterator" when
+it implements `next` and `done` values and API. We will leave the in-depth discussion of Iterators
+to [another future blog post](http://blog.amandafalke.com/tutorials/2018/02/23/async-await-infinite-regression.html).
+
+[`for of`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) iterates over the iterable properties of an Iterable. That's one example of implementation of Iterable/Iterable protocols.
+
+For now, we will just discuss simple ways to iterate over Arrays.
 
 ### Array iterators
 
@@ -162,7 +174,7 @@ Reduce **Iterates over a collection and returns an accumulated value.**
 Before we go into Object iterators, let's talk about how JS objects work.
 
 - Enumerable Properties : does it have its own?
-- Iterator Protocols
+- Iterator and Iterable Protocols
 
 ### Enumerable Properties: "On THIS object, not down the prototype chain"
 An Object has Enumerable properties when its properties are its own properties,
@@ -179,14 +191,19 @@ It makes sense now why `hasOwnProperty()` refers to whether an object's property
 
 [See more on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties).
 
-### Iterable and Iterator Protocols
-Recall that an Object is not "iterable"/"built in iterable", but it does have an Iterator protocol. [MDN](Iterable and Iterator Protocols)
+### Object.entries(obj)
+This method returns an array of object's Own Enumerable Properties, in key value pairs.
 
-### for of
-`for of` and `for in` are iterators for Objects. You can find out more about them on the MDN site.
+### Object.keys(obj)
+This does the same thing, but only returns/operates on keys, not values/pairs.
+
+### Object.values(obj)
+Same as above, only values instead of keys.
 
 ### for in
-[`for in`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in) iterates over the enumerable properties of an Object.
+[`for in`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in) iterates over the enumerable properties of an Object. It **returns unordered** results. (If you want order, use a for loop or similar).
+
+`for in` is interesting because it enumerates over properties that are also in the Prototype Chain. MDN-recommended methods `.hasOwnProperty()` and `.propertyIsEnumerable()` can be used to. If you read the previous section, these should seem intuitive.
 
 ## Arrow Functions
 Arrow functions resolve the JS `this` problem.
@@ -226,8 +243,6 @@ With no args: Parens mandatory
  x = () => y*2
 ```
 
-## TODO: Idiomatic JavaScript
-
 ## TODO: Isomorphic JS applications
 Rendering JS on server, and hence being able to use same functions
 
@@ -246,4 +261,4 @@ how to use it to partially apply functions, and in function currying
 
 ## TODO: Spread Operator
 
-## TODO: ES6 Destructuring
+## TODO: ES6 Destructuring, ES6 Shorthand
