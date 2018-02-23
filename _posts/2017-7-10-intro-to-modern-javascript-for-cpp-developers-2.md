@@ -38,6 +38,13 @@ We will leave the discussion of Symbols to [another future blog post](http://blo
 We will also assume that by covering Iterators for Arrays and Objects, that the use cases for Sets, Maps, TypedArray
 will seem intuitive. We will leave WeakMaps and WeakSets for a later discussion as well.
 
+### JavaScript Iterators Gists
+#### Sets and Maps
+[Gist "JavaScript Iterators: Sets and Maps" for more info](https://gist.github.com/abstractmachines/ba21a7f296e6d1726a3a2e845834b2ec).
+
+#### Arrays
+[Gist](https://gist.github.com/abstractmachines/1c72a2bb4dee5b09abebee76fa77c0e0)
+
 ### Iterable and Iterator Protocols
 Recall that [an Object can be iterable](Iterable and Iterator Protocols), and that an Object "is an iterator" when
 it implements `next` and `done` values and API. We will leave the in-depth discussion of Iterators
@@ -162,15 +169,17 @@ doubled // result:  [2, 4, 6, 8]
 ```
 Again, we note ES6 arrow function syntax.
 
-### Reduce
-`TODO`: Complete this section.
-
+### Reduce and Transducers
 Reduce **Iterates over a collection and returns an accumulated value.**
 
-### Transducers
-`TODO`: Complete this section.
+Transducers combine operations, hence skipping intermediary computational steps typically created by chaining JavaScript
+methods together. [Please see my Transducers Gist for more info](https://gist.github.com/abstractmachines/06ac6e14ec8335c7873da3e5e8a9ecd8).
 
 ## Object iterators
+
+### JavaScript Iterators: Sets and Maps
+Note: In ES6 (and beyond) we tend to use Maps instead of Objects for iteration, because the Object prototype chain can be problematic for iteration. [Please see my Gist for more info](https://gist.github.com/abstractmachines/ba21a7f296e6d1726a3a2e845834b2ec).
+
 Before we go into Object iterators, let's talk about how JS objects work.
 
 - Enumerable Properties : does it have its own?
