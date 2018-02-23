@@ -4,7 +4,7 @@ title:  "Introduction to modern JavaScript for C/C++ developers, Part 2"
 date:   2017-7-10 20:06:20 -0700
 categories: tutorials
 ---
-# JavaScript Tutorials for the C/C++ programmer, part 2
+# JavaScript Tutorials for the C/C++ programmer, part 2 : Iterators (and arrow functions)
 
 Make sure you've read over [Part 1 of this tutorial](http://blog.amandafalke.com/tutorials/2017/04/12/intro-to-modern-javascript-for-cpp-developers.html). Currently, this post "Part 2" is definitively a "work in
 progress."
