@@ -26,14 +26,58 @@ If we mutate that object inside of that function, it will mutate the original ob
 That causes **side effects** which are unknown when we ("we" meaning, flow of execution control) are operating within
 the context of the function that brings that object in as a parameter.
 
-`TODO`: Finish
+## Iterators
+With the first step into looking into Iterators in JS, we come across in-depth knowledge of how Symbols work.
+>> String, Array, TypedArray, Map and Set are all built-in iterables, because each of their prototype objects implements an @@iterator method. In order to be iterable, an object must implement the @@iterator method, meaning that the object (or one of the objects up its prototype chain) must have a property with a @@iterator key which is available via constant Symbol.iterator... [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)
 
-## Map, Filter, Reduce
+We will leave the discussion of Symbols to [another future blog post](http://blog.amandafalke.com/tutorials/2018/02/23/async-await-infinite-regression.html).
+
+We will also assume that by covering Iterators for Arrays and Objects, that the use cases for Sets, Maps, TypedArray
+will seem intuitive. We will leave WeakMaps and WeakSets for a later discussion as well.
+
+### Array iterators
 
 ### Use Cases:
+- Iterate over an Array and transform its values into an output / use existing values
 - Filter to filter out undesired elements
 - Map to apply one function to all elements (similar to transform)
 - Reduce to accumulate values
+
+***We will begin with the simpler Array iterators and work our way into transducers.***
+
+Note that there are many, many Array.Prototype.DoAThing methods, search the MDN site to learn more.
+
+### .some
+`Array.prototype.some`
+
+**Returns:** a boolean value … IF some elements meet requirement.
+
+.some in repl:
+```
+function isAbove10(elem, index, array) { return elem > 10 }
+[1,2,3,4].some(isAbove10) // false
+[88,31,2].some(isAbove10) // true
+```
+```
+function isAbove10(elem) { return elem > 10 }
+[1,2,3,4].some(isAbove10) // false
+[1,2,3,44].some(isAbove10) // true
+```
+
+Same thing with arrow functions:
+```
+const above10 = elem => elem > 10
+[1,2,3].some(above10) // false
+[10,11].some(above10) // true
+```
+
+### .every
+**Returns:** a boolean value … IF all elements meet requirement.
+
+Code is pretty much the same as with `.some`.
+
+### .forEach
+Just iterators for collections. Executes a provided function `for each` Array element.
 
 ### Filter
 Filters out undesired elements. There's a callback function that
@@ -79,9 +123,8 @@ const aSet =
   fruit.filter((elem, index, fruity) => fruit.indexOf(elem) === index)
 ```
 
-
 ### Map
-`TODO`: Finish this section.
+`TODO`: Complete this section.
 
 Map is used to transform an entire data structure.
 
@@ -107,46 +150,43 @@ doubled // result:  [2, 4, 6, 8]
 ```
 Again, we note ES6 arrow function syntax.
 
-### TODO: Reduce
-Iterates over a collection and returns an accumulated value.
+### Reduce
+`TODO`: Complete this section.
 
-## Every, Some, Each
+Reduce **Iterates over a collection and returns an accumulated value.**
 
-### .some
-`Array.prototype.some`
+### Transducers
+`TODO`: Complete this section.
 
-**Returns:** a boolean value … IF some elements meet requirement.
+## Object iterators
+Before we go into Object iterators, let's talk about how JS objects work.
 
-.some in repl:
-```
-function isAbove10(elem, index, array) { return elem > 10 }
-[1,2,3,4].some(isAbove10) // false
-[88,31,2].some(isAbove10) // true
-```
-```
-function isAbove10(elem) { return elem > 10 }
-[1,2,3,4].some(isAbove10) // false
-[1,2,3,44].some(isAbove10) // true
-```
+- Enumerable Properties : does it have its own?
+- Iterator Protocols
 
-Same thing with arrow functions:
-```
-const above10 = elem => elem > 10
-[1,2,3].some(above10) // false
-[10,11].some(above10) // true
-```
+### Enumerable Properties: "On THIS object, not down the prototype chain"
+An Object has Enumerable properties when its properties are its own properties,
+instead of just being properties that belong to another object somewhere in the Prototype Chain. Recall that we
+covered the Prototype Chain in the [first post of this series](http://blog.amandafalke.com/tutorials/2017/04/12/intro-to-modern-javascript-for-cpp-developers.html).
 
-### .every
-`Array.prototype.each`
+**There are a lot of methods for Objects in JS on the MDN site. How can I intuitively tell the difference?**
 
-**Returns:** a boolean value … IF all elements meet requirement.
+To think simply about whether a method or context refers to the enumerability of an object, think about what it is.
 
-Code is pretty much the same as with .some.
+If it's *enumerable*, it *has its own stuff.*
 
+It makes sense now why `hasOwnProperty()` refers to whether an object's property is an enumerable one.
 
-## TODO: .each ?
+[See more on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties).
 
-## TODO: for of, for in...
+### Iterable and Iterator Protocols
+Recall that an Object is not "iterable"/"built in iterable", but it does have an Iterator protocol. [MDN](Iterable and Iterator Protocols)
+
+### for of
+`for of` and `for in` are iterators for Objects. You can find out more about them on the MDN site.
+
+### for in
+[`for in`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in) iterates over the enumerable properties of an Object.
 
 ## Arrow Functions
 Arrow functions resolve the JS `this` problem.
