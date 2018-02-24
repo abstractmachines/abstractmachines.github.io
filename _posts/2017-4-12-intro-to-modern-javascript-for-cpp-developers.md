@@ -155,7 +155,7 @@ languages"**, and that is often the case in the CS world:
 http://stackoverflow.com/questions/9154388/does-untyped-also-mean-dynamically-typed-in-the-academic-cs-world
 
 
-# JS Values versus Objects
+# Objects and Primitives
 
 ## JavaScript Primitives (values)
 Anything that's a primitive type such as boolean, number, string, null,
@@ -181,11 +181,92 @@ user-created Object) results in changes available outside the function's scope.
 2. Evaluated by reference (equality/comparison operators `===`)
 3. Since JavaScript has Prototype Inheritance, and the Prototype Chain, the
 only construct existing in JS "inheritance" is the Object and Prototype Chain
+4. Have methods such as `isEnumerable` and `hasOwnPrototype` to peek at either object itself or objects in Prototype Chain
+5. Passed into functions by reference, causing unwanted side effects (more on this later)
 
 **What is an Object?**
+Anything that doesn't use the built-in primitives. JavaScript is fairly object-centric; its inheritance model is
+based upon Object Prototypes.
 
-Anything that doesn't use the built-in primitives.
+- Object keys can only be a String or a Symbol (more on Symbols later)
+- Copying objects (cloning) is pretty weird
 
+## Objects and the Prototype Chain: Defining JavaScript Inheritance
+[From Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+
+JavaScript Inheritance doesn't work like C/C++/Java does because those are
+(usually) OOP-based languages. JavaScript inheritance is based only on
+Objects, and the Prototype Chain.
+
+- Each Object has an internal "link" to its Prototype. Its Prototype also has
+its own Prototype ("the prototype of the prototype"), and so on, continuing.
+
+- When access to an Object's property is  requested, the accessor will look at
+the Object's properties as well as traverse the internal link to the Object's
+Prototype, to look for a match. If the match isn't found, the accessor will
+then traverse the internal link of the Object's Prototype TO the Object's
+Prototype's Prototype. This continues until a match is found OR end of chain.
+
+- Sound performance intensive? That's because it is. Further, each time an
+object's properties are iterated over, each property is itself enumerated. This
+is a very expensive operation. The method `hasOwnProperty` is, according to
+Mozilla, the only method to avoid traversal of the prototype chain.
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+
+### Bitwise Copy and Memberwise Copy: Shallow Clone and Deep Clone
+
+#### Shallow/Bitwise Copy
+Recall that bitwise copy in C/C++ uses functions like `memcpy`, which don't invoke the copy
+constructor. Failing to invoke constructors can involve some bugs later on in the code.
+
+*Bitwise copy is an implementation of shallow copy. Shallow copy just means copying data.*
+
+#### Deep/Memberwise Copy
+Recall that memberwise copy in C/C++ often involves the Rule of Three, including constructors and
+the use of copy constructors in order to copy all of the data over. Slow but reliable.
+
+*Memberwise copy is an implementation of deep copy. Shallow copy just means copying data and pointers.*
+
+`Object.assign()` is used a lot to copy objects. Before we really can discuss copying or cloning of objects, we should first understand Deep Cloning and Shallow Cloning. It's notable that Object.assign does a shallow clone [see MDN's Deep Clone warning here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+
+Deep Clone and Shallow Clone graphic:
+![whee](images/js-object-cloning.png)
+
+How do we practically deep cloning? WE can use custom code... we can use for in loops with that custom code...
+we can use lodash's deepClone functionality, which is slow but commonly found in industry.
+
+### Enumerable Properties: "On THIS object, not down the prototype chain"
+An Object has Enumerable properties when its properties are its own properties,
+instead of just being properties that belong to another object somewhere in the Prototype Chain.
+
+
+**There are a lot of methods for Objects in JS on the MDN site. How can I intuitively tell the difference?**
+
+To think simply about whether a method or context refers to the enumerability of an object, think about what it is.
+
+If it's *enumerable*, it *has its own stuff.*
+
+It makes sense now why `hasOwnProperty()` refers to whether an object's property is an enumerable one.
+
+[See more on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties).
+
+### Object iteration (note: usually done with Maps)
+#### Object.entries(obj)
+This method returns an array of object's Own Enumerable Properties, in key value pairs.
+
+#### Object.keys(obj)
+This does the same thing, but only returns/operates on keys, not values/pairs.
+
+Recall the Object keys can only be a String or a Symbol.
+
+#### Object.values(obj)
+Same as above, only values instead of keys.
+
+#### for in
+[`for in`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in) iterates over the enumerable properties of an Object. It **returns unordered** results. (If you want order, use a for loop or similar).
+
+`for in` is interesting because it enumerates over properties that are also in the Prototype Chain. MDN-recommended methods `.hasOwnProperty()` and `.propertyIsEnumerable()` can be used to. If you read the previous section, these should seem intuitive.
 
 # JS Operators
 
@@ -1141,30 +1222,6 @@ in directives/components - that is it! Classes map perfectly to services!
 
 
 > `Use const over let, so you can mutate later.`
-
-
-## JavaScript Prototypal Inheritance and the Prototype Chain
-[From Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
-
-JavaScript Inheritance doesn't work like C/C++/Java does because those are
-(usually) OOP-based languages. JavaScript inheritance is based only on
-Objects, and the Prototype Chain.
-
-- Each Object has an internal "link" to its Prototype. Its Prototype also has
-its own Prototype ("the prototype of the prototype"), and so on, continuing.
-
-- When access to an Object's property is  requested, the accessor will look at
-the Object's properties as well as traverse the internal link to the Object's
-Prototype, to look for a match. If the match isn't found, the accessor will
-then traverse the internal link of the Object's Prototype TO the Object's
-Prototype's Prototype. This continues until a match is found OR end of chain.
-
-- Sound performance intensive? That's because it is. Further, each time an
-object's properties are iterated over, each property is itself enumerated. This
-is a very expensive operation. The method `hasOwnProperty` is, according to
-Mozilla, the only method to avoid traversal of the prototype chain.
-
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
 
 ## Common JavaScript Design Patterns
 

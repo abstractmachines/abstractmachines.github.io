@@ -115,9 +115,7 @@ const aSet = fruit.filter((elem, index, fruity) => fruit.indexOf(elem) === index
 ```
 
 ### Map
-`TODO`: Complete this section.
-
-Map is used to transform an entire data structure.
+Map is used to transform an entire data structure. [Please see my Sets and Maps Gist for more info](https://gist.github.com/abstractmachines/ba21a7f296e6d1726a3a2e845834b2ec).
 
 >> "Pure functions are all about mapping. Functions map input arguments to return values, meaning that for each set of inputs, there exists an output. A function will take the inputs and return the corresponding output."
 [“Mapping” — Eric Elliott]( https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-pure-function-d1c076bec976)
@@ -147,10 +145,15 @@ Reduce **Iterates over a collection and returns an accumulated value.**
 Transducers combine operations, hence skipping intermediary computational steps typically created by chaining JavaScript
 methods together. [Please see my Transducers Gist for more info](https://gist.github.com/abstractmachines/06ac6e14ec8335c7873da3e5e8a9ecd8).
 
-## Object iterators
+## Object, Set, Map Iterators
 
 ### JavaScript Iterators: Sets and Maps
-Note: In ES6 (and beyond) we tend to use Maps instead of Objects for iteration, because the Object prototype chain can be problematic for iteration. [Please see my Gist for more info](https://gist.github.com/abstractmachines/ba21a7f296e6d1726a3a2e845834b2ec).
+In ES6 (and beyond) we tend to use Maps instead of Objects for iteration, because:
+- the Object prototype chain can be problematic for iteration;
+- Maps are more performant;
+- Maps keys can be any data type; Object keys can only be a String or a Symbol.
+
+[Please see my Gist for more info](https://gist.github.com/abstractmachines/ba21a7f296e6d1726a3a2e845834b2ec).
 
 Before we go into Object iterators, let's talk about how JS objects work.
 
@@ -178,6 +181,8 @@ This method returns an array of object's Own Enumerable Properties, in key value
 ### Object.keys(obj)
 This does the same thing, but only returns/operates on keys, not values/pairs.
 
+Recall the Object keys can only be a String or a Symbol.
+
 ### Object.values(obj)
 Same as above, only values instead of keys.
 
@@ -197,7 +202,7 @@ Same as above, only values instead of keys.
 
   In functional programming, functions aren't "called", they're "applied."
   For partial application of functions -- applying only one argument at a time.
-  Makes things more testable, easier to reason about... TODO
+  Makes things more testable, easier to reason about...
 
 - Spread Operator, ES6 Destructuring, ES6 Shorthand
 
@@ -206,6 +211,8 @@ Same as above, only values instead of keys.
 - ##### Immutability
  > There are two ways to change data: update (mutate) existing data, or create a new/updated copy of the data.
  >> When we change existing data, side effects (bad things) can occur.
+
+ - - Cover freeze() and clone() methods
 
 - ###### Pure Functions
 In [Eric Elliot](https://medium.com/@_ericelliott)'s functional programming tutorials on Medium, one of the first things he mentions in his [Pure Functions tutorial](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-pure-function-d1c076bec976) is how objects
