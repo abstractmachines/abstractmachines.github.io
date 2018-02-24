@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Introduction to modern JavaScript, Part 3: Information Hiding"
-date:   2018-2-24 8:03:00 -0700
+date:   2018-2-23 8:03:00 -0700
 categories: tutorials
 ---
 # Information Hiding in JavaScript: WeakMaps and WeakSets
