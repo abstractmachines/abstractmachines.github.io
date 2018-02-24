@@ -18,7 +18,7 @@ References:
 Code will generally be restricted to Github gists which I'll link to so that article can focus on the concepts.
 
 ## Iterators
-In JavaScript, an **Iterable** is a data structure that implements the `Symbol.iterator` **factory**. [More on Symbols](http://blog.amandafalke.com/tutorials/2018/02/23/async-await-infinite-regression.html).
+In JavaScript, an **Iterable** is a data structure that implements the `Symbol.iterator` **factory**. [More on Symbols](http://blog.amandafalke.com/tutorials/2018/02/24/async-await-infinite-regression.html).
 
 An Iterator is just a pointer for traversal, similar to a database cursor, or a C++ 14 Iterator.
 
@@ -28,7 +28,7 @@ statement can be executed for each element.
 Recall that we don't have to study much about Iterators in JS before we come across in-depth knowledge of how Symbols work.
 >> String, Array, TypedArray, Map and Set are all built-in iterables, because each of their prototype objects implements an @@iterator method. In order to be iterable, an object must implement the @@iterator method, meaning that the object (or one of the objects up its prototype chain) must have a property with a @@iterator key which is available via constant Symbol.iterator... [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)
 
-We will leave the discussion of Symbols to [another future blog post](http://blog.amandafalke.com/tutorials/2018/02/23/async-await-infinite-regression.html).
+We will leave the discussion of Symbols to [another future blog post](http://blog.amandafalke.com/tutorials/2018/02/24/async-await-infinite-regression.html).
 
 We will also assume that by covering Iterators for Arrays and Objects, that the use cases for Sets, Maps, TypedArray
 will seem intuitive. We will leave WeakMaps and WeakSets for a later discussion as well.
@@ -43,7 +43,7 @@ will seem intuitive. We will leave WeakMaps and WeakSets for a later discussion 
 ### Iterable and Iterator Protocols
 Recall that [an Object can be iterable](Iterable and Iterator Protocols), and that an Object "is an iterator" when
 it implements `next` and `done` values and API. We will leave the in-depth discussion of Iterators
-to [another future blog post](http://blog.amandafalke.com/tutorials/2018/02/23/async-await-infinite-regression.html).
+to [another future blog post](http://blog.amandafalke.com/tutorials/2018/02/24/async-await-infinite-regression.html).
 
 [`for of`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) iterates over the iterable properties of an Iterable. That's one example of implementation of Iterable/Iterable protocols.
 
