@@ -18,10 +18,10 @@ email: abstractmachines@gmail.com
 tagline: Hi, I'm Amanda, a software engineer located in beautiful Portland Oregon.
 description: > # this means to ignore newlines until "baseurl:"
   Hi, I'm Amanda, a software engineer currently located in Portland
-   Oregon. I like C/C++, JavaScript, AngularJS, Webpack, Node, nginx, and Linux.
-   I specialize in front end UI development for web and embedded systems.
-   I've worked on projects from AngularJS and Bootstrap sites built with Atom
-   and Webpack, to Qt C/C++ Linux native apps for the driverless cars industry.
+   Oregon. I am currently a Software Developer at a medical company; we make an app used today by cardiologists in
+   hospitals. I'm also a part time Embedded Systems Computer Engineering student finishing my senior year. I
+   previously worked in the driverless cars industry making developer tooling for automonous applications. I like
+   C/C++, Linux, React, Node, Qt, Markdown, and synthesizers.
 url: "http://blog.amandafalke.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: amanda_machina
 github_username:  abstractmachines
