@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Introduction to modern JavaScript, Part 4: Async/await's infinite regress"
-date:   2018-2-23 1:03:00 -0700
+date:   2018-2-24 1:03:00 -0700
 categories: tutorials
 ---
 # Asynchronous JavaScript: Async/await
