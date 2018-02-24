@@ -9,11 +9,17 @@ categories: tutorials
 Make sure you've read over [Part 1 of this tutorial](http://blog.amandafalke.com/tutorials/2017/04/12/intro-to-modern-javascript-for-cpp-developers.html). Currently, this post "Part 2" is definitively a "work in
 progress."
 
-For this article, I used information from MDN's site and wikipedia.
+References:
+- MDN
+- Wikipedia
+- Dr Axel Rauschmeyer site
+- Eric Elliott's Medium posts on JavaScript Scene
 
 Code will generally be restricted to Github gists which I'll link to so that article can focus on the concepts.
 
 ## Iterators
+In JavaScript,
+
 With iterations over collections, we always assume that we are mapping/transforming/producing outputs, and/or that a
 statement can be executed for each element.
 
