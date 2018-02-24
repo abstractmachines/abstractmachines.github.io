@@ -230,7 +230,7 @@ the use of copy constructors in order to copy all of the data over. Slow but rel
 
 `Object.assign()` is used a lot to copy objects. Before we really can discuss copying or cloning of objects, we should first understand Deep Cloning and Shallow Cloning. It's notable that Object.assign does a shallow clone [see MDN's Deep Clone warning here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
 
-![Deep Clone and Shallow Clone graphic](js-object-cloning.png)
+![Deep Clone and Shallow Clone graphic](http://abstractmachines.github.io/_posts/js-object-cloning.png)
 
 How do we practically deep cloning? WE can use custom code... we can use for in loops with that custom code...
 we can use lodash's deepClone functionality, which is slow but commonly found in industry.
