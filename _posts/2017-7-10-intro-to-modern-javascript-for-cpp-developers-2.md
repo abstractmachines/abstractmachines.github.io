@@ -18,12 +18,14 @@ References:
 Code will generally be restricted to Github gists which I'll link to so that article can focus on the concepts.
 
 ## Iterators
-In JavaScript,
+In JavaScript, an **Iterable** is a data structure that implements the `Symbol.iterator` **factory**. [More on Symbols](http://blog.amandafalke.com/tutorials/2018/02/23/async-await-infinite-regression.html).
+
+An Iterator is just a pointer for traversal, similar to a database cursor, or a C++ 14 Iterator.
 
 With iterations over collections, we always assume that we are mapping/transforming/producing outputs, and/or that a
 statement can be executed for each element.
 
-With the first step into looking into Iterators in JS, we come across in-depth knowledge of how Symbols work.
+Recall that we don't have to study much about Iterators in JS before we come across in-depth knowledge of how Symbols work.
 >> String, Array, TypedArray, Map and Set are all built-in iterables, because each of their prototype objects implements an @@iterator method. In order to be iterable, an object must implement the @@iterator method, meaning that the object (or one of the objects up its prototype chain) must have a property with a @@iterator key which is available via constant Symbol.iterator... [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)
 
 We will leave the discussion of Symbols to [another future blog post](http://blog.amandafalke.com/tutorials/2018/02/23/async-await-infinite-regression.html).
