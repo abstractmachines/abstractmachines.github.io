@@ -4,17 +4,17 @@ title:  "Introduction to modern JavaScript for C/C++ developers, Part 1"
 date:   2017-4-12 12:50:20 -0700
 categories: tutorials
 ---
-# JavaScript Tutorials for the C/C++ programmer.
+# JavaScript Tutorials for the C/C++ programmer
 
-This is an overview of a "bird's eye, Computer Science" tutorial of JS, and fairly broad in its scope - that is, to introduce C/C++ developers to concepts in JavaScript. Due to the breadth, it is a lengthy tutorial.
+TODO: Break this up into several smaller tutorials.
 
-This is in no way a complete or in-depth tutorial, and it is currently a work in progress (grammar, editing).
+This is an overview of a "bird's eye, Computer Science" tutorial of JS, and fairly broad in its scope - that is, to introduce C/C++ developers to concepts in JavaScript.
 
 - Not covered in this tutorial: DOM manipulation, Mozilla DOM API, JS libraries and frameworks.
 
 **References:**
 
-This was written by me, Amanda Falke, with information gleaned from:
+This was written by me, with information gleaned from:
 
 1. Mozilla JavaScript documentation
 2. Wikipedia
