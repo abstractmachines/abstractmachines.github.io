@@ -19,41 +19,38 @@ References:
 [Axel Rauschmayer mentions](http://2ality.com/2016/01/private-data-classes.html) 4 different ways to accomplish privacy:
 
 1. **Keeping data private in the class constructor**
-  Methods in the constructor are private. These are called `instance methods`. This is very normal for most languages.
-
-  `Instance methods` take up extra memory.
-
-  `Prototype methods` are "shared".
-
-  The constructor method is usually agreed on as one of the better methods. Use let or const to keep it block scoped.
-  The important part is that the arguments go into the constructor, not the class (similar to C++ copy constructors) in
-  the JS constructor, and we keep things in the constructor to guarantee privacy and encapsulation.
-
-  This article assumes a basic familiarity with C++ programming, the Rule of Three, and OOP. We won't cover it here.
-
-2.  **Underscore prefix naming conventions for private member variables**
-
-  This has the drawback of not actually being private. `_stuff`
-
+2. **Underscore prefix naming conventions for private member variables**
 3. **WeakMaps and WeakSets**
-  This article discusses WeakMaps and WeakSets.
-
-  Using WeakMaps and WeakSets is a good way to encapsulate data as well.
-
 4. **Using Symbols as keys for private properties**
 
-  Symbols are a pretty obscure technique.
+Let's discuss these 4 techniques.
 
-## WeakMaps and WeakSets : similar to Weak Pointers
+### Option 1. Keeping data private in the class constructor
+Methods in the constructor are private. These are called `instance methods`. This is very normal for most languages.
+
+`Instance methods` take up extra memory.
+
+`Prototype methods` are "shared".
+
+The constructor method is usually agreed on as one of the better methods. Use let or const to keep it block scoped.
+The important part is that the arguments go into the constructor, not the class (similar to C++ copy constructors) in
+the JS constructor, and we keep things in the constructor to guarantee privacy and encapsulation.
+
+This article assumes a basic familiarity with C++ programming, the Rule of Three, and OOP. We won't cover it here.
+
+### Option 2. Underscore prefix naming conventions for private member variables
+This has the drawback of not actually being private. `_stuff`
+
+### Option 3. WeakMaps and WeakSets : similar to Weak Pointers
 Recall that smart pointers are used in modern C++ to allocate temporary ownership. Weak pointers are a subset of that.
 
-### On Garbage Collection
+#### On Garbage Collection
 With regular maps and sets, there is "no" garbage collection for recently deleted items. The deleted items are GC'ed
 after the collection itself is deleted.
 
 WeakMaps/WeakSets are JavaScript's answer to the dangling pointer/reference problem - they allow deleted elements to be garbage collected.
 
-### Weakly Held References and Dangling Pointer Solutions
+#### Weakly Held References and Dangling Pointer Solutions
 
 - **WeakMaps: keys must be Objects.**
 - **WeakSets: data types must be Objects.**
@@ -62,6 +59,9 @@ WeakMaps/WeakSets are JavaScript's answer to the dangling pointer/reference prob
 
 WeakMaps are used commonly in JS for information hiding. They were used in Firefox Developer Tools. They are used in
 credentials.
+
+### Option 4. Using Symbols as keys for private properties
+This is pretty weird and obscure.
 
 ## Conclusion
 Use common sense (i.e. constructors) most of the time for encapsulation of private member variables and data in JS.
