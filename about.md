@@ -4,14 +4,15 @@ title: About
 permalink: /about/
 ---
 
-I like C/C++, JavaScript, AngularJS, Webpack, Node, nginx, and Linux.
+I'm currently a Software Developer working on a complex cardiology app used in hospitals today, and an Embedded
+Systems Computer Engineering student entering my senior year.
+
+I previously worked in the driverless cars industry as a Software Engineer, and in app and web development before that.
+
+ My code is in production today and used by cardiologists at hospitals, by software engineers at Intel, Toyota, Jaguar Land Rover, Renesas and other companies in their autonomous technology research departments, as well as by users of a lot of food and wine sites I made for national companies when I got started with my career.
+
+ I end up making developer tooling and automating things wherever I go.
+
+I like C/C++, Linux, JavaScript, Node, nginx, Verilog, Webpack, and synthesizers and drum machines.
 
 [Visit my portfolio site](http://abstractmachines.net)
-
-I specialize in front end UI development for web and embedded systems, and have
-some full stack and Linux skills as well. I've worked on projects from AngularJS
-and Bootstrap sites built with Atom and Webpack, to Qt C/C++ Linux native apps for the driverless cars industry. My code is in production today and used by software
-engineers at Intel, Toyota, Renesas and other companies in their driverless
-cars and autonomous technology research departments; I also have a lot of
-code in production today from web projects completed as a front end web
-developer.
