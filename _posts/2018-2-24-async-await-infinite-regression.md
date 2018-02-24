@@ -4,6 +4,10 @@ title:  "Introduction to modern JavaScript, Part 4: Async/await's infinite regre
 date:   2018-2-24 1:03:00 -0700
 categories: tutorials
 ---
+
+# WIP
+
+
 # Asynchronous JavaScript: Async/await
 When I began to really get into JS, I heard a lot about Generators, Iterators, and Async/await. Coming from the hardware
 world, I've written asynchronous code in Verilog for logic gate synthesis, shift registers and FPGAs; I've written "re-entrant" functions in Assembly without an operating system. Because of this background, learning about how asynchronous programming works in JavaScript under the hood was of particular interest to me. As with all things,
@@ -60,3 +64,5 @@ console.log(Object.getOwnPropertySymbols(obj))
 So, Symbols are pretty weird. They *don't have a literal return value.* The *return value is a type: symbol.*
 
 Recall that JavaScript object keys must always be a string (or Symbol), able to be coerced to a string, or an empty string.
+
+WIP, To Be Continued....
