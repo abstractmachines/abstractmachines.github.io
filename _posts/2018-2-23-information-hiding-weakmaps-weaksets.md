@@ -61,13 +61,15 @@ Weak pointers are a subset of that.
 
 Garbage collection uses nondeterminism to intelligently clean up memory.
 
-##### Maps
+**Maps**
+
 For the *lifetime* of the Map, references to its keys and values are held indefinitely.
 This blocks garbage collection for keys and values of that Map.
 
 Access happens via iteration/enumeration of keys via indexes.
 
-##### WeakMaps
+**WeakMaps**
+
 WeakMaps allow deleted elements to be garbage collected; the collection
 itself does not indefinitely hold references to its keys. Garbage collection is
 nondeterministic. That means that the order of and access to the WeakMap collection is
