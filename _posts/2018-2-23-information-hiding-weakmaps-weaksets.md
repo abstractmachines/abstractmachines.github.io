@@ -87,11 +87,6 @@ much more.
 a lot of what I've been told by senior engineers, which also aligns with my
 research.
 
-#### Weakly Held References and Dangling Pointer Solutions
-
-WeakMaps are used commonly in JS for information hiding. They were used in
-Firefox Developer Tools. They are used in credentials.
-
 ### Option 4. Using Symbols as keys for private properties
 This is pretty weird and obscure.
 
