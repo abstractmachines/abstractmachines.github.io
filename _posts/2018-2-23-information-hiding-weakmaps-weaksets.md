@@ -47,8 +47,7 @@ The use cases for these structures were not intuitively obvious to me at first.
 - **Weakly held references (think about how weak/smart pointers work)**
 - **NOT enumerable!!** If they were, you could see their data. (There are, of course, getters).
   ```
-  If WeakMaps were enumerable, you could ACCESS and REFER TO/REFERENCE the
-  values via their keys.
+  If WeakMaps were enumerable, state would depend on garbage collection. [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
   ```
 - **WeakMaps: keys must be Objects.**
 - **WeakSets: data types must be Objects.**
