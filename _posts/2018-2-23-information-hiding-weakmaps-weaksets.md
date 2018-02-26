@@ -87,7 +87,10 @@ a lot of what I've been told by senior engineers, which also aligns with my
 research.
 
 ### Option 4. Using Symbols as keys for private properties
-This is pretty weird and obscure.
+The (somewhat obscure) case for using Symbols for privacy/information hiding [has been made on occasion](https://medium.com/@davidrhyswhite/private-members-in-es6-db1ccd6128a5), but [as Rauschmeyer posits](http://2ality.com/2016/01/private-data-classes.html),
+it's not the safest method because properties and Symbols are still enumerable using `Reflect.ownKeys`.
+
+
 
 ## Conclusion
 Use common sense (i.e. constructors) most of the time for encapsulation of private member variables and data in JS.
