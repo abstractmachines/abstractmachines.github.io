@@ -1,17 +1,27 @@
 ---
 layout: post
-title:  "Introduction to modern JavaScript, Part 4: Async/await's infinite regress"
+title:  "Intro to JS, Part 4: Callbacks, Promises, and Async/await's infinite regress"
 date:   2018-2-24 1:03:00 -0700
 categories: tutorials
 ---
 
 # WIP
+This is an in progress post.
 
+Last updated : June 2018.
 
-# Asynchronous JavaScript: Async/await
-When I began to really get into JS, I heard a lot about Generators, Iterators, and Async/await. Coming from the hardware
-world, I've written asynchronous code in Verilog for logic gate synthesis, shift registers and FPGAs; I've written "re-entrant" functions in Assembly without an operating system. Because of this background, learning about how asynchronous programming works in JavaScript under the hood was of particular interest to me. As with all things,
-remembering the details is easier if you understand the big picture concept.
+# Topics: Iterators, Generators, Promises, Async/Await
+
+# Motivation
+When I began to really get into JS, I heard a lot about Generators, Iterators,
+and Async/await. Coming from the hardware world, I've written asynchronous code
+in Verilog for logic gate synthesis, shift registers and FPGAs; I've written
+"re-entrant" functions in ARM Assembly without an operating system.
+
+Because I have this background and due to my insatiable curiosity for learning
+how things work under the hood - combined with the JavaScript universe's penchant
+for using buzzwords and "hand waving" rather than describing how things actually
+work, I decided to make this blog post.
 
 ## Infinite regress: turtles all the way down
 The purpose of this article is to [find the "world turtle"](https://en.wikipedia.org/wiki/Turtles_all_the_way_down) of all of these asynchronous concepts in JavaScript which
@@ -21,10 +31,6 @@ play a part in understanding how `async/await` - and similar things - really wor
 ![Propositions](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Infinite_regress_en.svg/298px-Infinite_regress_en.svg.png)
 
 That is to say, we are going to get to the heart of the matter.
-
-By doing so, we can hopefully avoid falling into this common trap: Pretending to Know JavaScript!
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">“Everything you need to know about how to pretend you know JavaScript” - Honest O’Reilly books.</p>&mdash; I Am Devloper (@iamdevloper) <a href="https://twitter.com/iamdevloper/status/748201714440900610?ref_src=twsrc%5Etfw">June 29, 2016</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 **Our world turtle:**
 
