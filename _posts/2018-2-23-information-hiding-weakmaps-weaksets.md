@@ -42,7 +42,23 @@ This article assumes a basic familiarity with C++ programming, the Rule of Three
 This has the drawback of not actually being private. `_stuff`
 
 ### Option 3. WeakMaps and WeakSets
+
+Actual Use Cases for WeakMaps:
+- [Actual Uses of WeakMaps, Stack Overflow](https://stackoverflow.com/questions/29413222/what-are-the-actual-uses-of-es6-weakmap)
+- WeakMaps are used commonly in JS for information hiding.
+- They were (are?) used in Firefox Developer Tools.
+- They are used in credentials. (I've seen it).
+
 The use cases for these structures were not intuitively obvious to me at first.
+It's a little bit more intuitive when you recall how weak pointers pointers work.
+Recall that smart pointers are used in modern C++ to allocate temporary ownership.
+Weak pointers are a subset of that. If you're confused by this, read first about
+`smart pointers`, then about `weak pointers`.
+
+WeakMaps/Set concepts and concerns are **somewhat** similar to the concepts of weak pointers and
+shared memory and shared state concepts and concerns. These structures are created
+to avoid memory leaks for collections - and also, they are commonly used for
+information hiding/encapsulation.
 
 - **Weakly held references (think about how weak/smart pointers work)**
 - **NOT enumerable!!** If they were, you could see their data. (There are, of course, getters).
@@ -52,13 +68,19 @@ The use cases for these structures were not intuitively obvious to me at first.
 - **WeakMaps: keys must be Objects.**
 - **WeakSets: data types must be Objects.**
 
-Recall that smart pointers are used in modern C++ to allocate temporary ownership.
-Weak pointers are a subset of that.
-
-#### On Garbage Collection
+#### On Garbage Collection And WeakMaps / WeakSets
 [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
 
 Garbage collection uses nondeterminism to intelligently clean up memory.
+
+[MDN : Why WeakMaps](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
+
+**With regular maps and sets, there is "no" garbage collection for recently deleted items.
+The deleted items are GC'ed after the collection *itself* is deleted. There is no
+element-by-element GC management.**
+
+WeakMaps/WeakSets are JavaScript's answer to the dangling pointer/reference
+problem - they allow deleted elements to be garbage collected.
 
 **Maps**
 
@@ -90,12 +112,10 @@ research.
 The (somewhat obscure) case for using Symbols for privacy/information hiding [has been made on occasion](https://medium.com/@davidrhyswhite/private-members-in-es6-db1ccd6128a5), but [as Rauschmeyer posits](http://2ality.com/2016/01/private-data-classes.html),
 it's not the safest method because properties and Symbols are still enumerable using `Reflect.ownKeys`.
 
-
-
 ## Conclusion
 Use common sense (i.e. constructors) most of the time for encapsulation of private member variables and data in JS.
 
-When required, use WeakMaps and Weaksets.
+When required, use WeakMaps and WeakSets.
 
 See you next time,
 Amanda
