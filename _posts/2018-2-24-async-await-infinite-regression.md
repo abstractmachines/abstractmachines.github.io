@@ -10,7 +10,20 @@ This is an in progress post.
 
 Last updated : June 2018.
 
-# Topics: Iterators, Generators, Promises, Async/Await
+## The point of this post is to understand/teach async/await
+
+To do that properly, we must understand what async/await is built upon.
+
+# Topics of discussion
+
+Topics:
+- Higher order functions and callbacks
+- async/await (built on Promises)
+- Promises (built on Generators)
+- Generators (built on Iterators)
+- Iterators (built on Symbols)
+- Symbols (built on Objects - and other weird stuff)
+
 
 # Motivation
 When I began to really get into JS, I heard a lot about Generators, Iterators,
