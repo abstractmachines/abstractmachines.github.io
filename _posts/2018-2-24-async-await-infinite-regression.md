@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Intro to JS, Part 4: Callbacks, Promises, and Async/await's infinite regress"
+title:  "Introduction to modern JavaScript, Part 4: Async: From Callbacks To async/await, i.e. the infinite regress post"
 date:   2018-2-24 1:03:00 -0700
 categories: tutorials
 ---
