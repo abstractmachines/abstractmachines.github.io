@@ -12,34 +12,12 @@ Last updated : June 2018.
 
 ## The point of this post is to understand/teach async/await
 
-To do that properly, we must understand what async/await is built upon.
-
-# Topics of discussion
-
-Topics:
-- Higher order functions and callbacks
-- async/await (built on Promises)
-- Promises (built on Generators)
-- Generators (built on Iterators)
-- Iterators (built on Symbols)
-- Symbols (built on Objects - and other weird stuff)
-
-
-# Motivation
-When I began to really get into JS, I heard a lot about Generators, Iterators,
-and Async/await. Coming from the hardware world, I've written asynchronous code
-in Verilog for logic gate synthesis, shift registers and FPGAs; I've written
-"re-entrant" functions in ARM Assembly without an operating system.
-
-Because I have this background and due to my insatiable curiosity for learning
-how things work under the hood - combined with the JavaScript universe's penchant
-for using buzzwords and "hand waving" rather than describing how things actually
-work, I decided to make this blog post.
+To do that properly, we must understand what async/await is built upon. *To understand one thing, you must understand other things.*
 
 ## Infinite regress: turtles all the way down
+
 The purpose of this article is to [find the "world turtle"](https://en.wikipedia.org/wiki/Turtles_all_the_way_down) of all of these asynchronous concepts in JavaScript which
 play a part in understanding how `async/await` - and similar things - really work:
-
 
 ![Propositions](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Infinite_regress_en.svg/298px-Infinite_regress_en.svg.png)
 
@@ -47,15 +25,36 @@ That is to say, we are going to get to the heart of the matter.
 
 **Our world turtle:**
 
-**Async/await relies on Promises**
-> **Promises rely on Generators**
->> **Generators rely on Iterators**
->>> **Iterators rely on Symbols**
->>>> **Symbols rely on Objects**
->>>>> **Objects rely on/are the inherent structure of JS**
-
+**Async/await knowledge relies on Promises + Generators knowledge **
+> **Promises knowledge relies on Generators**
+>> **Generators knowledge relies on Iterators**
+>>> **Iterators knowledge relies on Symbols**
+>>>> **Symbols knowledge relies on Objects**
 
 ------
+## Higher order functions
+
+In computing, you'll hear about "higher order functions" a lot. What's that mean? Well ... it's debated, but in general:
+
+A higher order function is a function that:
+- Returns a function.
+- and/or, takes a function as an argument.
+- [see here for a debate on these two points.](https://en.wikipedia.org/wiki/Talk%3AHigher-order_function)
+- So it's a function dealing with functions.
+- [I am not going to talk about Functors right now.](https://en.wikipedia.org/wiki/Talk%3AHigher-order_function#Is_%22higher-order_function%22_synonymous_with_%22functor%22?)
+
+> Note: as per usual, passing functions into functions, and/or returning functions, isn't something we see only in JS, but as per usual, JS developers have their own language and universe for describing it. If you're an interested C/C++ developer, look up "function pointers."
+
+Ever hear this?
+
+>"In JavaScript, functions are first-class objects."
+
+Here's what that means.
+
+- In JS, functions are of the Function data type, which is an Object. [MDN says so.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions)
+
+## Callbacks
+
 ## Objects
 
 It's relative at this point to bring up a few review topics about JS objects:
