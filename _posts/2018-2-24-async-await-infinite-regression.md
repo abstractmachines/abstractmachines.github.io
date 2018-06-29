@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Introduction to modern JavaScript, Part 4: Async JS: From Callbacks To async/await"
+title:  "Intro to modern JS, Part 4: Async JS from callbacks to async/await"
 date:   2018-2-24 1:03:00 -0700
 categories: tutorials
 ---
