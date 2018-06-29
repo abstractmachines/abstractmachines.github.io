@@ -64,6 +64,7 @@ Here's what that means.
 
 > Callbacks are higher order functions.
 
+------
 # Callbacks
 
 > "A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action." [MDN](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
@@ -72,6 +73,7 @@ Here's what that means.
 
 WIP
 
+------
 # Objects
 
 It's relative at this point to bring up a few review topics about JS objects:
@@ -96,6 +98,7 @@ console.log(Object.getOwnPropertySymbols(obj))
 
 WIP
 
+------
 # Symbols
 
 So, Symbols are pretty weird. They *don't have a literal return value.* The *return value is a type: symbol.*
