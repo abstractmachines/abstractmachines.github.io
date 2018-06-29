@@ -14,6 +14,10 @@ Last updated : June 2018.
 
 To do that properly, we must understand what async/await is built upon. *To understand one thing, you must understand other things.*
 
+This article is structured around "things you hear JS/functional programming developers say" and "what those things actually mean."
+
+For more insight into functional programming I recommend the  [LambdaCast podcast on SoundCloud](https://soundcloud.com/lambda-cast).
+
 ## Infinite regress: turtles all the way down
 
 The purpose of this article is to [find the "world turtle"](https://en.wikipedia.org/wiki/Turtles_all_the_way_down) of all of these asynchronous concepts in JavaScript which
