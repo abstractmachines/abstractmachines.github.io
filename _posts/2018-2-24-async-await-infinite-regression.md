@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Introduction to modern JavaScript, Part 4: Async: From Callbacks To async/await, i.e. the infinite regress post"
+title:  "Introduction to modern JavaScript, Part 4: Async JS: From Callbacks To async/await"
 date:   2018-2-24 1:03:00 -0700
 categories: tutorials
 ---
@@ -12,9 +12,7 @@ Last updated : June 2018.
 
 ## About this article
 
-The point of this post is to understand/teach async/await.
-
-To do that properly, we must understand what async/await is built upon. *To understand one thing, you must understand other things.*
+The point of this post is to understand/teach async/await, and in the process, to cover the "prerequisites," namely, asynchronous JavaScript.
 
 This article is structured around "things you hear JS/functional programming developers say" and "what those things actually mean."
 
