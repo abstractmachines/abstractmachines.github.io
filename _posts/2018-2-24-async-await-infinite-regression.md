@@ -9,7 +9,7 @@ WIP: June 2018
 # Table of Contents
 
 - [About this article](#about-this-article)
-- [Infinite regress](#Infinite-regress:-turtles-all-the-way-down)
+- [Infinite regress](#infinite-regress:-turtles-all-the-way-down)
 - [Higher order functions](#Higher-order-functions)
 - [Callbacks](#Callbacks)
 - [Objects](#Objects)
