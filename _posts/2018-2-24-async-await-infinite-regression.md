@@ -53,11 +53,16 @@ Here's what that means.
 
 - In JS, functions are Objects. (*Functions are of the Function data type, which is an Object. [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions)*)
 - That means that they can be used like any other Object.
-- So, you can do a lot of stuff with functions.
-- Including, passing them into functions as arguments.
-- That's it.
+- So, you can do a lot of stuff with functions, including:
+- We can pass functions into functions as arguments, and operate on those args.
+- We can return functions from functions.
+- That's it. That's what that sentence `functions are first-class objects in JS` means.
+
+> Callbacks are a great use case for "functions as first class objects" in JS.
 
 ## Callbacks
+
+WIP
 
 ## Objects
 
