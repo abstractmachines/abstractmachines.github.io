@@ -16,9 +16,8 @@ WIP: June 2018
 
 # About this article
 
-The point of this post is to understand/teach async/await, and in the process, to cover the "prerequisites," namely, asynchronous JavaScript.
-
-This article is structured around "things you hear JS/functional programming developers say" and "what those things actually mean."
+This article will cover a high level, holistic understanding of asynchronous
+JavaScript as simply and accessibly as possible. Code examples are in vanilla JS.
 
 For more insight into functional programming I recommend the  [LambdaCast podcast on SoundCloud](https://soundcloud.com/lambda-cast).
 
@@ -71,7 +70,19 @@ Here's what that means.
 
 > For C/C++ developers: [Callbacks are function pointers in C/C++ (MDN).](https://developer.mozilla.org/en-US/docs/Mozilla/js-ctypes/Using_js-ctypes/Declaring_and_Using_Callbacks)
 
-WIP
+## Synchronous Callbacks
+
+```
+function sayName(name) { return console.log(name) }
+
+function greet(name, callback) {
+  console.log('Hello')
+
+  callback(name)
+}
+
+greet('World', sayName)
+```
 
 ------
 # Objects
