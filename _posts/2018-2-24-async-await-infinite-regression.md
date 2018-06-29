@@ -37,10 +37,9 @@ That is to say, we are going to get to the heart of the matter.
 In computing, you'll hear about "higher order functions" a lot. What's that mean? Well ... it's debated, but in general:
 
 A higher order function is a function that:
-- Returns a function.
+- Returns a function,
 - and/or, takes a function as an argument.
 - [see here for a debate on these two points.](https://en.wikipedia.org/wiki/Talk%3AHigher-order_function)
-- So it's a function dealing with functions.
 - [I am not going to talk about Functors right now.](https://en.wikipedia.org/wiki/Talk%3AHigher-order_function#Is_%22higher-order_function%22_synonymous_with_%22functor%22?)
 
 > Note: as per usual, passing functions into functions, and/or returning functions, isn't something we see only in JS, but as per usual, JS developers have their own language and universe for describing it. If you're an interested C/C++ developer, look up "function pointers." Even [MDN mentions that](https://developer.mozilla.org/en-US/docs/Mozilla/js-ctypes/Using_js-ctypes/Declaring_and_Using_Callbacks) callbacks are function pointers in C.
