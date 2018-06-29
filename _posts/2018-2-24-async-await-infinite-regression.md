@@ -25,11 +25,11 @@ That is to say, we are going to get to the heart of the matter.
 
 **Our world turtle:**
 
-**Async/await knowledge relies on Promises + Generators knowledge **
-> **Promises knowledge relies on Generators**
->> **Generators knowledge relies on Iterators**
->>> **Iterators knowledge relies on Symbols**
->>>> **Symbols knowledge relies on Objects**
+> **Async/await knowledge relies on Promises + Generators knowledge**
+>> **Promises knowledge relies on Generators**
+>>> **Generators knowledge relies on Iterators**
+>>>> **Iterators knowledge relies on Symbols**
+>>>>> **Symbols knowledge relies on Objects**
 
 ------
 ## Higher order functions
