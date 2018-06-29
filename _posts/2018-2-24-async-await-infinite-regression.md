@@ -63,11 +63,13 @@ Here's what that means.
 - We can return functions from functions.
 - That's it. That's what that sentence `functions are first-class objects in JS` means.
 
-> Callbacks are a great use case for "functions as first class objects" in JS.
+> Callbacks are a great use case for "functions as first class objects" in JS; passing a function as arguments as per above.
+
+> Callbacks are higher order functions.
 
 ## Callbacks
 
-WIP
+> "A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action." [MDN](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
 
 ## Objects
 
