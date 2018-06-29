@@ -46,18 +46,15 @@ A higher order function is a function that:
 - [see here for a debate on these two points.](https://en.wikipedia.org/wiki/Talk%3AHigher-order_function)
 - [on Functors](https://en.wikipedia.org/wiki/Talk%3AHigher-order_function#Is_%22higher-order_function%22_synonymous_with_%22functor%22?)
 
-Ever hear this?
+It is often said:
 
 >"In JavaScript, functions are first-class objects."
-
-Here's what that means.
 
 - In JS, functions are Objects. (*Functions are of the Function data type, which is an Object. [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions)*)
 - That means that they can be used like any other Object.
 - So, you can do a lot of stuff with functions, including:
 - We can pass functions into functions as arguments, and operate on those args.
 - We can return functions from functions.
-- That's it. That's what that sentence `functions are first-class objects in JS` means.
 
 > Callbacks are a great use case for "functions as first class objects" in JS; passing a function as arguments as per above.
 
