@@ -4,11 +4,7 @@ title:  "Intro to modern JS, Part 4: Async JS from callbacks to async/await"
 date:   2018-2-24 1:03:00 -0700
 categories: tutorials
 ---
-
-# WIP
-This is an in progress post.
-
-Last updated : June 2018.
+WIP: June 2018
 
 # About this article
 
@@ -20,12 +16,9 @@ For more insight into functional programming I recommend the  [LambdaCast podcas
 
 ## Infinite regress: turtles all the way down
 
-The purpose of this article is to [find the "world turtle"](https://en.wikipedia.org/wiki/Turtles_all_the_way_down) of all of these asynchronous concepts in JavaScript which
-play a part in understanding how `async/await` - and similar things - really work:
+The purpose of this article is to [find the "world turtle"](https://en.wikipedia.org/wiki/Turtles_all_the_way_down) of all of these asynchronous concepts in JavaScript.
 
 ![Propositions](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Infinite_regress_en.svg/298px-Infinite_regress_en.svg.png)
-
-That is to say, we are going to get to the heart of the matter.
 
 **Our world turtle:**
 
@@ -38,15 +31,13 @@ That is to say, we are going to get to the heart of the matter.
 ------
 # Higher order functions
 
-In computing, you'll hear about "higher order functions" a lot. What's that mean? Well ... it's debated, but in general:
+In computing, you'll hear about "higher order functions" a lot.
 
 A higher order function is a function that:
 - Returns a function,
 - and/or, takes a function as an argument.
 - [see here for a debate on these two points.](https://en.wikipedia.org/wiki/Talk%3AHigher-order_function)
 - [I am not going to talk about Functors right now.](https://en.wikipedia.org/wiki/Talk%3AHigher-order_function#Is_%22higher-order_function%22_synonymous_with_%22functor%22?)
-
-> Note: These concepts aren't things we see only in JS. If you're an interested C/C++ developer, look up "function pointers." Even [MDN mentions that](https://developer.mozilla.org/en-US/docs/Mozilla/js-ctypes/Using_js-ctypes/Declaring_and_Using_Callbacks) callbacks are function pointers in C.
 
 Ever hear this?
 
@@ -69,6 +60,10 @@ Here's what that means.
 
 > "A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action." [MDN](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
 
+> For C/C++ developers: [Callbacks are function pointers in C/C++ (MDN).](https://developer.mozilla.org/en-US/docs/Mozilla/js-ctypes/Using_js-ctypes/Declaring_and_Using_Callbacks)
+
+WIP
+
 # Objects
 
 It's relative at this point to bring up a few review topics about JS objects:
@@ -78,7 +73,7 @@ It's relative at this point to bring up a few review topics about JS objects:
 ```
 const obj = {}
 
-const key= 2
+const key = 2
 
 obj[key] = 'yarp'                 
 
@@ -91,6 +86,7 @@ console.log(Object.getOwnPropertySymbols(obj))
 ```
 *typeof and instanceof are not recommended for type detection in JS*
 
+WIP
 
 # Symbols
 
@@ -100,4 +96,4 @@ Symbols return the value of Object's .toString() invoked on its own keys.
 
 Recall that JavaScript object keys must always be a string (or Symbol), able to be coerced to a string, or an empty string.
 
-WIP, To Be Continued....
+WIP
