@@ -6,6 +6,15 @@ categories: tutorials
 ---
 WIP: June 2018
 
+# Table of Contents
+
+- [About this article](#about-this-article)
+- [Infinite regress](#Infinite-regress:-turtles-all-the-way-down)
+- [Higher order functions](#Higher-order-functions)
+- [Callbacks](#Callbacks)
+- [Objects](#Objects)
+- [Symbols](#Symbols)
+
 # About this article
 
 The point of this post is to understand/teach async/await, and in the process, to cover the "prerequisites," namely, asynchronous JavaScript.
