@@ -10,7 +10,7 @@ This is an in progress post.
 
 Last updated : June 2018.
 
-## About this article
+# About this article
 
 The point of this post is to understand/teach async/await, and in the process, to cover the "prerequisites," namely, asynchronous JavaScript.
 
@@ -36,7 +36,7 @@ That is to say, we are going to get to the heart of the matter.
 >>>>> **Symbols knowledge relies on Objects**
 
 ------
-## Higher order functions
+# Higher order functions
 
 In computing, you'll hear about "higher order functions" a lot. What's that mean? Well ... it's debated, but in general:
 
@@ -65,11 +65,11 @@ Here's what that means.
 
 > Callbacks are higher order functions.
 
-## Callbacks
+# Callbacks
 
 > "A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action." [MDN](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
 
-## Objects
+# Objects
 
 It's relative at this point to bring up a few review topics about JS objects:
 - Object property keys must be Strings (or Symbols), so they're coerced using `.toString()`
@@ -92,8 +92,11 @@ console.log(Object.getOwnPropertySymbols(obj))
 *typeof and instanceof are not recommended for type detection in JS*
 
 
-### Symbols: return value of Object's .toString() invoked on its own keys
+# Symbols
+
 So, Symbols are pretty weird. They *don't have a literal return value.* The *return value is a type: symbol.*
+
+Symbols return the value of Object's .toString() invoked on its own keys.
 
 Recall that JavaScript object keys must always be a string (or Symbol), able to be coerced to a string, or an empty string.
 
