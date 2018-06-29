@@ -51,7 +51,11 @@ Ever hear this?
 
 Here's what that means.
 
-- In JS, functions are of the Function data type, which is an Object. [MDN says so.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions)
+- In JS, functions are Objects. (*Functions are of the Function data type, which is an Object. [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions)*)
+- That means that they can be used like any other Object.
+- So, you can do a lot of stuff with functions.
+- Including, passing them into functions as arguments.
+- That's it.
 
 ## Callbacks
 
