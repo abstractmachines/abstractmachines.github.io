@@ -10,7 +10,9 @@ This is an in progress post.
 
 Last updated : June 2018.
 
-## The point of this post is to understand/teach async/await
+## About this article
+
+The point of this post is to understand/teach async/await.
 
 To do that properly, we must understand what async/await is built upon. *To understand one thing, you must understand other things.*
 
