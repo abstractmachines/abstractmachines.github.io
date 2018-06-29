@@ -44,7 +44,7 @@ A higher order function is a function that:
 - Returns a function,
 - and/or, takes a function as an argument.
 - [see here for a debate on these two points.](https://en.wikipedia.org/wiki/Talk%3AHigher-order_function)
-- [I am not going to talk about Functors right now.](https://en.wikipedia.org/wiki/Talk%3AHigher-order_function#Is_%22higher-order_function%22_synonymous_with_%22functor%22?)
+- [on Functors](https://en.wikipedia.org/wiki/Talk%3AHigher-order_function#Is_%22higher-order_function%22_synonymous_with_%22functor%22?)
 
 Ever hear this?
 
