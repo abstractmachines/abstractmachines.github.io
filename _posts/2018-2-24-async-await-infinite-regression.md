@@ -25,15 +25,15 @@ For more insight into functional programming I recommend the  [LambdaCast podcas
 
 The purpose of this article is to [find the "world turtle"](https://en.wikipedia.org/wiki/Turtles_all_the_way_down) of all of these asynchronous concepts in JavaScript.
 
-![Propositions](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Infinite_regress_en.svg/298px-Infinite_regress_en.svg.png)
-
-**Our world turtle:**
-
 > **Async/await knowledge relies on Promises + Generators knowledge**
 >> **Promises knowledge relies on Generators**
 >>> **Generators knowledge relies on Iterators**
 >>>> **Iterators knowledge relies on Symbols**
 >>>>> **Symbols knowledge relies on Objects**
+
+On infinite regress and the "world turtle":
+
+![Propositions](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Infinite_regress_en.svg/298px-Infinite_regress_en.svg.png)
 
 ------
 # Higher order functions
