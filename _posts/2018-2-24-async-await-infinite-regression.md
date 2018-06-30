@@ -21,7 +21,7 @@ JavaScript as simply and accessibly as possible. Code examples are in vanilla JS
 
 For more insight into functional programming I recommend the  [LambdaCast podcast on SoundCloud](https://soundcloud.com/lambda-cast).
 
-## Infinite regress: turtles all the way down
+**Infinite regress: turtles all the way down**
 
 The purpose of this article is to [find the "world turtle"](https://en.wikipedia.org/wiki/Turtles_all_the_way_down) of all of these asynchronous concepts in JavaScript.
 
@@ -69,7 +69,8 @@ It is often said:
 
 > For C/C++ developers: [Callbacks are function pointers in C/C++ (MDN).](https://developer.mozilla.org/en-US/docs/Mozilla/js-ctypes/Using_js-ctypes/Declaring_and_Using_Callbacks)
 
-## Synchronous Callbacks
+**Synchronous Callbacks**
+
 
 Callbacks aren't always asynchronous.
 
