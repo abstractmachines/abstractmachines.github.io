@@ -36,6 +36,7 @@ On infinite regress and the "world turtle":
 ![Propositions](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Infinite_regress_en.svg/298px-Infinite_regress_en.svg.png)
 
 ------
+
 # Higher order functions
 
 In computing, you'll hear about "higher order functions" a lot.
@@ -61,6 +62,7 @@ It is often said:
 > Callbacks are higher order functions.
 
 ------
+
 # Callbacks
 
 > "A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action." [MDN](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
@@ -69,19 +71,17 @@ It is often said:
 
 ## Synchronous Callbacks
 
-```
-function sayName(name) { return console.log(name) }
+Callbacks aren't always asynchronous.
 
-function greet(name, callback) {
-  console.log('Hello')
+[MDN code snippets](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
 
-  callback(name)
-}
+You can just synchronously call everything in order and execute functions right away.
 
-greet('World', sayName)
-```
+
+
 
 ------
+
 # Objects
 
 It's relative at this point to bring up a few review topics about JS objects:
@@ -107,6 +107,7 @@ console.log(Object.getOwnPropertySymbols(obj))
 WIP
 
 ------
+
 # Symbols
 
 So, Symbols are pretty weird. They *don't have a literal return value.* The *return value is a type: symbol.*
