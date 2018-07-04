@@ -70,7 +70,8 @@ It is often said:
 Recall in hardware/combinational logic that we have [synchronous and asynchronous
 circuits and hardware such as flip flops and asynchronous latches](http://www.ee.surrey.ac.uk/Projects/CAL/seq-switching/synchronous_and_asynchronous_cir.htm).
 If you have hardware and/or Verilog experience, you'll think of "synchronous"
-as being related to clocks and duty cycles. As a hardware person, when I hear the word "synchronous" I think "on the next clock."
+as being related to clocks and duty cycles. As a hardware person, when I hear the word "synchronous" I think about what happens on the very next clock. So, think of
+synchronous as meaning, right away.
 
 **Other fun async things to consider**
 
