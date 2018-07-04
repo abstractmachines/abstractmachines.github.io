@@ -8,10 +8,13 @@ WIP: July 2018
 
 # Table of Contents
 
+Section I. Overview
 - [About this article](#about-this-article)
 - [Higher order functions](#higher-order-functions)
 - [Synchronous and Asynchronous](#synchronous-and-asynchronous)
 - [Callbacks](#callbacks)
+
+Section 2. The World Turtle
 - [Objects](#objects)
 - [Symbols](#symbols)
 - [Iterators](#iterators)
@@ -21,6 +24,10 @@ WIP: July 2018
 - ...
 
 - Other topics of discussion include *async, function pointers, Verilog, hardware clocks, operating systems, Linux*
+
+------
+# Section I. Overview
+------
 
 # About this article
 
@@ -39,7 +46,6 @@ The purpose of this article is to [find the "world turtle"](https://en.wikipedia
 >>> **Generators knowledge relies on Iterators**
 >>>> **Iterators knowledge relies on Symbols**
 >>>>> **Symbols knowledge relies on Objects**
-------
 
 # Higher order functions
 
@@ -64,8 +70,6 @@ It is often said:
 > Callbacks are a great use case for "functions as first class objects" in JS; passing a function as arguments as per above.
 
 > Callbacks are higher order functions.
-
-------
 
 # Synchronous and Asynchronous
 
@@ -116,8 +120,10 @@ A lot of developers think of callbacks as asynchronous code, and that's true, bu
 A lot of the time, callbacks are used when processing time for a network request
 is nondeterministic (which is, a lot of the time). Read more about callbacks on
 MDN, Dr Axel Rauschmayer's site, JavaScriptIsSexy, or similar.
-------
 
+------
+# Section II. The World Turtle
+------
 # Objects
 
 It's relative at this point to bring up a few review topics about JS objects:
