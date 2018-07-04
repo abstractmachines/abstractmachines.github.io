@@ -4,7 +4,7 @@ title:  "Intro to modern JS, Part 4: Async JS from callbacks to async/await"
 date:   2018-2-24 1:03:00 -0700
 categories: tutorials
 ---
-WIP: June 2018
+WIP: July 2018
 
 # Table of Contents
 
@@ -13,6 +13,9 @@ WIP: June 2018
 - [Callbacks](#callbacks)
 - [Objects](#objects)
 - [Symbols](#symbols)
+- [Iterators](#iterators)
+- [Generators](#generators)
+- ...
 
 # About this article
 
@@ -79,7 +82,7 @@ Callbacks aren't always asynchronous.
 You can just synchronously call everything in order and execute functions right away.
 
 
-
+WIP WIP
 
 ------
 
