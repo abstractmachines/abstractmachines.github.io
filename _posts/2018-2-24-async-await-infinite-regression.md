@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Intro to modern JS, Part 4: Async JS from callbacks to async/await"
+title:  "Intro to modern JS for C/C++ developers, Part 4: Async JS from callbacks to async/await"
 date:   2018-2-24 1:03:00 -0700
 categories: tutorials
 ---
@@ -10,6 +10,7 @@ WIP: July 2018
 
 - [About this article](#about-this-article)
 - [Higher order functions](#higher-order-functions)
+- [Synchronous and Asynchronous](#synchronous-and-asynchronous)
 - [Callbacks](#callbacks)
 - [Objects](#objects)
 - [Symbols](#symbols)
@@ -17,10 +18,13 @@ WIP: July 2018
 - [Generators](#generators)
 - ...
 
+- Other topics of discussion include *async, function pointers, Verilog, hardware clocks, operating systems, Linux*
+
 # About this article
 
 This article will cover a high level, holistic understanding of asynchronous
-JavaScript as simply and accessibly as possible. Code examples are in vanilla JS.
+JavaScript as simply and accessibly as possible from the perspective of the low
+level (C/C++/hardware) developer.
 
 For more insight into functional programming I recommend the  [LambdaCast podcast on SoundCloud](https://soundcloud.com/lambda-cast).
 
@@ -33,11 +37,6 @@ The purpose of this article is to [find the "world turtle"](https://en.wikipedia
 >>> **Generators knowledge relies on Iterators**
 >>>> **Iterators knowledge relies on Symbols**
 >>>>> **Symbols knowledge relies on Objects**
-
-On infinite regress and the "world turtle":
-
-![Propositions](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Infinite_regress_en.svg/298px-Infinite_regress_en.svg.png)
-
 ------
 
 # Higher order functions
@@ -66,24 +65,41 @@ It is often said:
 
 ------
 
+# Synchronous and Asynchronous
+
+Recall in hardware/combinational logic that we have [synchronous and asynchronous
+circuits and hardware such as flip flops and asynchronous latches](http://www.ee.surrey.ac.uk/Projects/CAL/seq-switching/synchronous_and_asynchronous_cir.htm).
+If you have hardware and/or Verilog experience, you'll think of "synchronous"
+as being related to clocks and duty cycles. As a hardware person, when I hear the word "synchronous" I think "on the next clock."
+
+**Other fun async things to consider**
+
+It would be fun to talk about things here like threading in Linux and interprocess
+communication, or how JavaScript has a single-threaded event loop, but Node is multi-threaded thanks to the C++ worker queue, and how processor-intensive jobs are handled in
+Node (and in operating systems) by a different kind of queueing algorithm than
+IO-intensive jobs, and all sorts of super fun ways to spend our time. Perhaps in
+a future blog post!
+
+> "**Synchronous:**" occurring at the same time
+- [definition](http://www.dictionary.com/browse/synchronous)
+
+> "**Asynchronous** refers to a communication environment where each party receives and processes messages when convenient or possible rather than immediately."
+- [MDN]((https://developer.mozilla.org/en-US/docs/Glossary/asynchronous)
+
 # Callbacks
+
+**Synchronous and Asynchronous Callbacks**
+
+A lot of developers think of callbacks as asynchronous code, and that's true, but
+[callbacks can also be synchronous (MDN on callbacks)](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function).
 
 > "A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action." [MDN](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
 
 > For C/C++ developers: [Callbacks are function pointers in C/C++ (MDN).](https://developer.mozilla.org/en-US/docs/Mozilla/js-ctypes/Using_js-ctypes/Declaring_and_Using_Callbacks)
 
-**Synchronous Callbacks**
-
-
-Callbacks aren't always asynchronous.
-
-[MDN code snippets](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
-
-You can just synchronously call everything in order and execute functions right away.
-
-
-WIP WIP
-
+A lot of the time, callbacks are used when processing time for a network request
+is nondeterministic (which is, a lot of the time). Read more about callbacks on
+MDN, Dr Axel Rauschmayer's site, JavaScriptIsSexy, or similar.
 ------
 
 # Objects
