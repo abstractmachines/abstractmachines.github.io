@@ -69,17 +69,18 @@ It is often said:
 
 Recall in hardware/combinational logic that we have [synchronous and asynchronous
 circuits and hardware such as flip flops and asynchronous latches](http://www.ee.surrey.ac.uk/Projects/CAL/seq-switching/synchronous_and_asynchronous_cir.htm).
-If you have hardware and/or Verilog experience, you'll think of "synchronous"
+If you have hardware and/or Verilog experience, you'll think of "asynchronous" as
+"nonblocking", and you'll also likely tend to think of the word "synchronous"
 as being related to clocks and duty cycles. As a hardware person, when I hear the word "synchronous" I think about what happens on the very next clock. So, think of
-synchronous as meaning, right away.
+synchronous as meaning, "right away."
 
 **Other fun async things to consider**
 
 It would be fun to talk about things here like threading in Linux and interprocess
-communication, or how JavaScript has a single-threaded event loop, but Node is multi-threaded thanks to the C++ worker queue, and how processor-intensive jobs are handled in
-Node (and in operating systems) by a different kind of queueing algorithm than
-IO-intensive jobs, and all sorts of super fun ways to spend our time. Perhaps in
-a future blog post!
+communication, or how JavaScript has a single-threaded event loop, but Node is multi-threaded thanks to the C++ worker queue, and Node handles CPU-bound versus IO-bound
+processes differently by either sending them into the async worker queue or not,
+and all sorts of fun operating systems concepts and queueing algorithms. Perhaps
+in a future blog post.
 
 > "**Synchronous:**" occurring at the same time
 - [definition](http://www.dictionary.com/browse/synchronous)
