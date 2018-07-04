@@ -77,10 +77,10 @@ synchronous as meaning, "right away."
 **Other fun async things to consider**
 
 It would be fun to talk about things here like threading in Linux and interprocess
-communication, or how JavaScript has a single-threaded event loop, but Node is multi-threaded thanks to the C++ worker queue, and Node handles CPU-bound versus IO-bound
-processes differently by either sending them into the async worker queue or not,
-and all sorts of fun operating systems concepts and queueing algorithms. Perhaps
-in a future blog post.
+communication, or how JavaScript has a single-threaded event loop, but Node is multi-threaded thanks to the C++ worker queue; we could talk about IO-Bound versus CPU-Bound
+processes and how Node is similar to Linux/OS development, and all sorts of fun
+operating systems concepts and queueing algorithms. Perhaps in a future blog post.
+For now, it's great to know that these skills are polymath, transferable skills!
 
 > "**Synchronous:**" occurring at the same time
 - [definition](http://www.dictionary.com/browse/synchronous)
