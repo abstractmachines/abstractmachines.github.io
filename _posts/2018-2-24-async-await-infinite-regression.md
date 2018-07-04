@@ -147,8 +147,6 @@ must be a string. [Note the MDN docs on Object keys, which include the "under th
 hood" behavior in a polyfill](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys). (A polyfill is code that implements newer features on older browsers
 that don't support that feature; it's usually conditionally executed).
 
-------
-
 # Symbols
 
 So, Symbols are pretty weird. They're a primitive type; you can't call "new Symbol."
