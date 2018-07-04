@@ -149,12 +149,21 @@ that don't support that feature; it's usually conditionally executed).
 
 # Symbols
 
+**Unique identification / references**
+
+Use cases:
+- Enums (since values always different)
+- Access private properties
+- privacy (see [Information Hiding post](http://blog.amandafalke.com/tutorials/2018/02/23/information-hiding-weakmaps-weaksets.html))
+
 So, Symbols are pretty weird. They're a primitive type; you can't call "new Symbol."
 They're used to identify individual objects, because every time you call a
 `Symbol()`, you create a new unique Symbol, with its own `memory reference.`
 
 - *don't have a literal return value.*
 - The *return value is a type: symbol, a primitive data type.*
+- Pass in a descriptor as arguments: `let aNode = Symbol('identify me')`
+- There's also a global Symbol registry. Neat!
 
 ```
 let q = Symbol()
@@ -179,10 +188,27 @@ language/program. One example of Well Known Symbols in JS is Symbol.hasInstance,
 
 <script src="https://gist.github.com/abstractmachines/18ea0dc6b8b98e307e937806b772f974.js"></script>
 
-## There are many well known symbols
+**There are many well known symbols**
+
 
 There are other "well known symbols" that are the implementation, under the hood, of JS functions.
 
 For example, `for of` uses `Symbol.iterator` under the hood (somewhere in the prototype chain, one of the objects in that chain has an @@iterator; each time the `for of` is used, `Symbol.iterator` is invoked). [More info on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator).
 
 Please also see [the gist itself]([link](https://gist.github.com/abstractmachines/18ea0dc6b8b98e307e937806b772f974)) for info on information hiding, why instanceOf sometimes lies, and other nerdy arguments.
+
+# Iterators
+
+WIP
+
+# Generators
+
+WIP
+
+# Promises
+
+WIP
+
+# Async/await
+
+WIP
