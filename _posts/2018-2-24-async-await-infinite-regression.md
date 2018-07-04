@@ -147,15 +147,32 @@ must be a string. [Note the MDN docs on Object keys, which include the "under th
 hood" behavior in a polyfill](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys). (A polyfill is code that implements newer features on older browsers
 that don't support that feature; it's usually conditionally executed).
 
-
 ------
 
 # Symbols
 
-So, Symbols are pretty weird. They *don't have a literal return value.* The *return value is a type: symbol.*
+So, Symbols are pretty weird. They're a primitive type; you can't call "new Symbol."
+They're used to identify individual objects, because every time you call a
+`Symbol()`, you create a new unique Symbol, with its own `memory reference.`
+
+- *don't have a literal return value.*
+- The *return value is a type: symbol, a primitive data type.*
+
+```
+let q = Symbol()
+
+let obj33 = {
+  prop: 'a prop',
+  [q]: 'Symbolix'
+}
+
+console.log(obj33) // { prop: 'a prop' } ... Symbol doesn't show up!
+```
 
 Symbols return the value of Object's .toString() invoked on its own keys.
 
 Recall that JavaScript object keys must always be a string (or Symbol), able to be coerced to a string, or an empty string.
 
-WIP
+My Github gist on Well Known Symbols, Reflection and Metaprogramming in JS:
+
+<script src="https://gist.github.com/abstractmachines/18ea0dc6b8b98e307e937806b772f974.js"></script>
