@@ -139,14 +139,14 @@ obj[key] = 'yarp'
 
 console.log(obj)               // { 2: 'yarp' }
 
-console.log(typeof key)       // number!
-console.log(typeof obj[key]) // string! It got coerced
-
-console.log(Object.getOwnPropertySymbols(obj))
+console.log(Object.keys(obj))  // [ '2' ] -> it's a string! Not a number.
 ```
-*typeof and instanceof are not recommended for type detection in JS*
 
-WIP
+See how the Number 2 was converted into a string? That's because all Object keys
+must be a string. [Note the MDN docs on Object keys, which include the "under the
+hood" behavior in a polyfill](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys). (A polyfill is code that implements newer features on older browsers
+that don't support that feature; it's usually conditionally executed).
+
 
 ------
 
