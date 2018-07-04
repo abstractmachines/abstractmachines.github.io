@@ -92,6 +92,18 @@ For now, it's great to know that these skills are polymath, transferable skills!
 
 # Callbacks
 
+Callbacks are functions which are passed as args to other functions, and then
+usually `"called back"` (called within that containing function, either by name,
+or by the arguments object which can be used to access lambdas/anonymous functions
+passed in as args). [See my first post in this series for more on the arguments object](http://blog.amandafalke.com/tutorials/2017/04/12/intro-to-modern-javascript-for-cpp-developers.html). But usually, you pass them in - and invoke them - by name.
+
+Since they're invoked inside another function, **callbacks are also closures.**
+
+**This and callback context**
+
+[See my first post in this series on "this/bind/call/apply" for more on setting the correct "this."](http://blog.amandafalke.com/tutorials/2017/04/12/intro-to-modern-javascript-for-cpp-developers.html) - if you're using "this" relevant to callbacks, make sure to handle
+it correctly for how JavaScript scopes variables.
+
 **Synchronous and Asynchronous Callbacks**
 
 A lot of developers think of callbacks as asynchronous code, and that's true, but
