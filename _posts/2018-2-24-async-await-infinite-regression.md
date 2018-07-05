@@ -204,7 +204,24 @@ In ES6, the ES6 iteration protocol is used under the hood with the spread
 operator, with array destructuring, Maps and Sets constructors, Promises,
 Array methods, and much more.
 
-> An Iterable Object has an iterator method with the key Symbol.iterator that returns an iterator object: [link](http://www.zsoltnagy.eu/es6-iterators-and-generators-in-practice/)
+### Iterator Object
+
+> An Iterator Object has a `next()` method which returns `done` and `value`,
+and it iterates until done is truthy:  [source](http://www.zsoltnagy.eu/es6-iterators-and-generators-in-practice/)
+```
+let iteratorObject = {
+    next() {
+        return {
+            done: true,
+            value: null
+        };
+    }    
+};
+```
+
+### Iterable Object returns Iterator Object via Symbol.iterator
+
+> An Iterable Object has an iterator method with the key Symbol.iterator that returns an iterator object: [source](http://www.zsoltnagy.eu/es6-iterators-and-generators-in-practice/)
 ```
 let iterableObject = {
   [Symbol.iterator]() { return iteratorObject; }  
