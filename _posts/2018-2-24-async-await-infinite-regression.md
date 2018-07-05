@@ -161,6 +161,12 @@ that don't support that feature; it's usually conditionally executed).
 
 **Totally Unique**
 
+Recall that JavaScript object keys must always be a string (or Symbol), able to be coerced to a string, or an empty string.
+
+So, Symbols are pretty weird. They're a primitive type; you can't call "new Symbol."
+They're used to identify individual objects, because every time you call a
+`Symbol()`, you create a new unique Symbol, with its own `memory reference.`
+
 Use cases:
 - Totally unique object keys (don't appear in iterations*; a "hidden layer" in objects)
 - Metadata in objects
@@ -168,17 +174,7 @@ Use cases:
 - Enums (since values always different)
 - Access private properties
 - Privacy (see [Information Hiding post](http://blog.amandafalke.com/tutorials/2018/02/23/information-hiding-weakmaps-weaksets.html))
-- Symbols don't appear in interations because they're not enumerable; they're not
-enumerable because they're not identifiable as normal parts of a "collection"
-
-So, Symbols are pretty weird. They're a primitive type; you can't call "new Symbol."
-They're used to identify individual objects, because every time you call a
-`Symbol()`, you create a new unique Symbol, with its own `memory reference.`
-
-- *don't have a literal return value.*
-- The *return value is a type: symbol, a primitive data type.*
-- Pass in a descriptor as arguments: `let aNode = Symbol('identify me')`
-- There's also a global Symbol registry. Neat!
+- Symbols don't appear in interations because they're not enumerable, like WeakMaps/WeakSets ([see my previous post on that.]((http://blog.amandafalke.com/tutorials/2018/02/23/information-hiding-weakmaps-weaksets.html)))
 
 ```
 let q = Symbol()
@@ -191,32 +187,12 @@ let obj33 = {
 console.log(obj33) // { prop: 'a prop' } ... Symbol doesn't show up!
 ```
 
-Symbols return the value of Object's .toString() invoked on its own keys.
-
-Recall that JavaScript object keys must always be a string (or Symbol), able to be coerced to a string, or an empty string.
-
 [My Github gist](https://gist.github.com/abstractmachines/18ea0dc6b8b98e307e937806b772f974) on Well Known Symbols, Reflection and Metaprogramming in JS:
-
 
 <script src="https://gist.github.com/abstractmachines/18ea0dc6b8b98e307e937806b772f974.js"></script>
 
-**There are many well known symbols**
-
-Well Known Symbols are Reflection via implementation in ES6.  
-Reflection in Metaprogramming: observing low level internals of a programming
-language/program. One example of Well Known Symbols in JS is Symbol.hasInstance, which instanceof uses under the hood.
-
-There are other "well known symbols" that are the implementation, under the hood, of JS functions.
-
-For example, `for of` uses `Symbol.iterator` under the hood (somewhere in the prototype chain, one of the objects in that chain has an @@iterator; each time the `for of` is used, `Symbol.iterator` is invoked). [More info on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator).
-
 Please also see [the gist itself]([link](https://gist.github.com/abstractmachines/18ea0dc6b8b98e307e937806b772f974)) for info on information hiding, why instanceOf sometimes lies, and other nerdy arguments.
 
-References/Sources on Symbols:
-- https://www.keithcirkel.co.uk/metaprogramming-in-es6-symbols/
-- http://exploringjs.com/es6/ch_symbols.html
-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof
-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/hasInstance
 
 # Iterators
 
