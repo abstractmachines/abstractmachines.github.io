@@ -168,7 +168,7 @@ They're used to identify individual objects, because every time you call a
 `Symbol()`, you create a new unique Symbol, with its own `memory reference.`
 
 Use cases:
-- Totally unique object keys (don't appear in iterations*; a "hidden layer" in objects)
+- Totally unique object keys (don't appear in iterations*; a "hidden layer" in objects) ... avoid name collisions, use globals without fear
 - Metadata in objects
 - Add hooks to objects
 - Enums (since values always different)
