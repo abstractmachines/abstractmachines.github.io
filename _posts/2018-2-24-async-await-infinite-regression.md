@@ -152,10 +152,11 @@ console.log(obj)               // { 2: 'yarp' }
 console.log(Object.keys(obj))  // [ '2' ] -> it's a string! Not a number.
 ```
 
+### All Object keys must be strings
 See how the Number 2 was converted into a string? That's because all Object keys
-must be a string. [Note the MDN docs on Object keys, which include the "under the
-hood" behavior in a polyfill](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys). (A polyfill is code that implements newer features on older browsers
-that don't support that feature; it's usually conditionally executed).
+must be a string. `.toString()` is called under the hood to convert!
+
+[Note the MDN polyfill](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys).
 
 # Symbols
 
@@ -163,18 +164,17 @@ that don't support that feature; it's usually conditionally executed).
 
 Recall that JavaScript object keys must always be a string (or Symbol), able to be coerced to a string, or an empty string.
 
-So, Symbols are pretty weird. They're a primitive type; you can't call "new Symbol."
-They're used to identify individual objects, because every time you call a
-`Symbol()`, you create a new unique Symbol, with its own `memory reference.`
+So, Symbols are pretty weird. They're a primitive type; you can't call "new Symbol",
+because the `new` keyword is for Objects.
+
+Every time you call `Symbol()`, you create a new unique Symbol, with its own `memory reference.`
 
 Use cases:
 - Totally unique object keys (don't appear in iterations*; a "hidden layer" in objects) ... avoid name collisions, use globals without fear
 - Metadata in objects
 - Add hooks to objects
 - Enums (since values always different)
-- Access private properties
 - Privacy (see [Information Hiding post](http://blog.amandafalke.com/tutorials/2018/02/23/information-hiding-weakmaps-weaksets.html))
-- Symbols don't appear in interations because they're not enumerable, like WeakMaps/WeakSets ([see my previous post on that.]((http://blog.amandafalke.com/tutorials/2018/02/23/information-hiding-weakmaps-weaksets.html)))
 
 ```
 let q = Symbol()
