@@ -6,6 +6,15 @@ categories: tutorials
 ---
 WIP: July 2018
 
+References/Sources:
+
+- [MDN JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [Dr Axel Rauschmayer's 2ality blog](http://2ality.com/2018/04/async-iter-nodejs.html)
+- [Dr Axel Rauschmayer's ExploringJS site](http://exploringjs.com/)
+- [JavaScript Is Sexy](http://javascriptissexy.com/)
+- Wikipedia
+- Stack Overflow
+
 # Table of Contents
 
 Section I. Overview
@@ -202,9 +211,18 @@ For example, `for of` uses `Symbol.iterator` under the hood (somewhere in the pr
 
 Please also see [the gist itself]([link](https://gist.github.com/abstractmachines/18ea0dc6b8b98e307e937806b772f974)) for info on information hiding, why instanceOf sometimes lies, and other nerdy arguments.
 
+References/Sources on Symbols:
+- https://www.keithcirkel.co.uk/metaprogramming-in-es6-symbols/
+- http://exploringjs.com/es6/ch_symbols.html
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/hasInstance
+
 # Iterators
 
-WIP
+An Iterator Object is a data structure that has a .next() method that can be called repeatedly.
+Iterators use the `Well Known Symbol` called `Symbol.iterator`, a *factory for iterators.*
+
+The Iterable Object has an Iterator pointer for indexing.
 
 # Generators
 
