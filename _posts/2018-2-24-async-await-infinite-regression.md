@@ -219,10 +219,49 @@ References/Sources on Symbols:
 
 # Iterators
 
-An Iterator Object is a data structure that has a .next() method that can be called repeatedly.
-Iterators use the `Well Known Symbol` called `Symbol.iterator`, a *factory for iterators.*
+**We've all iterated**
 
-The Iterable Object has an Iterator pointer for indexing.
+We've all used `for of`, `.forEach`, `.every`, `.some`, and similar constructs.
+
+This JS iterator example reminds me of iterators in modern C++:
+
+```
+const dogs = ['tiny', 'small', 'xbox']
+
+const it = dogs[Symbol.iterator]()
+
+> it.next()
+  { value: 'tiny', done: false }
+> it.next()
+  { value: 'small', done: false }
+> it.next()
+  { value: 'xbox', done: false }
+> it.next()
+  { value: undefined, done: true }
+>
+```
+
+**We've all iterated in JS**
+
+We know that most things in JS (Maps, Sets, Arrays, Strings) are iterable, and that
+we use Maps over Objects for iteration because [plain Object data types are not iterable](http://exploringjs.com/es6/ch_iteration.html#sec_plain-objects-not-iterable);
+we know to use `Object.entries()` and `Object.keys()` instead.
+
+Let's dig deeper.
+
+**Iterators Under The Hood**
+
+An Iterator Object is a data structure that:
+- Has a .next() method that can be called repeatedly;
+- Has a pointer for traversal;
+- Uses the `Well Known Symbol` called `Symbol.iterator`, a *factory for iterators.*
+- [That Symbol.iterator method makes elements accessible to the public.](http://exploringjs.com/es6/ch_iteration.html#sec_overview-iteration)
+- The Iterator object has two properties, value and done (boolean). Iteration will continue so long as done is falsey.
+
+[Please see my My Github gist](https://gist.github.com/abstractmachines/1c72a2bb4dee5b09abebee76fa77c0e0)
+on JS iterators (Arrays):
+
+<script src="https://gist.github.com/abstractmachines/1c72a2bb4dee5b09abebee76fa77c0e0.js"></script>
 
 # Generators
 
