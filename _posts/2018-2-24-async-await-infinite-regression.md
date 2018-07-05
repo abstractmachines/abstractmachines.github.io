@@ -118,7 +118,7 @@ Since they're invoked inside another function, **callbacks are also closures.**
 [See my first post in this series on "this/bind/call/apply" for more on setting the correct "this."](http://blog.amandafalke.com/tutorials/2017/04/12/intro-to-modern-javascript-for-cpp-developers.html) - if you're using "this" relevant to callbacks, make sure to handle
 it correctly for how JavaScript scopes variables.
 
-**Synchronous and Asynchronous Callbacks**
+### Synchronous and Asynchronous Callbacks
 
 A lot of developers think of callbacks as asynchronous code, and that's true, but
 [callbacks can also be synchronous (MDN on callbacks)](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function).
@@ -235,7 +235,7 @@ let iterableObject = {
 };
 ```
 
-**Arrays are Iterable**
+### Arrays are Iterable
 
 
 [My Github gist on Arrays:](https://gist.github.com/abstractmachines/1c72a2bb4dee5b09abebee76fa77c0e0)
@@ -259,7 +259,7 @@ const arr2 = ['a', ...arr, 'd']
 ```
 
 
-**Maps and Sets are Iterable, and Plain Objects aren't**
+### Maps and Sets are Iterable, and Plain Objects aren't
 
 We don't iterate with Objects via "Iterable" protocols because of problems with
 the prototype chain, and for [other reasons as well](http://exploringjs.com/es6/ch_iteration.html#sec_plain-objects-not-iterable);
@@ -272,7 +272,7 @@ instead, we use `Object.entries()` and `Object.keys()`. In ES6 we also have Maps
 
 More info from [my gist](https://gist.github.com/abstractmachines/ba21a7f296e6d1726a3a2e845834b2ec):
 
-**For of on Maps (and Sets)**
+#### For of on Maps (and Sets)
 
 **Iterating through entire key-value collection with for of**
 ```
@@ -281,7 +281,7 @@ More info from [my gist](https://gist.github.com/abstractmachines/ba21a7f296e6d1
 [ 'jazz', 'coltrane' ]
 [ 'funk', 'curtis mayfield' ]
 ```
-**Same thing, with specifying key and value for each element**
+#### Same thing, with specifying key and value for each element
 ```
 > for ( let [key, value] of artists ) { console.log(key, value) }
 
@@ -289,12 +289,12 @@ jazz coltrane
 funk curtis mayfield
 ```
 
-**Conversions**
+#### Conversions
 
 You can convert a Set to an Array with the Spread Operator : `let anArray = [...aSet]`
 
 
-**Iterators: Strings, spread, and for of**
+### Iterators: Strings, spread, and for of
 
 [Another little gist I made:](https://gist.github.com/abstractmachines/fb010c0385054237f8b04ae158aed873)
 
