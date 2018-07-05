@@ -249,6 +249,7 @@ More info from [my gist](https://gist.github.com/abstractmachines/1c72a2bb4dee5b
 - Spread operator can convert Sets to Arrays
 
 - The spread operator inserts the values of an iterable into an Array ([from Dr Axel](http://exploringjs.com/es6/ch_iteration.html)):
+
 ```
 const arr = ['b', 'c'];
 const arr2 = ['a', ...arr, 'd']
@@ -293,6 +294,11 @@ funk curtis mayfield
 You can convert a Set to an Array with the Spread Operator : `let anArray = [...aSet]`
 
 
+**Iterators: Strings, spread, and for of**
+
+[Another little gist I made:](https://gist.github.com/abstractmachines/fb010c0385054237f8b04ae158aed873)
+
+<script src="https://gist.github.com/abstractmachines/fb010c0385054237f8b04ae158aed873.js"></script>
 
 # Generators
 
