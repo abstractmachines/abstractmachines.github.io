@@ -246,14 +246,14 @@ let iterableObject = {
 };
 ```
 
+**Arrays are Iterable**
+
 [Please see my My Github gist](https://gist.github.com/abstractmachines/1c72a2bb4dee5b09abebee76fa77c0e0)
 on JS iterators (Arrays):
 
 <script src="https://gist.github.com/abstractmachines/1c72a2bb4dee5b09abebee76fa77c0e0.js"></script>
 
 **Arrays are just built-in iterables in JS**
-
-- Arrays are built-in iterables just like Sets, Maps, etc, and work well with the for-of loop.
 
 Converting other things to arrays
 - Array.from()
