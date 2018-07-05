@@ -244,9 +244,9 @@ let iterableObject = {
 
 More info from [my gist](https://gist.github.com/abstractmachines/1c72a2bb4dee5b09abebee76fa77c0e0):
 
-## Converting other things to arrays
-- **Array.from()**
-- **Spread operator** can convert Sets to Arrays
+**Converting other things to arrays**
+- Array.from()
+- Spread operator can convert Sets to Arrays
 
 - The spread operator inserts the values of an iterable into an Array ([from Dr Axel](http://exploringjs.com/es6/ch_iteration.html)):
 ```
