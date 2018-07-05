@@ -12,6 +12,7 @@ References/Sources:
 - [Dr Axel Rauschmayer's 2ality blog](http://2ality.com/2018/04/async-iter-nodejs.html)
 - [Dr Axel Rauschmayer's ExploringJS site](http://exploringjs.com/)
 - [JavaScript Is Sexy](http://javascriptissexy.com/)
+- [Zsolt Nagy](http://www.zsoltnagy.eu/es6-iterators-and-generators-in-practice/)
 - Wikipedia
 - Stack Overflow
 
