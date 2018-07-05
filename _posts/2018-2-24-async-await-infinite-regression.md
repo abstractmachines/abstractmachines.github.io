@@ -224,20 +224,9 @@ References/Sources on Symbols:
 
 We've all used `for of`, `.forEach`, `.every`, `.some`, and similar constructs.
 
-In ES6, the ES6 iteration protocol is used for:
-- Destructuring via an Array pattern
-- for-of loop
-- Array.from()
-- Spread operator (...)
-- Constructors of Maps and Sets
-- Promise.all(), Promise.race()
-- yield*
-
-**JS constructs: iterable?**
-
-We know that most things in JS (Maps, Sets, Arrays, Strings) are iterable, and that
-we use Maps over Objects for iteration because [plain Object data types are not iterable](http://exploringjs.com/es6/ch_iteration.html#sec_plain-objects-not-iterable);
-we know to use `Object.entries()` and `Object.keys()` instead.
+In ES6, the ES6 iteration protocol is used under the hood with the spread
+operator, with array destructuring, Maps and Sets constructors, Promises,
+Array methods, and much more.
 
 > An Iterable Object has an iterator method with the key Symbol.iterator that returns an iterator object: [link](http://www.zsoltnagy.eu/es6-iterators-and-generators-in-practice/)
 ```
@@ -248,16 +237,17 @@ let iterableObject = {
 
 **Arrays are Iterable**
 
-[Please see my My Github gist](https://gist.github.com/abstractmachines/1c72a2bb4dee5b09abebee76fa77c0e0)
-on JS iterators (Arrays):
+
+[My Github gist on Arrays:](https://gist.github.com/abstractmachines/1c72a2bb4dee5b09abebee76fa77c0e0)
 
 <script src="https://gist.github.com/abstractmachines/1c72a2bb4dee5b09abebee76fa77c0e0.js"></script>
 
-**Arrays are just built-in iterables in JS**
+More info from [my gist](https://gist.github.com/abstractmachines/1c72a2bb4dee5b09abebee76fa77c0e0):
 
-Converting other things to arrays
-- Array.from()
-- Spread operator can convert Sets to Arrays
+## Converting other things to arrays
+- **Array.from()**
+- **Spread operator** can convert Sets to Arrays
+
 - The spread operator inserts the values of an iterable into an Array ([from Dr Axel](http://exploringjs.com/es6/ch_iteration.html)):
 ```
 const arr = ['b', 'c'];
@@ -266,6 +256,43 @@ const arr2 = ['a', ...arr, 'd']
 // arr2 is now:
 > ['a', 'b', 'c', 'd']
 ```
+
+
+**Maps and Sets are Iterable, and Plain Objects aren't**
+
+We don't iterate with Objects via "Iterable" protocols because of problems with
+the prototype chain, and for [other reasons as well](http://exploringjs.com/es6/ch_iteration.html#sec_plain-objects-not-iterable);
+instead, we use `Object.entries()` and `Object.keys()`. In ES6 we also have Maps, Sets:
+
+
+[My Github gist on Maps and Sets:](https://gist.github.com/abstractmachines/ba21a7f296e6d1726a3a2e845834b2ec)
+
+<script src="https://gist.github.com/abstractmachines/ba21a7f296e6d1726a3a2e845834b2ec.js"></script>
+
+More info from [my gist](https://gist.github.com/abstractmachines/ba21a7f296e6d1726a3a2e845834b2ec):
+
+**For of on Maps (and Sets)**
+
+**Iterating through entire key-value collection with for of**
+```
+> for ( let pair of artists) { console.log(pair) }
+
+[ 'jazz', 'coltrane' ]
+[ 'funk', 'curtis mayfield' ]
+```
+**Same thing, with specifying key and value for each element**
+```
+> for ( let [key, value] of artists ) { console.log(key, value) }
+
+jazz coltrane
+funk curtis mayfield
+```
+
+**Conversions**
+
+You can convert a Set to an Array with the Spread Operator : `let anArray = [...aSet]`
+
+
 
 # Generators
 
