@@ -157,7 +157,7 @@ Use cases:
 - Add hooks to objects
 - Enums (since values always different)
 - Access private properties
-- privacy (see [Information Hiding post](http://blog.amandafalke.com/tutorials/2018/02/23/information-hiding-weakmaps-weaksets.html))
+- Privacy (see [Information Hiding post](http://blog.amandafalke.com/tutorials/2018/02/23/information-hiding-weakmaps-weaksets.html))
 - Symbols don't appear in interations because they're not enumerable; they're not
 enumerable because they're not identifiable as normal parts of a "collection"
 
@@ -187,14 +187,14 @@ Recall that JavaScript object keys must always be a string (or Symbol), able to 
 
 [My Github gist](https://gist.github.com/abstractmachines/18ea0dc6b8b98e307e937806b772f974) on Well Known Symbols, Reflection and Metaprogramming in JS:
 
-"Well Known Symbols are Reflection via implementation in ES6.  
-Reflection in Metaprogramming: observing low level internals of a programming
-language/program. One example of Well Known Symbols in JS is Symbol.hasInstance, which instanceof uses under the hood." [link](https://gist.github.com/abstractmachines/18ea0dc6b8b98e307e937806b772f974)
 
 <script src="https://gist.github.com/abstractmachines/18ea0dc6b8b98e307e937806b772f974.js"></script>
 
 **There are many well known symbols**
 
+Well Known Symbols are Reflection via implementation in ES6.  
+Reflection in Metaprogramming: observing low level internals of a programming
+language/program. One example of Well Known Symbols in JS is Symbol.hasInstance, which instanceof uses under the hood.
 
 There are other "well known symbols" that are the implementation, under the hood, of JS functions.
 
