@@ -223,45 +223,48 @@ References/Sources on Symbols:
 
 We've all used `for of`, `.forEach`, `.every`, `.some`, and similar constructs.
 
-This JS iterator example reminds me of iterators in modern C++:
+In ES6, the ES6 iteration protocol is used for:
+- Destructuring via an Array pattern
+- for-of loop
+- Array.from()
+- Spread operator (...)
+- Constructors of Maps and Sets
+- Promise.all(), Promise.race()
+- yield*
 
-```
-const dogs = ['tiny', 'small', 'xbox']
-
-const it = dogs[Symbol.iterator]()
-
-> it.next()
-  { value: 'tiny', done: false }
-> it.next()
-  { value: 'small', done: false }
-> it.next()
-  { value: 'xbox', done: false }
-> it.next()
-  { value: undefined, done: true }
->
-```
-
-**We've all iterated in JS**
+**JS constructs: iterable?**
 
 We know that most things in JS (Maps, Sets, Arrays, Strings) are iterable, and that
 we use Maps over Objects for iteration because [plain Object data types are not iterable](http://exploringjs.com/es6/ch_iteration.html#sec_plain-objects-not-iterable);
 we know to use `Object.entries()` and `Object.keys()` instead.
 
-Let's dig deeper.
-
-**Iterators Under The Hood**
-
-An Iterator Object is a data structure that:
-- Has a .next() method that can be called repeatedly;
-- Has a pointer for traversal;
-- Uses the `Well Known Symbol` called `Symbol.iterator`, a *factory for iterators.*
-- [That Symbol.iterator method makes elements accessible to the public.](http://exploringjs.com/es6/ch_iteration.html#sec_overview-iteration)
-- The Iterator object has two properties, value and done (boolean). Iteration will continue so long as done is falsey.
+> An Iterable Object has an iterator method with the key Symbol.iterator that returns an iterator object: [link](http://www.zsoltnagy.eu/es6-iterators-and-generators-in-practice/)
+```
+let iterableObject = {
+  [Symbol.iterator]() { return iteratorObject; }  
+};
+```
 
 [Please see my My Github gist](https://gist.github.com/abstractmachines/1c72a2bb4dee5b09abebee76fa77c0e0)
 on JS iterators (Arrays):
 
 <script src="https://gist.github.com/abstractmachines/1c72a2bb4dee5b09abebee76fa77c0e0.js"></script>
+
+**Arrays are just built-in iterables in JS**
+
+- Arrays are built-in iterables just like Sets, Maps, etc, and work well with the for-of loop.
+
+Converting other things to arrays
+- Array.from()
+- Spread operator can convert Sets to Arrays
+- The spread operator inserts the values of an iterable into an Array ([from Dr Axel](http://exploringjs.com/es6/ch_iteration.html)):
+```
+const arr = ['b', 'c'];
+const arr2 = ['a', ...arr, 'd']
+
+// arr2 is now:
+> ['a', 'b', 'c', 'd']
+```
 
 # Generators
 
