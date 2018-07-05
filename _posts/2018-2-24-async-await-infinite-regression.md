@@ -149,12 +149,17 @@ that don't support that feature; it's usually conditionally executed).
 
 # Symbols
 
-**Unique identification / references**
+**Totally Unique**
 
 Use cases:
+- Totally unique object keys (don't appear in iterations*; a "hidden layer" in objects)
+- Metadata in objects
+- Add hooks to objects
 - Enums (since values always different)
 - Access private properties
 - privacy (see [Information Hiding post](http://blog.amandafalke.com/tutorials/2018/02/23/information-hiding-weakmaps-weaksets.html))
+- Symbols don't appear in interations because they're not enumerable; they're not
+enumerable because they're not identifiable as normal parts of a "collection"
 
 So, Symbols are pretty weird. They're a primitive type; you can't call "new Symbol."
 They're used to identify individual objects, because every time you call a
