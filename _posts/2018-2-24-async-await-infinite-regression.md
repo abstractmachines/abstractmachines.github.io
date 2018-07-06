@@ -319,7 +319,7 @@ Most people who have written Assembly have hand-written reentrant functions,
 without an operating system. I've done this, and it has immensely helped me
 to understand what all of this is about.
 
-You can think of Generators as reentrant functions ([description here](https://en.wikipedia.org/wiki/Reentrancy_(computing)) that are "interrupted"
+You can think of Generators as reentrant functions ([description here](https://en.wikipedia.org/wiki/Reentrancy_(computing))) that are "interrupted"
 and `yield` control. The interrupt is initiated by the `next()` invocation
 used by a reference to the Generator; when `next()` is completed, control flow
 is returned to  the Generator in the next line of code down. It's similar to a
