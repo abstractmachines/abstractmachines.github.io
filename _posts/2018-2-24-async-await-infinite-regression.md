@@ -18,6 +18,8 @@ References/Sources:
 
 # Table of Contents
 
+* *note of apology: my blogs tend to be heavily peppered with C, Linux, ASM, and jazz fusion references.*
+
 Section I. Overview
 - [About this article](#about-this-article)
 - [Higher order functions](#higher-order-functions)
@@ -295,7 +297,127 @@ You can convert a Set to an Array with the Spread Operator : `let anArray = [...
 
 # Generators
 
-WIP
+Use cases:
+- Lazy evaluation : only evaluate parts of a function when necessary
+- Processing large data sets / lots of memory
+- Asynchronous programming
+
+The function signature of a Generator function uses a pointer:
+
+```
+let gen = function * generateRadness () {
+  // yield something
+}
+
+let callGen = gen()
+
+gen.next() // return something that was yielded.
+
+// goto back to Generator.... return (default undefined).
+```
+### Generators are reentrant
+
+Most people who have written Assembly have hand-written reentrant functions,
+without an operating system. I've done this, and it has immensely helped me
+to understand what all of this is about.
+
+You can think of Generators as reentrant functions ([description here](https://en.wikipedia.org/wiki/Reentrancy_(computing)) that are "interrupted"
+and `yield` control. The interrupt is initiated by the `next()` invocation
+used by a reference to the Generator; when `next()` is completed, control flow
+is returned to  the Generator in the next line of code down. It's similar to a
+`goto` statement. A lot of high level developers think that `goto` statements are
+always bad - but the Linux kernel has thousands of these statements.
+
+- Generator functions return a generator object that's both Iterable AND Iterator,
+so they have a `Symbol.iterator` method for the traversal/pointer, AND a `.next()`.
+
+- `yield`: pauses execution (in the Generator)
+
+- `next()`: resumes execution (from the caller manipulating the Generator)
+
+### Generators implement iterables
+A generator function returns a generator object which is iterable, and hence may
+be consumed by iterable constructs (`for of`, etc).
+
+```
+  function * generateRadness () {
+     yield 'rad'
+     yield 'radder'
+     yield 'raddest'
+  }
+
+  let iterateRadness = generateRadness()
+
+  iterateRadness.next() // {value: "rad", done: false}
+  iterateRadness.next() // {value: "radder", done: false}
+  iterateRadness.next() // {value: "raddest", done: false}
+  iterateRadness.next() // {value: undefined, done: true}
+```
+
+We know iterables can be consumed with iterator constructors. Same for Generators.
+Let's use some ES6 spreading:
+
+```
+  let destructureRadness = generateRadness()
+
+  [ ... destructureRadness ] // (3) ["rad", "radder", "raddest"]
+```
+Where are we now? We're at the end! Pointers, people!
+```
+  destructureRadness.next()  // {value: undefined, done: true}
+```
+Generators return undefined by default. Let's make a custom return. Bonus if you
+like jazz fusion jokes. If you don't, I feel bad for you having to read my blog.
+
+```
+  function * returnToForever () {
+     yield 'chickCorea'
+     yield 'is the best'
+     yield 'shredder'
+     return 'to forever'
+  }
+
+  let iterator = returnToForever()
+
+  iterator.next() // {value: "chickCorea", done: false}
+  iterator.next() // {value: "is the best", done: false}
+  iterator.next() // {value: "shredder", done: false}
+  iterator.next() // {value: "to forever", done: true}
+```
+You can do all sorts of stuff with Generators. Here's an up counter.
+
+```
+  let getCountupIterator = function *() {
+    let i = 0;
+    while (i <= 10) {
+      yield i++;
+    }
+  }
+```
+
+It's iterable, so we can spread it:
+```
+  console.log ( [ ...getCountupIterator() ] // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
+Or we can just create an iterator, and then call next:
+```
+  let it = getCountupIterator()
+
+  it.next() // {value: 0, done: false}
+  .....
+  .....
+  it.next() // {value: 10, done: false}
+  it.next() // {value: undefined, done: true}
+```
+
+You can also use arguments inside the caller to feed new values to the Generator
+which are then used by the Generator in that new context when control flow
+returns to the Generator after .next() completes.
+
+**Generators Conclusion**
+
+There's a lot you can do here with Generators that I haven't covered. Look it up!
 
 # Promises
 
