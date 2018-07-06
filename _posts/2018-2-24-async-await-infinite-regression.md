@@ -422,11 +422,43 @@ There's a lot you can do here with Generators that I haven't covered. Look it up
 
 # Promises
 
-WIP
+[Promises: Fundamentals (Google Developers)](https://developers.google.com/web/fundamentals/primers/promises)
+
+[Promises: States and Fates](https://github.com/domenic/promises-unwrapping/blob/master/docs/states-and-fates.md) is a great document on Promises written by a Google developer Domenic Denicola.
+
+From that article, let's discuss Promise States and Promise Fates:
+
+States:
+- Fulfilled (settled)
+- Rejected (settled)
+- Pending
+
+Fates:
+- Resolved
+- Unresolved
+
+*(A promise is Resolved if resolution operations have no effect (because it's either
+already settled, or it's chained into another promise).*
+
 
 # Coroutines
-TODO: http://2ality.com/2015/03/no-promises.html
+TODO:
+http://2ality.com/2015/03/no-promises.html
+
+https://medium.freecodecamp.org/write-modern-asynchronous-javascript-using-promises-generators-and-coroutines-5fa9fe62cf74
 
 # Async/await
+
+TODO
+
+async/await works a lot like Generators:
+- await uses await instead of yield.
+- await only works with Promises.
+- Instead of function*, it uses the async function keyword.
+https://medium.freecodecamp.org/some-of-javascripts-most-useful-features-can-be-tricky-let-me-explain-them-4003d7bbed32
+
+https://hackernoon.com/async-await-generators-promises-51f1a6ceede2
+
+http://www.zsoltnagy.eu/a-practical-introduction-to-es2017-async-await/
 
 WIP
