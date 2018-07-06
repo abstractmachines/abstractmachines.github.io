@@ -90,8 +90,11 @@ Recall in hardware/combinational logic that we have [synchronous and asynchronou
 circuits and hardware such as flip flops and asynchronous latches](http://www.ee.surrey.ac.uk/Projects/CAL/seq-switching/synchronous_and_asynchronous_cir.htm).
 If you have hardware and/or Verilog experience, you'll think of "asynchronous" as
 "nonblocking", and you'll also likely tend to think of the word "synchronous"
-as being related to clocks and duty cycles. As a hardware person, when I hear the word "synchronous" I think about what happens on the very next clock. So, think of
-synchronous as meaning, "right away."
+as being related to clocks and duty cycles. As a hardware person, when I hear the word "synchronous" I think about what happens on the very next clock.
+
+- So, think of synchronous as meaning, "right away."
+- And think of asynchronous as meaning, "deferred." This nomenclature will be useful in JS
+if you study the history of JS Promises in different libraries (and now, native support).
 
 **Other fun async things to consider**
 
@@ -100,12 +103,6 @@ communication, or how JavaScript has a single-threaded event loop, but Node is m
 processes and how Node is similar to Linux/OS development, and all sorts of fun
 operating systems concepts and queueing algorithms. Perhaps in a future blog post.
 For now, it's great to know that these skills are polymath, transferable skills!
-
-> "**Synchronous:**" occurring at the same time
-- [definition](http://www.dictionary.com/browse/synchronous)
-
-> "**Asynchronous** refers to a communication environment where each party receives and processes messages when convenient or possible rather than immediately."
-- [MDN]((https://developer.mozilla.org/en-US/docs/Glossary/asynchronous)
 
 # Callbacks
 
