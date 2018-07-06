@@ -32,6 +32,7 @@ Section 2. The World Turtle
 - [Iterators](#iterators)
 - [Generators](#generators)
 - [Promises](#promises)
+- [Coroutines](#coroutines)
 - [Async/await](#promises)
 - ...
 
@@ -422,6 +423,9 @@ There's a lot you can do here with Generators that I haven't covered. Look it up
 # Promises
 
 WIP
+
+# Coroutines
+TODO: http://2ality.com/2015/03/no-promises.html
 
 # Async/await
 
