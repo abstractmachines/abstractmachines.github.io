@@ -419,6 +419,8 @@ There's a lot you can do here with Generators that I haven't covered. Look it up
 
 # Promises
 
+[Promises: MDN](https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_code_modules/Promise.jsm/Promise)
+
 [Promises: Fundamentals (Google Developers)](https://developers.google.com/web/fundamentals/primers/promises)
 
 [Promises: States and Fates](https://github.com/domenic/promises-unwrapping/blob/master/docs/states-and-fates.md) is a great document on Promises written by a Google developer Domenic Denicola.
@@ -437,25 +439,53 @@ Fates:
 *(A promise is Resolved if resolution operations have no effect (because it's either
 already settled, or it's chained into another promise).*
 
+Promise chains are great because they simulate synchronous code by catching all
+Exceptions. If you throw an error, you can .catch() it later. [See MDN: Using Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
+
+Most of the time we write Promises from scratch, we use them to wrap old APIs [see MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises):
+
+```
+setTimeout(() => saySomething("10 seconds passed"), 10000);
+```
+
+Let's wrap that in a Promise:
+```
+const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+wait(10000).then(() => saySomething("10 seconds")).catch(failureCallback);
+```
 
 # Coroutines
-TODO:
+See:
 http://2ality.com/2015/03/no-promises.html
 
 https://medium.freecodecamp.org/write-modern-asynchronous-javascript-using-promises-generators-and-coroutines-5fa9fe62cf74
 
 # Async/await
 
-TODO
-
 async/await works a lot like Generators:
-- await uses await instead of yield.
-- await only works with Promises.
+- `await` keyword replaces `yield`.
 - Instead of function*, it uses the async function keyword.
 https://medium.freecodecamp.org/some-of-javascripts-most-useful-features-can-be-tricky-let-me-explain-them-4003d7bbed32
 
+Know what'd be cool? If Generators could return a promise instead of just a single value, and the external function that controls the .next() of the Generator, would handle the Promise chain until the Generator finally returns. Well, that's actually the case - we have libraries to do that. Then the Generator still needs an external "controlling" function, like the Iterator above that consumes the Generator as it produces.
+
+However, with async/await, that's built in! AND we don't need an external function for it.
+
+```
+  async function doStuff() {
+    const results = doAsyncXHRStuff() // yields, waits!
+    return results
+  }
+```
+
+*Caveats:*
+- Async/await can only execute sequentially, not in parallel, so choose the use cases wisely;
+- Async/await always returns a Promise.
+
+See:
+https://medium.com/front-end-hacking/modern-javascript-and-asynchronous-programming-generators-yield-vs-async-await-550275cbe433
+
+See also:
 https://hackernoon.com/async-await-generators-promises-51f1a6ceede2
-
 http://www.zsoltnagy.eu/a-practical-introduction-to-es2017-async-await/
-
-WIP
