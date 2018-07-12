@@ -30,7 +30,7 @@ Section 2. The World Turtle
 - [Generators](#generators)
 - [Promises](#promises)
 - [Coroutines](#coroutines)
-- [Async/await](#async/await)
+- [Async/await](#async-await)
 ------
 # Section I. Overview
 ------
@@ -487,7 +487,9 @@ http://2ality.com/2015/03/no-promises.html
 
 https://medium.freecodecamp.org/write-modern-asynchronous-javascript-using-promises-generators-and-coroutines-5fa9fe62cf74
 
-# Async/await
+# Async await
+
+## Using and understanding Async/await
 
 async/await works a lot like Generators:
 - `await` keyword replaces `yield`.
