@@ -17,8 +17,6 @@ References/Sources:
 
 # Table of Contents
 
-* *note of apology: my blogs tend to be heavily peppered with C, Linux, ASM, and jazz fusion references.*
-
 Section I. Overview
 - [About this article](#about-this-article)
 - [Higher order functions](#higher-order-functions)
@@ -32,11 +30,7 @@ Section 2. The World Turtle
 - [Generators](#generators)
 - [Promises](#promises)
 - [Coroutines](#coroutines)
-- [Async/await](#promises)
-- ...
-
-- Other topics of discussion include *async, function pointers, Verilog, hardware clocks, operating systems, Linux*
-
+- [Async/await](#async/await)
 ------
 # Section I. Overview
 ------
@@ -393,8 +387,9 @@ Where are we now? We're at the end! Pointers, people!
 ```
   destructureRadness.next()  // {value: undefined, done: true}
 ```
-Generators return undefined by default. Let's make a custom return. Bonus if you
-like jazz fusion jokes. If you don't, I feel bad for you having to read my blog.
+
+Generators return undefined by default. Let's make a custom return.
+
 
 ```
   function * returnToForever () {
