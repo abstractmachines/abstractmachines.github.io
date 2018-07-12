@@ -23,7 +23,7 @@ References/Sources:
 Section I. Overview
 - [About this article](#about-this-article)
 - [Higher order functions](#higher-order-functions)
-- [Synchronous and Asynchronous](#synchronous-and-asynchronous)
+- [JS is single threaded and uses async queues](#JS-is-single-threaded-and-uses-async-queues)
 - [Callbacks](#callbacks)
 
 Section 2. The World Turtle
@@ -84,25 +84,58 @@ It is often said:
 
 > Callbacks are higher order functions.
 
-# Synchronous and Asynchronous
+# JS is single threaded and uses async queues
 
-Recall in hardware/combinational logic that we have [synchronous and asynchronous
-circuits and hardware such as flip flops and asynchronous latches](http://www.ee.surrey.ac.uk/Projects/CAL/seq-switching/synchronous_and_asynchronous_cir.htm).
-If you have hardware and/or Verilog experience, you'll think of "asynchronous" as
-"nonblocking", and you'll also likely tend to think of the word "synchronous"
-as being related to clocks and duty cycles. As a hardware person, when I hear the word "synchronous" I think about what happens on the very next clock.
+Recall in Verilog and/or hardware/combinational logic that we have [synchronous and asynchronous
+circuits and hardware such as flip flops and asynchronous latches](http://www.ee.surrey.ac.uk/Projects/CAL/seq-switching/synchronous_and_asynchronous_cir.htm);
 
-- So, think of synchronous as meaning, "right away."
-- And think of asynchronous as meaning, "deferred." This nomenclature will be useful in JS
-if you study the history of JS Promises in different libraries (and now, native support).
+Recall also that C languages are generally synchronous (pthread excepted); that C++
+has std::thread, and that we use things in assembly code to pipeline and take into
+account particular parts of the shift register pipeline of the CPU.
 
-**Other fun async things to consider**
+- Synchronous: "line 2 cannot execute until line 1 is complete."
+- Asynchronous: "Whatever is available and convenient, executes now."
 
-It would be fun to talk about things here like threading in Linux and interprocess
-communication, or how JavaScript has a single-threaded event loop, but Node is multi-threaded thanks to the C++ worker queue; we could talk about IO-Bound versus CPU-Bound
-processes and how Node is similar to Linux/OS development, and all sorts of fun
-operating systems concepts and queueing algorithms. Perhaps in a future blog post.
-For now, it's great to know that these skills are polymath, transferable skills!
+Ever hear this: "JavaScript is single threaded .... AND async." Well, that's not
+exactly correct. The JS engine uses a call stack... *and it uses multiple queues
+to simulate asynchronous operations.*
+```
+function first() {
+    setTimeout(function(){
+        console.log(1)
+    }, 500)
+}
+
+function second() {
+    console.log(2)
+}
+```
+
+```
+first()
+second()
+
+> 2
+> 1
+```
+
+Wow - that's cool. Is JS really a single threaded language?
+
+Answer: It absolutely is. It just "emulates" asynchronous behavior via the use of
+multiple queues which enqueue events, and fire those events on the call stack *when
+the scheduler for those events has decided to push those events on the call stack.*
+
+
+The concepts above are similar to how Node (V8 Engine) uses a C++ worker queue threadpool
+for jobs that have a different processing time (see operating systems and "CPU-Bound"
+versus "IO-Bound" jobs).
+
+[Read this for more information on the queues and stacks
+JS uses to emulate an asynchronous language](https://medium.com/@siddharthac6/javascript-execution-of-synchronous-and-asynchronous-codes-40f3a199e687)
+
+Callbacks are one of those asynchronous constructs which are placed on a queue when
+defined, and which the queue places on the call stack when the scheduler has determined
+that it's time to execute.
 
 # Callbacks
 
@@ -118,12 +151,9 @@ Since they're invoked inside another function, **callbacks are also closures.**
 [See my first post in this series on "this/bind/call/apply" for more on setting the correct "this."](http://blog.amandafalke.com/tutorials/2017/04/12/intro-to-modern-javascript-for-cpp-developers.html) - if you're using "this" relevant to callbacks, make sure to handle
 it correctly for how JavaScript scopes variables.
 
-### Synchronous and Asynchronous Callbacks
+See also:
 
-A lot of developers think of callbacks as asynchronous code, and that's true, but
-[callbacks can also be synchronous (MDN on callbacks)](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function).
-
-> "A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action." [MDN](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
+[MDN on callbacks)](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function).
 
 > For C/C++ developers: [Callbacks are function pointers in C/C++ (MDN).](https://developer.mozilla.org/en-US/docs/Mozilla/js-ctypes/Using_js-ctypes/Declaring_and_Using_Callbacks)
 
@@ -397,6 +427,8 @@ It's iterable, so we can spread it:
 ```
   console.log ( [ ...getCountupIterator() ] // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
+
+### Consuming (and controlling) a Generator with an Iterator
 
 Or we can just create an iterator, and then call next:
 ```
