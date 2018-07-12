@@ -4,7 +4,6 @@ title:  "Intro to modern JS for C/C++ developers, Part 4: Async JS from callback
 date:   2018-2-24 1:03:00 -0700
 categories: tutorials
 ---
-WIP: July 2018
 
 References/Sources:
 
@@ -516,8 +515,10 @@ However, with async/await, that's built in! AND we don't need an external functi
 - Async/await always returns a Promise.
 
 See:
-https://medium.com/front-end-hacking/modern-javascript-and-asynchronous-programming-generators-yield-vs-async-await-550275cbe433
+[https://medium.com/front-end-hacking/modern-javascript-and-asynchronous-programming-generators-yield-vs-async-await-550275cbe433](https://medium.com/front-end-hacking/modern-javascript-and-asynchronous-programming-generators-yield-vs-async-await-550275cbe433)
 
 See also:
-https://hackernoon.com/async-await-generators-promises-51f1a6ceede2
-http://www.zsoltnagy.eu/a-practical-introduction-to-es2017-async-await/
+[https://hackernoon.com/async-await-generators-promises-51f1a6ceede2](https://hackernoon.com/async-await-generators-promises-51f1a6ceede2)
+
+[http://www.zsoltnagy.eu/a-practical-introduction-to-es2017-async-await/](http://www.zsoltnagy.eu/a-practical-introduction-to-es2017-async-await/
+)
