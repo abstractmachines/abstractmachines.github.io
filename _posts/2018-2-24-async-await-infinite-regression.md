@@ -23,7 +23,7 @@ References/Sources:
 Section I. Overview
 - [About this article](#about-this-article)
 - [Higher order functions](#higher-order-functions)
-- [JS is single threaded and uses async queues](#JS-is-single-threaded-and-uses-async-queues)
+- [JS is single threaded and uses async queues](#js-is-single-threaded-and-uses-async-queues)
 - [Callbacks](#callbacks)
 
 Section 2. The World Turtle
