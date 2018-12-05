@@ -30,7 +30,7 @@ portfolio_text: "abstractmachines.net"
 
 # Build settings
 markdown: kramdown
-theme: minima
+theme: Hacker
 gems:
   - jekyll-feed
 exclude:
