@@ -4,15 +4,19 @@ title:  "Introduction to modern JavaScript for C/C++ developers, Part 1"
 date:   2017-4-12 12:50:20 -0700
 categories: tutorials
 ---
-# JavaScript Tutorials for the C/C++ programmer
+# JavaScript Tutorials for the C/C++ programmer or CS Grad, Part 1
 
-TODO: Break this up into several smaller tutorials.
+This is a "bird's eye" tutorial of JS which is very broad in scope. The purpose of
+this document is to introduce C/C++ developers and/or CS grads to concepts in JavaScript.
 
-This is an overview of a "bird's eye, Computer Science" tutorial of JS, and fairly broad in its scope - that is, to introduce C/C++ developers to concepts in JavaScript.
+As such, it is an overly long article, and should be used as as a reference for
+basic information.
 
-- Not covered in this tutorial: Extensive Mozilla DOM API, JS libraries and frameworks, contextual implementation details.
+Not covered in this tutorial: Extensive Mozilla DOM API, JS libraries and frameworks, contextual implementation details.
 
-**References:**
+This is the first tutorial in a series of similar tutorials I'll be posting.
+
+# Sources
 
 This was written by me, with information gleaned from:
 
@@ -261,6 +265,7 @@ the use of copy constructors in order to copy all of the data over. Slow but rel
 `Object.assign()` is used a lot to copy objects. Before we really can discuss copying or cloning of objects, we should first understand Deep Cloning and Shallow Cloning. It's notable that Object.assign does a shallow clone [see MDN's Deep Clone warning here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
 
 ![Deep Clone and Shallow Clone graphic](https://raw.githubusercontent.com/abstractmachines/abstractmachines.github.io/master/_posts/js-object-cloning.png)
+*Image added in 2018 for clarity*
 
 How do we practically deep cloning? WE can use custom code... we can use for in loops with that custom code...
 we can use lodash's deepClone functionality, which is slow but commonly found in industry.
