@@ -23,6 +23,11 @@ This was written by me, with information gleaned from:
 5. [Dr Rauschmeyer's JavaScript blog](http://www.2ality.com/)
 6. [JavaScript Is Sexy](http://javascriptissexy.com/)
 
+# Table of Contents
+
+- [Typing](#typing)
+- [Objects and Primitives](#Objects-and-Primitives)
+- [Objects and the Prototype Chain: Defining JavaScript Inheritance](#Objects-and-the-Prototype-Chain:-Defining- JavaScript-Inheritance)
 
 ## Typing
 "Some languages, like Java and C++, have **static typing**.
