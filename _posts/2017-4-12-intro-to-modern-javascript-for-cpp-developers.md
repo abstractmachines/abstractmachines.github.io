@@ -26,8 +26,19 @@ This was written by me, with information gleaned from:
 # Table of Contents
 
 - [Typing](#typing)
-- [Objects and Primitives](#Objects-and-Primitives)
-- [Objects and the Prototype Chain: Defining JavaScript Inheritance](#Objects-and-the-Prototype-Chain:-Defining- JavaScript-Inheritance)
+- [Strict Mode](#strict-mode)
+- [Objects and Primitives](#objects-and-primitives)
+- [On JS Inheritance with Objects and the Prototype Chain](#on-js-inheritance-with-objects-and-the-prototype-chain)
+- [Bitwise and Memberwise: Shallow Clone and Deep Clone](#shallow-clone-and-deep-clone)
+- [Object Enumerable Properties](#object-enumerable-properties)
+- [Object Iteration](#object-iteration)
+- [JS Operators](#js-operators)
+- [JS Functions](#js-functions)
+- [Apply Call And Bind](#apply-call-and-bind)
+- [ES6 Arrow Functions](#arrow-functions)
+- [Const, let, and var](#const-let-var)
+- [ES6 Iterators Implicit and Explicit](#es6-iterators-implicit-and-explicit)
+- [Common JavaScript Design Patterns](#common-javascript-design-patterns)
 
 ## Typing
 "Some languages, like Java and C++, have **static typing**.
@@ -146,9 +157,7 @@ controversial/debatable.
  offset/allocation for each data type built in as a primitive or used-defined
  types.
 
-## JavaScript is untyped.
-## and/or
-## JavaScript is PROTO-typed.
+> JavaScript is untyped; JavaScript is PROTO-typed.
 
 >"academic types use "untyped" to mean "no static types".
 they are smart enough to see that values have types (duh!). context matters."
@@ -160,6 +169,21 @@ languages"**, and that is often the case in the CS world:
 
 http://stackoverflow.com/questions/9154388/does-untyped-also-mean-dynamically-typed-in-the-academic-cs-world
 
+## Strict Mode
+
+> Strict Mode: less "undefined", more checking
+
+JavaScript semantics, as we know them, often involve a silent or implicit
+undefined value getting by us. This, as you may imagine, can be problematic.
+
+Strict mode is a solution for these problematic semantics. Strict mode converts
+that silent error into an explicit throw error.
+
+Strict mode  does more "checking". Strict mode code can also be faster.
+
+Strict mode `function calls` are different, too. In JS semantics as we know them,
+function calls have a `this` value of the `global object` by default. In strict
+mode, `it is undefined!!!!`
 
 # Objects and Primitives
 
@@ -197,7 +221,7 @@ based upon Object Prototypes.
 - Object keys can only be a String or a Symbol (more on Symbols later)
 - Copying objects (cloning) is pretty weird
 
-## Objects and the Prototype Chain: Defining JavaScript Inheritance
+## On JS Inheritance with Objects and the Prototype Chain
 [From Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
 
 JavaScript Inheritance doesn't work like C/C++/Java does because those are
@@ -220,7 +244,7 @@ Mozilla, the only method to avoid traversal of the prototype chain.
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
 
-### Bitwise Copy and Memberwise Copy: Shallow Clone and Deep Clone
+## Shallow Clone and Deep Clone
 
 #### Shallow/Bitwise Copy
 Recall that bitwise copy in C/C++ uses functions like `memcpy`, which don't invoke the copy
@@ -241,7 +265,10 @@ the use of copy constructors in order to copy all of the data over. Slow but rel
 How do we practically deep cloning? WE can use custom code... we can use for in loops with that custom code...
 we can use lodash's deepClone functionality, which is slow but commonly found in industry.
 
-### Enumerable Properties: "On THIS object, not down the prototype chain"
+### Object Enumerable Properties
+
+> Enumerable Properties: "On THIS object, not down the prototype chain"
+
 An Object has Enumerable properties when its properties are its own properties,
 instead of just being properties that belong to another object somewhere in the Prototype Chain.
 
@@ -256,7 +283,10 @@ It makes sense now why `hasOwnProperty()` refers to whether an object's property
 
 [See more on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties).
 
-### Object iteration (note: usually done with Maps)
+## Object iteration
+
+> Note: Iteration over JS objects can be a bit weird. We generally use another data structure such as Maps, for iteration.
+
 #### Object.entries(obj)
 This method returns an array of object's Own Enumerable Properties, in key value pairs.
 
@@ -273,7 +303,7 @@ Same as above, only values instead of keys.
 
 `for in` is interesting because it enumerates over properties that are also in the Prototype Chain. MDN-recommended methods `.hasOwnProperty()` and `.propertyIsEnumerable()` can be used to. If you read the previous section, these should seem intuitive.
 
-# JS Operators
+## JS Operators
 
 Operators in JavaScript are pretty similar to C/C++. Remember that boolean
 is a primitive type and that Boolean is a class wrapping that type with
@@ -300,9 +330,35 @@ introduced in ES2015 is just syntactic sugar (see the Prototype Chain, below).
 
 
 
-# JS Functions
+## JS Functions
 
-## JavaScript Functions and Return Values
+### JavaScript functions are first class objects
+
+• **Can be passed an argument**
+This means that a function can be passed as a function **argument,** and
+then be executed later. It can even be returned, to be executed later.
+
+This is one of the fundamental elements of functional programming:
+>> **Functional programming:**
+
+>>>**functions as arguments.**
+
+Note how functions as arguments utilizes the **Inversion of Control** Pattern. More on IoC later.
+
+• **Can be assigned to a variable**
+
+• **Can be returned as a value**
+
+Hence, all JavaScript functions can be `passed around` in this way.
+
+JavaScript functions **return `undefined`** by default. So do variables that
+are referenced without being defined first. (Unless you're using strict mode.)
+
+For constructors called with the `new` keyword, the default return type is the
+*VALUE* of the `this` parameter. If a function is not a constructor function,
+default return value is undefined.
+
+### JavaScript Functions and Return Values
 
 JavaScript functions return `undefined` by default, unless the function has a
 return value. This is very intuitive.
@@ -312,14 +368,45 @@ Use of constructors with the `new` keyword: the default return type is the
 default return value is undefined (or return value is specified return value).
 This is also very intuitive.
 
-### JavaScript function arguments and scope
 
-#### Scope is somewhat analogous to namespace
+### Primitives Passed By Value, Objects By Implicit Reference
 
-Scope is essentially the same thing as namespace. JS developers often use the
-term `namespace` to mean `global scope`.
+Primitives (data types) are passed by value into functions, but any soft of Object is passed by "reference," implicitly. Passing an Object (a non primitive inherent to JS which inherits from Number, Function, Object etc, or a user-created Object) results in changes available outside the function's scope.
 
-#### Static scope: Lexical Scope or "Closure"
+
+### Callbacks
+
+> What are callbacks or "higher order functions"?
+
+Callbacks are derived from functional programming. Callbacks are closures; a function within a function. Let's play with code:
+
+```
+function a(){
+
+function b(){
+console.log('b');
+}
+
+console.log('a');
+b();
+}
+
+var c = a();
+
+c;
+
+console.log('c');
+```
+
+`a b c`
+
+if we add `return b()` in a(), same results.
+
+There's a lot more to say about callbacks, but we'll move on for now.
+
+### JavaScript function scope
+
+> Static scope: Lexical Scope or "Closure"
 
 In order to discuss "closures", we first discuss "Lexical Scope."
 
@@ -349,92 +436,13 @@ With dynamic scoping, we look locally for a variable's definition. If not found,
 **JavaScript has lexical scoping, and the global scope is the outer scope.** `let` and `const` ES6 features allow for block scoping.
 
 
-##### Closures
+> Most languages with C curly brace syntax are block scoped. JavaScript is not one of them.
 
-Accessing a variable outside of its immediate/local block scope is one way to describe a **closure**; a closure is usually expressed as an inner function and an outer function. Mozilla Development Network(MDN) gives a great definition:
-“A closure is a special kind of object that combines two things: a function, and the environment in which that function was created. The environment consists of any local variables that were in-scope at the time that the closure was created.” https://developer.mozilla.org/en-US/docs/Web/JavaScript
-
-
-
-#### Primitives Passed by Value, Objects passed By Implicit Reference (of sorts):
-Primitives (data types) are passed by value into functions, but any soft of Object is passed by "reference," implicitly. Passing an Object (a non primitive inherent to JS which inherits from Number, Function, Object etc, or a user-created Object) results in changes available outside the function's scope.
-
-### JavaScript functions are first class objects:
-
->>> treated like any other data type.
-
-• **Can be passed an argument**
-This means that a function can be passed as a function **argument,** and
-then be executed later. It can even be returned, to be executed later.
-
-This is one of the fundamental elements of functional programming:
->> **Functional programming:**
-
->>>**functions as arguments.**
-
-Note how functions as arguments utilizes the **Inversion of Control** Pattern. More on IoC later.
-
-• **Can be assigned to a variable**
-
-• **Can be returned as a value**
-
-Hence, all JavaScript functions can be `passed around` in this way.
-
-JavaScript functions **return `undefined`** by default. So do variables that
-are referenced without being defined first. (Unless you're using strict mode.)
-
-For constructors called with the `new` keyword, the default return type is the
-*VALUE* of the `this` parameter. If a function is not a constructor function,
-default return value is undefined.
-
-### What are callbacks or "higher order functions"?
-
-Callbacks are derived from functional programming. Callbacks are closures; a function within a function. Let's play with code:
-
-```
-function a(){
-
-function b(){
-console.log('b');
-}
-
-console.log('a');
-b();
-}
-
-var c = a();
-
-c;
-
-console.log('c');
-```
-
-`a b c`
-
-if we add `return b()` in a(), same results.
-
-#### Strict Mode : less "undefined", more checking
-JavaScript semantics, as we know them, often involve a silent or implicit
-undefined value getting by us. This, as you may imagine, can be problematic.
-
-Strict mode is a solution for these problematic semantics. Strict mode converts
-that silent error into an explicit throw error.
-
-Strict mode  does more "checking". Strict mode code can also be faster.
-
-Strict mode `function calls` are different, too. In JS semantics as we know them,
-function calls have a `this` value of the `global object` by default. In strict
-mode, `it is undefined!!!!`
-
-## JavaScript Functions, Variables, Scope
-**Most languages with C curly brace syntax are block scoped. JavaScript is not one of them.**
-
-**JavaScript uses the same { block operators } as C-syntax languages, but
+JavaScript uses the same `{ block operators }` as C-syntax languages, but
 JavaScript is weird, and so it uses function scope, not block scope. This is
-unless we use ES6 or other techniques to block scope variables.**
+unless we use ES6 or other techniques to block scope variables.
 
 > Function scoping: This is how hoisting and closures are possible.
-
 
 > **"The phrase scope bubbles up" means:** "When JavaScript tries to resolve an
 identifier, it looks in the local function scope. If this identifier is not
@@ -443,7 +451,32 @@ along the scope chain until it reaches the global scope where global variables
 reside. If it is still not found, JavaScript will raise a ReferenceError exception."
 (Wikipedia)
 
-## Hoisting, Event Bubbling, Delegation
+
+### Closures and scope
+
+Accessing a variable outside of its immediate/local block scope is one way to describe a **closure**; a closure is usually expressed as an inner function and an outer function. Mozilla Development Network(MDN) gives a great definition:
+“A closure is a special kind of object that combines two things: a function, and the environment in which that function was created. The environment consists of any local variables that were in-scope at the time that the closure was created.” https://developer.mozilla.org/en-US/docs/Web/JavaScript
+
+**Inner functions have access to a wrapper function's variables.**
+This is made possible by function scoped variables instead of block scoped variables.
+
+See 2ality.com, Axel Rauschmeyer's blog, for more info on closures and hoisting.
+
+Axel says "Closures don’t get snapshots of a certain point in time, they get “live” variables." This can lead to **inadvertent sharing of variables via closures.**
+
+You can resolve this inadvertent sharing using an IIFE (Immediately Invoked Function Expression). **IIEFs restrict a variable's scope to current block.**
+
+**IIEF's have some drawbacks, as they can make code a lot less testable.** In general, it's **often better to just name things** rather than have anonymous stuff executing in your runtime.
+
+### When are closures interesting?
+
+It really seems like the concept of a closure - meaning, a function within a
+function in a function-scoped language instead of a block-scoped language, is
+a pretty simplistic and boring idea, and that's because it is. The topic that
+makes closures interesting as asychronicity; the inner function can outlive the
+outer function.
+
+### Hoisting, Event Bubbling, Delegation
 This means that variable declarations "bubble in scope" to the containing element.
 Function scoped variables allows those variables to be assigned anywhere in
 the container, including in nested / "child" functions.
@@ -457,12 +490,12 @@ assignment statement at that point in the middle of the function` –
 **only the declaration is hoisted, not the assignment.**"
 -Wikipedia on JavaScript
 
-## Event Bubbling, Capturing, and Delegation
+### Event Bubbling, Capturing, and Delegation
 In JavaScript, scope bubbles up. This means that event listeners can be
 written with more succinct handlers on the parent or ancestor elements in
 the DOM, rather than on each child. Less code! Here's an example:
 
-#### Use Case: ul items all need click event handling. New items will be added by user.
+> Use Case: ul items all need click event handling. New items will be added by user.
 
 
 Option A: Write handler for each li item:
@@ -510,7 +543,7 @@ aContainer.addEventListener('click', (event) => {
  `useCapture`:
  `EventTarget.addEventListener('event-type', callback, true)`
 
-#### Use Case: Removing/appending an li element child node without already having a reference to its parent. Use a button to remove the element.
+> Use Case: Removing/appending an li element child node without already having a reference to its parent. Use a button to remove the element.
 
 - Traverse the DOM to find element's parent node
 - Use .parentNode API
@@ -553,32 +586,7 @@ See also:
 - [Node.previousElementSibling](https://developer.mozilla.org/en-US/docs/Web/API/NonDocumentTypeChildNode/previousElementSibling)
 
 
-## Static scope: Lexical Scope or "Closure"
-
-## Closures
-**Inner functions have access to a wrapper function's variables.**
-This is made possible by function scoped variables instead of block scoped variables.
-
-See 2ality.com, Axel Rauschmeyer's blog, for more info on closures and hoisting.
-
-Axel says "Closures don’t get snapshots of a certain point in time, they get “live” variables." This can lead to **inadvertent sharing of variables via closures.**
-
-You can resolve this inadvertent sharing using an IIFE (Immediately Invoked Function Expression). **IIEFs restrict a variable's scope to current block.**
-
-**IIEF's have some drawbacks, as they can make code a lot less testable.** In general, it's **often better to just name things** rather than have anonymous stuff executing in your runtime.
-
-### When are closures interesting?
-
-It really seems like the concept of a closure - meaning, a function within a
-function in a function-scoped language instead of a block-scoped language, is
-a pretty simplistic and boring idea, and that's because it is. The topic that
-makes closures interesting as asychronicity; the inner function can outlive the
-outer function.
-
-**Scope, closures, and async JavaScript**
-
-
-## Function Statements/Declarations and Function Expressions (Lambdas)
+### Function Statements and Function Expressions
 
 Overall the difference is often not well explained in most tutorials you find
 online. One of the differences, according to Rauschmeyer, is that expressions
@@ -603,7 +611,8 @@ fruit();
 ```
 Result: `Performs alert` then `returns undefined.`
 
-## Expressions
+### Function Expressions
+
 In the above functions, you have the function invocation apple(). That function
 invocation is an expression of a function invocation.
 
@@ -638,20 +647,22 @@ but use `newEval;` NOT `newEval();` because newEval isn’t something that needs
 to be invoked. It’s just something that holds the evaluated value computed from
 running `apple()` expression.
 
-#### Difference #1: Named or anonymous?
+
+> **Difference #1: Named or anonymous?**
+
 
 "Function declarations" a.k.a. "function definitions" a.k.a. "function
 statements" have an "identifier." This means that the function is named.
 
- > Difference #1: "Function expressions" can be anonymous. Function declarations
- cannot. So the moment we see an anonymous function, we know that that's a
- function expression.
+> Difference #1: "Function expressions" can be anonymous. Function declarations
+cannot. So the moment we see an anonymous function, we know that that's a
+function expression.
 
- > One of the primary reasons for having named function expressions is for
- debugging.
+> One of the primary reasons for having named function expressions is for debugging.
 
 
-#### Function Declaration:
+> Function Declaration:
+
  ```
  function radFunk()
  {
@@ -659,14 +670,17 @@ statements" have an "identifier." This means that the function is named.
  }
  ```
 
-#### Function Expression:
+> Function Expression:
+
  ```
  var x = function ()
  {
    // do rad stuff
  };
  ```
-#### Function Expression:
+
+> Function Expression:
+
  ```
  var x = function yaGottaName()
  {
@@ -683,7 +697,8 @@ statements" have an "identifier." This means that the function is named.
 	doesn't hold; a statement can't be used in replacement of an expression.
 	Think of an if statement, versus a ternary conditional expression.
 
-## statement: if a, then b. Else, c.
+> statement: if a, then b. Else, c:
+
   ```
   if (a)
   {
@@ -695,33 +710,34 @@ statements" have an "identifier." This means that the function is named.
   }
   ```
 
-## expression: if a, then b. Else, c.
+> expression: if a, then b. Else, c:
+
   ```
   var evaluation = a ? b : c;
   ```
 
 
- > Another reason for giving a function expression its own name is for recursion,
- so that that function may be called from within its own body.
+> Another reason for giving a function expression its own name is for recursion,
+so that that function may be called from within its own body.
 
-#### Difference #2: function expressions are inside of () grouping operators:
+> **Difference #2: function expressions are inside of () grouping operators:**
 
- > Difference #2:  
- >Function expressions are  inside of (grouping operators), such as `(function(){})`
+> Difference #2:  
+>Function expressions are  inside of (grouping operators), such as `(function(){})`
 
 
-#### Difference #3:
- > Function declarations are often inside of function bodies.
+> **Difference #3: Function declarations are often inside of function bodies.**
 
-#### Difference #4: Context.
+> **Difference #4: Context**
 
  > In JavaScript, context really matters. Check out the **apply, call, and bind**
  methods covered herein for more information.
 
-#### Function invocation via variable assignment is also called a Function Expression.
+> Final note: Function invocation via variable assignment is also called a Function Expression.
 
 
-## Function constructors
+### Function constructors
+
 ```
 new Function( arg1, arg2, functionBody )
 ```
@@ -732,7 +748,7 @@ var adder = new Function('a', 'b', 'return a+ b');
 
 
 
-## JS: **this, apply(), call() and bind()**
+## Apply Call And Bind
 
 This section is generally written from my own perspective, with some information gleaned directly from the [JavaScript is Sexy article on the "this" keyword in JS.](http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/), as well as other aforementioned sources.
 
@@ -1059,9 +1075,10 @@ maxish; // 7 ... good!
 ```
 
 
-# ES6
+## ES6
 
-## Arrow Functions versus normal Function Expressions
+### Arrow Functions
+
 • Arrow functions are basically function expressions written in a more compact way.
 • Always anonymous, so of course arrow functions cannot be used for constructors
 or anything requiring the `new` keyword.
@@ -1121,7 +1138,7 @@ Source:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
 
 
-## Const, let, and var
+### Const let var
 
 Declaring `var` can be problematic because it can bubble up in scope (see the scoping sections of this tutorial). Some engineers may say "var is global." While that's a simplistic way of looking at it, let's move forward with that assumption and discuss const and let for variabe declaration.
 
@@ -1164,7 +1181,7 @@ hoisting will always save you, so when using const and let, always declare
 everything in the block prior to use.
 
 
-## ES6 Iterators: Implicit, Explicit
+## ES6 Iterators Implicit and Explicit
 
 ### for in : pre ES5
 We'll recall using `for item in items` syntax with JavaScript.
