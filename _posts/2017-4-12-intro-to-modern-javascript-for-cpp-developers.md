@@ -10,17 +10,18 @@ TODO: Break this up into several smaller tutorials.
 
 This is an overview of a "bird's eye, Computer Science" tutorial of JS, and fairly broad in its scope - that is, to introduce C/C++ developers to concepts in JavaScript.
 
-- Not covered in this tutorial: DOM manipulation, Mozilla DOM API, JS libraries and frameworks.
+- Not covered in this tutorial: Extensive Mozilla DOM API, JS libraries and frameworks, contextual implementation details.
 
 **References:**
 
 This was written by me, with information gleaned from:
 
-1. Mozilla JavaScript documentation
+1. [Mozilla developer docs](https://developer.mozilla.org/en-US/)
 2. Wikipedia
-3. Design Patterns by Gang of Four
+3. [Design Patterns by GoF](https://en.wikipedia.org/wiki/Design_Patterns)
 4. Stack Overflow
-5. Dr Rauschmeyer's JavaScript blog http://www.2ality.com/
+5. [Dr Rauschmeyer's JavaScript blog](http://www.2ality.com/)
+6. [JavaScript Is Sexy](http://javascriptissexy.com/)
 
 
 ## Typing
@@ -726,21 +727,25 @@ var adder = new Function('a', 'b', 'return a+ b');
 
 
 
-## JavaScript **this** keyword, and apply(), call() and bind() methods.
+## JS: **this, apply(), call() and bind()**
 
-This section of the tutorial is paraphrased from material at JavaScriptIsSexy.  http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/
+This section is generally written from my own perspective, with some information gleaned directly from the [JavaScript is Sexy article on the "this" keyword in JS.](http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/), as well as other aforementioned sources.
 
-### This keyword
+### The problem: the "this" keyword in JS
 
-The * *this* keyword is something C/C++ programmers are used to seeing (except in 'static' contexts).
+The *this* keyword is something C/C++ programmers are used to seeing (except in 'static' contexts).
 
-**The most important thing about THIS is this (ha!):**
+> "This" in JavaScript depends completely in the context of the invocation. JavaScript is "function scoped", so "this" bubbles up.
 
->>> "This" in JavaScript depends completely in the context of the invocation. JavaScript is "function scoped", so "this" bubbles up.
+Another way to say that is:
+
+> In JS, this/context is defined by when/where the function is called, i.e. the
+context of that invocation. In C++, Java, Ruby, and other languages, this/self
+will always point to the object in which the method is defined. Not so with JS!
 
 And THAT, creates a lot of problems.
 
-Recall closures and"lexical scope" or "static scope".
+Recall closures and "lexical scope" or "static scope".
 In closures, the `this` reference "bubbles up."
 
 Each scope just binds a different value of `this.` Since JavaScript is function
@@ -781,11 +786,15 @@ animal.ageGetter(); // 1
 
 • **ES6**: Use `arrow functions`
 
-
 ### Bind(): assigning a different "this" object when in an undesired context.
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
 
-#### Return value: A new, bound function with the specified "this" value.
+> Return value: A new, bound function with the specified "this" value.
+
+> Call and apply are some of the most common functions in JavaScript. Mozilla
+says that "while bind() does a [[ construct ]], apply() and call() do a [[ call ]]."
+That's why we are grouping call and apply together below, and bind separately
+here; the nature of the return value.
 
 The bind() method creates a new bound function.
 When that function is invoked, that function has its `this` keyword set to the
@@ -801,12 +810,14 @@ That "provided value" essentially means "a contextual this" (my definition).
 
 • Borrowing methods
 
-Bind() is usually used when calling one function from another function, and
+• Bind() is usually used when calling one function from another function, and
 ensuring that the proper context (like scope) is used for the intent of the
-function. While bind can technically be used to borrow methods, that is usually
+function.
+
+• While bind can technically be used to borrow methods, that is usually
 left to call() and apply().
 
-#### Bind() Example 1: Vanilla JS
+**Bind() Example 1: Vanilla JS**
 
 ```
 this.x = 1 // 1
@@ -832,7 +843,7 @@ the `global context.`
 
 So, **we need to bind it to the right context.**
 
-#### Solution: bind() this to proper context
+**Solution: bind() this to proper context:**
 
 ```
 const globalXNow = globalX.bind(someObj)
@@ -863,7 +874,7 @@ global or 'someObj.' Pretty cool stuff - and it also illustrates why this
 language is so confusing at times. Let's do another example.
 
 
-#### Bind() example 2: jQuery
+**Bind() example 2: jQuery**
 
 The JavaScriptIsSexy blog notes the following code.
 
@@ -897,7 +908,7 @@ Cannot read property '0' of undefined
 ```
 
 
-#### Solution: bind() this to proper context
+**Solution: bind() this to proper context**
 
 > "Since we really want this.data to refer to the data property on the user
 object, we can use the Bind (), Apply (), or Call () method to specifically
@@ -920,27 +931,36 @@ without understanding it completely; hopefully this clears up a lot of jQuery
 you may see around!
 
 
-### Call() and apply(): some of the most common functions in JavaScript
+### Call() and apply()
+
+> Call and apply are some of the most common functions in JavaScript. Mozilla
+says that "while bind() does a [[ construct ]], apply() and call() do a [[ call ]]."
+That's why we are grouping call and apply together here; the nature of the
+return value.
+
 
 **Traditional uses of call and apply include:**
 • To resolve context with this keyword
+
 • To borrow methods (for example, to borrow Array methods such as slice or push
 	to array-like objects that aren't actually arrays)
+
 • With apply(), variadic functions
 
 
-### Call(): very similar to apply(). Call() takes an argument list, like most functions do.
+### Call()
 
-#### Return value: The result of calling the function with specified "this"
-#### value and arguments.
+> Call is very similar to apply(). Call() takes an argument list, like most functions do.
 
+> Return value: The result of calling the function with specified "this" value and arguments.
 
+### Apply()
 
-### Apply(): assigning a different "this" object when calling an existing function.
-### Apply() accepts a single array of arguments.
+> Apply(): assigning a different "this" object when calling an existing function.
 
-#### Return value: Same as call(): The result of calling the function with
-#### specified "this" value and arguments.
+> Apply() accepts a single array of arguments.
+
+> Return value: Same as call(): The result of calling the function with specified "this" value and arguments.
 
 > "Apply is very similar to call(), except for the type of arguments it supports.
 You can use an arguments array instead of a named set of parameters. With apply,
@@ -968,10 +988,11 @@ var stripeyAnimal = {
 animal.ageGetter.apply(stripeyAnimal); // 2
 ```
 
-### the argument object in every JS function
-This object is an array-like object available in every function.
+### The arguments object
 
-say you write something like
+> The arguments object object is an array-like object available in every JS function.
+
+Let's say you write something like
 `var x = Array.prototype.slice.call(argument, 1);` - the return value you'll
 get for `x` is `every element of the x object from index 1 onwards.`
 ```
@@ -981,7 +1002,7 @@ function x (name) = {
 x(1,2,3,4,5); // 3 4 5
 ```
 
-#### Because the arguments object is an array-like object, we can use the Array's slice method as above by borrowing it using call().
+> Because the arguments object is an array-like object, we can use the Array's slice method as above by borrowing it using call().
 
 **Here's another example with the arguments object using ES6's let.** Sort this array.
 
