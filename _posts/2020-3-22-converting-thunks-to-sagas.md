@@ -5,6 +5,18 @@ date:   2020-3-22 1:03:00 -0700
 categories: tutorials
 ---
 
+## Motivation
+
+Handling asynchronous effects within Redux apps has generally traditionally been handled with thunks, which are action creators that return functions to be executed later in a delayed way for async side effects such as API calls.
+
+Thunks can involve a lot of nesting and what looks like "the pyramid of doom" and "callback hell." 
+
+Thunks are also very hard to test.
+
+Enter sagas, a long running process in Redux that can listen to actions being fired, dispatch ("put") a new action, and do multiple things to make our apps more testable, snappy and responsive.
+
+Sagas are generators, so if you don't know what that means, check out the [async await / generators post](http://blog.amandafalke.com/tutorials/2018/02/24/async-await-infinite-regression.html).
+
 ##  To upgrade a repo from using only thunks to using sagas:
 
 1. Create a dummy saga
