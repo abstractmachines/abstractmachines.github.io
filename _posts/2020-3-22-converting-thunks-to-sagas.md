@@ -107,3 +107,11 @@ That's it for a brief high level overview.
 
 
 
+[My Github gist](https://gist.github.com/abstractmachines/180c062794f70e75603e477e53006c02) on converting thunks to sagas
+
+<script src="https://gist.github.com/abstractmachines/180c062794f70e75603e477e53006c02.js"></script>
+
+Please also see [the gist itself]([link](https://gist.github.com/abstractmachines/180c062794f70e75603e477e53006c02)) if you like.
+
+
+
