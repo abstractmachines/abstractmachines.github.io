@@ -445,6 +445,9 @@ There's a lot you can do here with Generators that I haven't covered. Look it up
 
 # Promises
 
+> This article is mostly about generators and async/await, not Promises. The "Promises" section is mostly included so that the reader makes a logical connection between promises and these other async operations. It's not really a 
+section that actually covers a lot about Promises at this point.
+
 [Promises: MDN](https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_code_modules/Promise.jsm/Promise)
 
 [Promises: Fundamentals (Google Developers)](https://developers.google.com/web/fundamentals/primers/promises)
