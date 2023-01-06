@@ -61,7 +61,38 @@ To start the process of installing Ubuntu Server on your rpi, insert an SDCard t
 6. Write. This will take a few minutes.
 7. Insert the SDCard into your RPI.
 8. Power it on.
-9. Profit.
+9. ssh into the raspberry pi from your laptop to establish a connection.
+    - _On the rpi:_
+        - Run `ifconfig` on the raspberry pi terminal.
+        - Note the IP address belonging to `wlan0`.
+    - _Then, on your laptop:_
+        - `ssh pi@<rpi_ip_address>`
+
 
 ## Installing with Raspian
-TODO
+Same instructions as above, only you want to install Raspberry Pi _legacy_ OS, with a desktop, 
+as you'll see that's the OS that's compatible with rpi 3.
+
+## Fun tips
+- To use ssh with GUI, you must enable X11 (or, one assumes, Wayland probably).
+    - `ssh -X pi@<rpi_ip_address> evince /path/to/file.pdf` // or `eog /path/to/img.png`, etc
+
+- To download files:
+    - sudo scp pi@<rpi_ip_address>:/path/to/file ~/local/path/to/put/file`
+    - Now that you have the file on your laptop, you may use a GNOME app to view, e.g. `evince ~/local/path/to/put/file`
+
+## Troubleshooting
+If you get:
+> SSH warning: Remote host identification has changed
+    - Solve by removing that key for that IP from `.ssh/known_hosts`:
+        - Run `ssh-keygen -R <rpi_ip_address>`
+        - Then try to ssh in again.
+## Some other helpful commands and related knowledge
+- Your `boot` drive will be FAT32 because that is the format required to use UEFI firmware.
+    UEFI is helpful to use in order to boot your modern device from a bootable drive easily. It's "kinda like BIOS." `grub` can also help you boot into different operating systems...
+
+    There are differing opinions on this, but it's probably best to just use FAT32.
+
+- Your `root` drive will be `ext4`.
+    - On a legacy BIOS system, /boot can be anything understood by the bootloader, so you can use ext2, 3, or 4.
+    - On EFI systems you can set /boot to ext4, ESP to vfat and add ext4 driver to the bootloader.
