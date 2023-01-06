@@ -6,7 +6,7 @@ categories: tutorials
 ---
 
 ## Motivation
-This is a tutorial to get the Raspberry Pi (`rpi`) beginner up and running with the device using Linux OS.
+This is a tutorial to get the Raspberry Pi (`rpi`) beginner up and running with the device using Linux.
 
 More tutorials will follow on this blog.
 
@@ -17,6 +17,7 @@ More tutorials will follow on this blog.
 ## Hardware / Requirements
 
 > Things you'll need:
+
 - Wifi:
     - `rpi` (Raspberry Pi) hardware version `>=3`, e.g. 3 or greater, has built in wifi.
     - Any older versions will require a dongle.
@@ -29,21 +30,22 @@ More tutorials will follow on this blog.
 - SDCard and adapter that is compatible with your rpi.
 
 ## Operating Systems for the rpi
-The rpi3 is 64-bit, but the benefits are limited for using 32-bit.
+The rpi3 is 64-bit, but the benefits of using 64-bit on the rpi3 are limited due to hardware restrictions.
 
 ### Ubuntu rpi compatibility
-Ubuntu keeps a downloads page [here](https://ubuntu.com/download/raspberry-pi).
+Ubuntu keeps a downloads page [here](https://ubuntu.com/download/raspberry-pi); this page has compatibility information.
 
-> Some relevant notes about Ubuntu:
+> Some relevant notes about Ubuntu and the rpi3:
+
 - Ubuntu Desktop, as of now, only works on rpi 4+ due to requirements.
 - Ubuntu Server will require a desktop. 
-    - See https://www.makeuseof.com/install-desktop-environment-gui-ubuntu-server/ to choose and install a desktop.
-    - Installation instructions here: https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-using-advanced-options
+    - See [https://www.makeuseof.com/install-desktop-environment-gui-ubuntu-server/](https://www.makeuseof.com/install-desktop-environment-gui-ubuntu-server/) to choose and install a desktop.
+    - Installation instructions here: [https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-using-advanced-options](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-using-advanced-options)
 - Ubuntu Core will require [registration with Ubuntu](https://ubuntu.com/download/raspberry-pi-core).
     - Ubuntu Core is a great OS of choice for embedded systems development.
     - See information about Ubuntu Core here: https://www.youtube.com/watch?v=aekZhezFCHM
 
-> For the rpi 3, Ubuntu Server 22.10 is compatible.
+>> For the rpi 3, Ubuntu Server 22.10 is compatible.
 
 ## Installing with Ubuntu Server OS
 
@@ -69,7 +71,7 @@ To start the process of installing Ubuntu Server on your rpi, insert an SDCard t
         - `ssh pi@<rpi_ip_address>`
 
 
-## Installing with Raspian
+## Installing with Raspbian
 Same instructions as above, only you want to install Raspberry Pi _legacy_ OS, with a desktop, 
 as you'll see that's the OS that's compatible with rpi 3.
 
@@ -84,14 +86,15 @@ as you'll see that's the OS that's compatible with rpi 3.
 ## Troubleshooting
 If you get:
 > SSH warning: Remote host identification has changed
+
     - Solve by removing that key for that IP from `.ssh/known_hosts`:
         - Run `ssh-keygen -R <rpi_ip_address>`
         - Then try to ssh in again.
 ## Some other helpful commands and related knowledge
 - Your `boot` drive will be FAT32 because that is the format required to use UEFI firmware.
-    UEFI is helpful to use in order to boot your modern device from a bootable drive easily. It's "kinda like BIOS." `grub` can also help you boot into different operating systems...
+    - UEFI is helpful to use in order to boot your modern device from a bootable drive easily. It's "kinda like BIOS." `grub` can also help you boot into different operating systems...
 
-    There are differing opinions on this, but it's probably best to just use FAT32.
+    - There are differing opinions on this, but it's probably best to just use FAT32.
 
 - Your `root` drive will be `ext4`.
     - On a legacy BIOS system, /boot can be anything understood by the bootloader, so you can use ext2, 3, or 4.
