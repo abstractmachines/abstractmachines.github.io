@@ -6,9 +6,11 @@ categories: tutorials
 ---
 
 ## Motivation
-This is a tutorial to get the Raspberry Pi (`rpi`) beginner up and running with the device using Linux.
+This is a tutorial to get the Raspberry Pi (`rpi`) beginner up and running with the device using Linux. This tutorial is for people who are generally familiar with Linux development, but not rpi development (yet!)
 
 More tutorials will follow on this blog.
+
+A lot of this tutorial is similar to (and taken from) this tutorial [https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#4-boot-ubuntu-server), but I've added more details where rpi beginners could get stuck, and less details about how to ssh into a computer (basic Linux skills).
 
 ## Tutorial Overview
 > This tutorial focuses on a Raspberry Pi 3. We will install Raspian, Ubuntu. We will do so interfacing with a Fedora Linux laptop.
@@ -63,17 +65,37 @@ To start the process of installing Ubuntu Server on your rpi, insert an SDCard t
 6. Write. This will take a few minutes.
 7. Insert the SDCard into your RPI.
 8. Power it on.
-9. ssh into the raspberry pi from your laptop to establish a connection.
+9. You'll see a login screen, but do **NOT** login yet. Instead, wait, and you'll see some stuff print out regarding `cloud-init`.
+10. _Wait_ until the `cloud-init` install "stops", and press enter.
+11. You'll see a prompt:
+    - `raspberry pi login:`
+    - Enter the username you used during step 5 when you configured advanced options. (Usually this is `pi` on Raspbian installs and `ubuntu` on Ubuntu installs, but these are defaults, and we shouldn't be using the defaults, hence step 5). Hit enter.
+    - Enter the password (you'll be prompted to do so).
+    - Now we are at a CLI prompt `pi@raspberrypi:~$`
+
+... We have now installed and logged into Ubuntu Server on RPI!
+
+12. ssh into the raspberry pi from your laptop to establish a connection.
+    - _On the rpi:_
+        - We don't have `net-tools` installed (`sudo apt install net-tools` if we want it), so we'll use `hostname -I` to retrieve the hostname and the IP address.
+        - Note the IP address.
+    - _Then, on your laptop:_
+        - `ssh pi@<rpi_ip_address>`
+        - Enter password, you'll be prompted to.
+    - Once we ssh into the rpi successfully, we'll see an Ubuntu welcome message.
+
+## Installing with Raspbian
+_Mostly_ the same instructions as above, only you want to install Raspberry Pi _legacy_ OS, with a desktop,
+as you'll see that's the OS that's compatible with rpi 3.
+
+> The way we ssh in to an rpi with Raspbian installed will be different from Ubuntu server:
+
+- ssh into the raspberry pi from your laptop to establish a connection.
     - _On the rpi:_
         - Run `ifconfig` on the raspberry pi terminal.
         - Note the IP address belonging to `wlan0`.
     - _Then, on your laptop:_
         - `ssh pi@<rpi_ip_address>`
-
-
-## Installing with Raspbian
-Same instructions as above, only you want to install Raspberry Pi _legacy_ OS, with a desktop, 
-as you'll see that's the OS that's compatible with rpi 3.
 
 ## Fun tips
 - To use ssh with GUI, you must enable X11 (or, one assumes, Wayland probably).
