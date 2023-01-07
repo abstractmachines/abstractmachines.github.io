@@ -65,6 +65,7 @@ To start the process of installing Ubuntu Server on your rpi, insert an SDCard t
 6. Write. This will take a few minutes.
 7. Insert the SDCard into your RPI.
 8. Power it on.
+    - Time to get a couple of coffees. This will take awhile.
 9. You'll see a login screen, but do **NOT** login yet. Instead, wait, and you'll see some stuff print out regarding `cloud-init`.
 10. _Wait_ until the `cloud-init` install "stops", and press enter.
 11. You'll see a prompt:
@@ -83,6 +84,12 @@ To start the process of installing Ubuntu Server on your rpi, insert an SDCard t
         - `ssh pi@<rpi_ip_address>`
         - Enter password, you'll be prompted to.
     - Once we ssh into the rpi successfully, we'll see an Ubuntu welcome message.
+
+13. Profit! Actually, we want to install a desktop now.
+    - The rpi 3 is not compatible with Ubuntu Desktop. That's why we installed Ubuntu Server. Here are some articles that talk about that: [[1]](https://www.makeuseof.com/install-desktop-environment-gui-ubuntu-server/), [[2]](https://www.makeuseof.com/tag/best-linux-desktop-environments/), [[3]](https://www.makeuseof.com/tag/gnome-explained-look-one-linuxs-popular-desktops/), [[4]](https://www.tomshardware.com/how-to/install-ubuntu-raspberry-pi).
+    - Of those options, we'll be sticking to GNOME:
+        - `sudo apt install ubuntu-desktop`
+        - Time to get a coffee, it'll be awhile.
 
 ## Installing with Raspbian
 _Mostly_ the same instructions as above, only you want to install Raspberry Pi _legacy_ OS, with a desktop,
@@ -109,9 +116,9 @@ as you'll see that's the OS that's compatible with rpi 3.
 If you get:
 > SSH warning: Remote host identification has changed
 
-    - Solve by removing that key for that IP from `.ssh/known_hosts`:
-        - Run `ssh-keygen -R <rpi_ip_address>`
-        - Then try to ssh in again.
+- Solve by removing that key for that IP from `.ssh/known_hosts`:
+    - Run `ssh-keygen -R <rpi_ip_address>`
+    - Then try to ssh in again.
 ## Some other helpful commands and related knowledge
 - Your `boot` drive will be FAT32 because that is the format required to use UEFI firmware.
     - UEFI is helpful to use in order to boot your modern device from a bootable drive easily. It's "kinda like BIOS." `grub` can also help you boot into different operating systems...
