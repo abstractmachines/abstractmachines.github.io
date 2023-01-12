@@ -119,6 +119,8 @@ If you get:
 - Solve by removing that key for that IP from `.ssh/known_hosts`:
     - Run `ssh-keygen -R <rpi_ip_address>`
     - Then try to ssh in again.
+
+- - - -
 ## Some other helpful commands and related knowledge
 - Your `boot` drive will be FAT32 because that is the format required to use UEFI firmware.
     - UEFI is helpful to use in order to boot your modern device from a bootable drive easily. It's "kinda like BIOS." `grub` can also help you boot into different operating systems...
