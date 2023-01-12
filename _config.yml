@@ -18,11 +18,8 @@ email: abstractmachines@gmail.com
 tagline: Hi, I'm Amanda, a software engineer located in beautiful Portland Oregon.
 description: > # this means to ignore newlines until "baseurl:"
   Hi, I'm Amanda, a software engineer currently located in Portland
-   Oregon. I am currently a Software Developer at a medical company; we make an app used today by cardiologists in
-   hospitals. I'm also a part time Embedded Systems Computer Engineering student finishing my senior year. I
-   previously worked in the driverless cars industry making developer tooling for automonous applications. I like
-   C/C++, Linux, React, Node, Qt, Markdown, and synthesizers.
-url: "http://blog.amandafalke.com" # the base hostname & protocol for your site, e.g. http://example.com
+   Oregon. I am a Software Engineer at Igalia working on the WebKit team. I have a passion for low level code and embedded systems. Previously to my tech career I was a professional musician.
+url: "http://amandafalke.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: amanda_machina
 github_username:  abstractmachines
 portfolio_url: "http://abstractmachines.net"
