@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Converting A Redux App From Thunks To Sagas: Getting Started"
+title:  "Converting a Redux app from thunks to sagas"
 date:   2020-3-22 1:03:00 -0700
 categories: tutorials
 ---

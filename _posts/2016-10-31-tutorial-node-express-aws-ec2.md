@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "An AWS + Linux Node/Express Deployment Tutorial, Part 1"
+title:  "An AWS EC2 and Node/Express deployment tutorial"
 date:   2016-10-31 14:56:22 -0700
 categories: tutorials
 ---

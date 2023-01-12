@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Introduction to modern JavaScript, Part 3: Information Hiding"
+title:  "Introduction to modern JavaScript, part 3: information hiding"
 date:   2018-2-23 8:03:00 -0700
 categories: tutorials
 ---

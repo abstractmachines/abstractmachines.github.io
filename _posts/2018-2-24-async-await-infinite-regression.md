@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Intro to modern JS for C/C++ developers, Part 4: Async JS from callbacks to Async/await"
+title:  "Intro to modern JS for C/C++ developers, part 4: from callbacks to async/await"
 date:   2018-2-24 1:03:00 -0700
 categories: tutorials
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Cookies with Node Express: A tutorial"
+title:  "Cookies with Node Express"
 date:   2017-4-14 6:01:23 -0700
 categories: tutorials
 ---

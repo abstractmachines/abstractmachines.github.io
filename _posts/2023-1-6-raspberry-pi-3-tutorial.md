@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Using the Raspberry Pi 3 with Fedora, Raspian and Ubuntu: Getting Started"
+title:  "Getting started with Raspberry Pi 3: choosing an OS"
 date:   2023-1-06 1:03:00 -0700
 categories: tutorials
 ---
@@ -8,20 +8,21 @@ categories: tutorials
 ## Motivation
 This is a tutorial to get the Raspberry Pi (`rpi`) beginner up and running with the device using Linux.
 
+We will cover installing an operating system on the rpi; the operating systems we'll cover will include `Ubuntu Server` and `Raspbian OS`.
 
-A lot of this tutorial is similar to (and taken from) this tutorial [https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#4-boot-ubuntu-server), but I've added more details where rpi beginners may get stuck.
+For the Ubuntu portion, a lot of this tutorial is similar to (and taken from) this tutorial [https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#4-boot-ubuntu-server), but I've added more details where rpi beginners may get stuck.
 
 ## Tutorial Overview
-> This tutorial focuses on a Raspberry Pi 3. We will install Raspian, Ubuntu. We will do so interfacing with a laptop with Fedora installed.
-
+> This tutorial focuses on a Raspberry Pi 3. We will install Raspian, Ubuntu. We will do so interfacing with a laptop with Fedora installed, so we'll be using the `dnf` package manager.
 
 ## Hardware / Requirements
 
 > Things you'll need:
 
-- Wifi:
+- WiFi:
     - `rpi` (Raspberry Pi) hardware version `>=3`, e.g. 3 or greater, has built in wifi.
     - Any older versions will require a dongle.
+    - A WiFi connection
 - HDMI cable
 - Extra mouse and keyboard for the rpi device
 - SDCard slot on your laptop, or an SDCard adapter for your laptop.
