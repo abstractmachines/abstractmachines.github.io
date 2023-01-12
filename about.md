@@ -13,3 +13,7 @@ I have worked in autonomous vehicles tech with embedded systems, cardiology tech
  I end up making developer tooling and automating things wherever I go.
 
 I like C/C++, Linux, JavaScript, Verilog, and synthesizers and drum machines.
+
+- [Github](https://github.com/abstractmachines)
+- [LinkedIn](https://linkedin.com/in/amandafalke)
+- [Twitter](https://twitter.com/amanda_machina)
