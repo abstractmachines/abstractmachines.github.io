@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-I am a Software Engineer at Igalia working on the WebKit team. I have a passion for low level code and embedded systems. Previously to my tech career I was a professional musician.
+I am a Software Engineer at Igalia working on the WebKit team. I have a passion for low level code and embedded systems. Previously, before my tech career, I was a professional musician.
 
 I have worked in autonomous vehicles tech with embedded systems, cardiology tech, and as a web developer. I have formal education in Computer Science and Embedded Systems at university.
 

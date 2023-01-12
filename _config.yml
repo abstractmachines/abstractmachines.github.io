@@ -18,7 +18,7 @@ email: abstractmachines@gmail.com
 tagline: Hi, I'm Amanda, a software engineer located in beautiful Portland Oregon.
 description: > # this means to ignore newlines until "baseurl:"
   Hi, I'm Amanda, a software engineer currently located in Portland
-   Oregon. I am a Software Engineer at Igalia working on the WebKit team. I have a passion for low level code and embedded systems. Previously to my tech career I was a professional musician.
+   Oregon. I am a Software Engineer at Igalia working on the WebKit team. I have a passion for low level code and embedded systems. Previously, before my tech career, I was a professional musician and I still play often and record albums with friends.
 url: "http://amandafalke.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: amanda_machina
 github_username:  abstractmachines
