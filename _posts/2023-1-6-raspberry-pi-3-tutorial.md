@@ -129,5 +129,3 @@ If you get:
 - Your `root` drive will be `ext4`.
     - On a legacy BIOS system, /boot can be anything understood by the bootloader, so you can use ext2, 3, or 4.
     - On EFI systems you can set /boot to ext4, ESP to vfat and add ext4 driver to the bootloader.
-
-<h1>{{ page.category }}</h1>
