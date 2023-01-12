@@ -6,14 +6,13 @@ categories: tutorials
 ---
 
 ## Motivation
-This is a tutorial to get the Raspberry Pi (`rpi`) beginner up and running with the device using Linux. This tutorial is for people who are generally familiar with Linux development, but not rpi development (yet!)
+This is a tutorial to get the Raspberry Pi (`rpi`) beginner up and running with the device using Linux.
 
-More tutorials will follow on this blog.
 
-A lot of this tutorial is similar to (and taken from) this tutorial [https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#4-boot-ubuntu-server), but I've added more details where rpi beginners could get stuck, and less details about how to ssh into a computer (basic Linux skills).
+A lot of this tutorial is similar to (and taken from) this tutorial [https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#4-boot-ubuntu-server), but I've added more details where rpi beginners may get stuck.
 
 ## Tutorial Overview
-> This tutorial focuses on a Raspberry Pi 3. We will install Raspian, Ubuntu. We will do so interfacing with a Fedora Linux laptop.
+> This tutorial focuses on a Raspberry Pi 3. We will install Raspian, Ubuntu. We will do so interfacing with a laptop with Fedora installed.
 
 
 ## Hardware / Requirements
@@ -24,7 +23,6 @@ A lot of this tutorial is similar to (and taken from) this tutorial [https://ubu
     - `rpi` (Raspberry Pi) hardware version `>=3`, e.g. 3 or greater, has built in wifi.
     - Any older versions will require a dongle.
 - HDMI cable
-- Ethernet cable
 - Extra mouse and keyboard for the rpi device
 - SDCard slot on your laptop, or an SDCard adapter for your laptop.
     - If you have a Mac, you'll probably need this adapter.
@@ -85,11 +83,10 @@ To start the process of installing Ubuntu Server on your rpi, insert an SDCard t
         - Enter password, you'll be prompted to.
     - Once we ssh into the rpi successfully, we'll see an Ubuntu welcome message.
 
-13. Profit! Actually, we want to install a desktop now.
-    - The rpi 3 is not compatible with Ubuntu Desktop. That's why we installed Ubuntu Server. Here are some articles that talk about that: [[1]](https://www.makeuseof.com/install-desktop-environment-gui-ubuntu-server/), [[2]](https://www.makeuseof.com/tag/best-linux-desktop-environments/), [[3]](https://www.makeuseof.com/tag/gnome-explained-look-one-linuxs-popular-desktops/), [[4]](https://www.tomshardware.com/how-to/install-ubuntu-raspberry-pi).
-    - Of those options, we'll be sticking to GNOME:
-        - `sudo apt install ubuntu-desktop`
-        - Time to get a coffee, it'll be awhile.
+That's all for now.
+> Some followups:
+
+- The rpi 3 is not compatible with Ubuntu Desktop. That's why we installed Ubuntu Server. Here are some articles that talk about that: [[1]](https://www.makeuseof.com/install-desktop-environment-gui-ubuntu-server/), [[2]](https://www.makeuseof.com/tag/best-linux-desktop-environments/), [[3]](https://www.makeuseof.com/tag/gnome-explained-look-one-linuxs-popular-desktops/), [[4]](https://www.tomshardware.com/how-to/install-ubuntu-raspberry-pi).
 
 ## Installing with Raspbian
 _Mostly_ the same instructions as above, only you want to install Raspberry Pi _legacy_ OS, with a desktop,
@@ -123,7 +120,7 @@ If you get:
 - - - -
 ## Some other helpful commands and related knowledge
 - Your `boot` drive will be FAT32 because that is the format required to use UEFI firmware.
-    - UEFI is helpful to use in order to boot your modern device from a bootable drive easily. It's "kinda like BIOS." `grub` can also help you boot into different operating systems...
+    - UEFI is helpful to use in order to boot your modern device from a bootable drive easily.
 
     - There are differing opinions on this, but it's probably best to just use FAT32.
 
