@@ -4,15 +4,12 @@ title: About
 permalink: /about/
 ---
 
-I'm currently a Software Developer working on a complex cardiology app used in hospitals today, and an Embedded
-Systems Computer Engineering student entering my senior year.
+I am a Software Engineer at Igalia working on the WebKit team. I have a passion for low level code and embedded systems. Previously to my tech career I was a professional musician.
 
-I previously worked in the driverless cars industry as a Software Engineer, and in app and web development before that.
+I have worked in autonomous vehicles tech with embedded systems, cardiology tech, and as a web developer. I have formal education in Computer Science and Embedded Systems at university.
 
- My code is in production today and used by cardiologists at hospitals, by software engineers at Intel, Toyota, Jaguar Land Rover, Renesas and other companies in their autonomous technology research departments, as well as by users of a lot of food and wine sites I made for national companies when I got started with my career.
+ My code is in production today and used by cardiologists in hospitals, by software engineers at Intel, Toyota, Jaguar Land Rover, Renesas and other companies in their autonomous technology research departments, and at large companies where I learned Kubernetes and led teams of developers.
 
  I end up making developer tooling and automating things wherever I go.
 
-I like C/C++, Linux, JavaScript, Node, nginx, Verilog, Webpack, and synthesizers and drum machines.
-
-[Visit my portfolio site](http://abstractmachines.net)
+I like C/C++, Linux, JavaScript, Verilog, and synthesizers and drum machines.
