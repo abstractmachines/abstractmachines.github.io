@@ -119,3 +119,5 @@ When required, use WeakMaps and WeakSets.
 
 See you next time,
 Amanda
+
+<span>Category: {{ page.categories }}</span>

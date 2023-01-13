@@ -1344,3 +1344,5 @@ flexible.
 
 
 ... To be continued in Part 2!
+
+<span>Category: {{ page.categories }}</span>

@@ -322,3 +322,5 @@ Success!
 Sudoer creates nginx conf file with env PORT = 5100, this may remove paramaterization of ports which conflicts with existing program.
 
 ## To be continued in part 2: MongoDB with Mongoose client!
+
+<span>Category: {{ page.categories }}</span>

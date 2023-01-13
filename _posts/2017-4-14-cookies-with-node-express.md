@@ -164,3 +164,5 @@ app.get('/cookie', (req, res) => {
 
 // Run tests 2 and 3 here
 ```
+
+<span>Category: {{ page.categories }}</span>

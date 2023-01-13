@@ -233,3 +233,5 @@ are passed into functions in JS **by reference** (and primitives are passed in b
  So long for now!
 
  Amanda
+
+<span>Category: {{ page.categories }}</span>

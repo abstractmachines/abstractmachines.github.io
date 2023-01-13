@@ -125,5 +125,4 @@ That's it for a brief high level overview.
 
 Please also see [the gist itself]([link](https://gist.github.com/abstractmachines/180c062794f70e75603e477e53006c02)) if you like.
 
-
-
+<span>Category: {{ page.categories }}</span>

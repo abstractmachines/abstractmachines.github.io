@@ -522,3 +522,5 @@ See also:
 
 [http://www.zsoltnagy.eu/a-practical-introduction-to-es2017-async-await/](http://www.zsoltnagy.eu/a-practical-introduction-to-es2017-async-await/
 )
+
+<span>Category: {{ page.categories }}</span>

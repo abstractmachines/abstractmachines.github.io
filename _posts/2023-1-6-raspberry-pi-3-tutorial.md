@@ -130,4 +130,4 @@ If you get:
     - On a legacy BIOS system, /boot can be anything understood by the bootloader, so you can use ext2, 3, or 4.
     - On EFI systems you can set /boot to ext4, ESP to vfat and add ext4 driver to the bootloader.
 
-<span>categories: {{ page.category }}</span>
+<span>categories: {{ page.category }} {{ page.categories }} </span>
