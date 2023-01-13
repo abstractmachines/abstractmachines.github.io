@@ -25,6 +25,8 @@ github_username:  abstractmachines
 portfolio_url: "http://abstractmachines.net"
 portfolio_text: "abstractmachines.net"
 
+permalink: /:categories/:year/:month/:day/:title
+
 # Build settings
 markdown: kramdown
 # theme: minima
