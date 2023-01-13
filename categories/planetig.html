@@ -11,11 +11,17 @@ permalink: /categories/igalia
                     
           {% for post in site.categories[cat_name] %}
 
-            {% if cat_name == "raspberrypi" %}
+            {% if cat_name == "igalia" %}
+
+              <h2>Planet Igalia articles</h2>
           
               <article class="tag-item">
                   <a class="tag-item-title" href="{{ site.url }}{{ post.url }}">{{post.title}}</a>
               </article>
+
+            {% else %}
+
+              <h2>No Planet Igalia articles here ... yet!</h2>
 
             {% endif %}
           
