@@ -2,8 +2,7 @@
 layout: post
 title:  "Getting started with Raspberry Pi 3: choosing an OS"
 date:   2023-1-06 1:03:00 -0700
-categories: tutorials
-category: raspberrypi
+categories: raspberrypi
 ---
 
 ## Motivation
@@ -130,4 +129,4 @@ If you get:
     - On a legacy BIOS system, /boot can be anything understood by the bootloader, so you can use ext2, 3, or 4.
     - On EFI systems you can set /boot to ext4, ESP to vfat and add ext4 driver to the bootloader.
 
-<span>categories: {{ page.category }} {{ page.categories }} </span>
+<span>categories: {{ page.categories }} </span>
