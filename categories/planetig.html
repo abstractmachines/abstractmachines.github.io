@@ -1,0 +1,26 @@
+---
+layout: page
+permalink: /categories/igalia
+---
+<div class="tag-list">
+  {% for cat in site.categories %}
+
+      <div class="tag-group">
+
+          {% capture cat_name %}{{ cat | first }}{% endcapture %}
+                    
+          {% for post in site.categories[cat_name] %}
+
+            {% if cat_name == "raspberrypi" %}
+          
+              <article class="tag-item">
+                  <a class="tag-item-title" href="{{ site.url }}{{ post.url }}">{{post.title}}</a>
+              </article>
+
+            {% endif %}
+          
+          {% endfor %}
+      </div>
+
+  {% endfor %}
+</div>
