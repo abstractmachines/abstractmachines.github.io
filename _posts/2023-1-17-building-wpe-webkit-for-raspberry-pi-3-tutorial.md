@@ -5,8 +5,6 @@ date:   2023-1-17 1:03:00 -0700
 categories: igalia
 ---
 
-# Tutorial: Building WPE WebKit for Raspberry Pi 3
-
 > A lightning guide for building WPE WebKit with buildroot
 
 This tutorial will be for getting "up and running" with WPE WebKit using a Raspberry Pi 3 using a laptop/desktop with Linux Fedora installed. WPE WebKit has many benefits; you may [read here about why WPE WebKit is a great choice for embedded devices](https://wpewebkit.org/about/a-good-choice.html). WPE WebKit has minimal dependencies and it displays high-quality animations, WebGL and videos on embedded devices.
